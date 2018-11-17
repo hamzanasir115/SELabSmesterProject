@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="event-form" style="background-color:aliceblue">
+    <div class="container" style="background-color:aliceblue">
+        <br><br><h2>Update Faculty Member</h2><br><br>
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Enter Name:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Name" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Enter Email:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Image:</label>
+                <div class="col-sm-4">
+                    <input type="file" class="form-control" accept="image/*" name="pic" style="background-color:gainsboro">
+                </div>
+            </div><br>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Designation:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">Professor</option>
+                        <option value="saab">Associate Professor</option>
+                        <option value="opel">Assistant Professor</option>
+                        <option value="audi">Lecturer</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Qualification:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">Msc. Computer Science</option>
+                        <option value="saab">Msc. Computer Engineering</option>
+                        <option value="opel">Phd Computer Science</option>
+                        <option value="audi">Phd Computer Engineering</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Qualification:</label>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox">Msc. Computer Science</label>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox">Msc. Computer Engineering</label>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox">Phd Computer Engineering</label>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox">Phd Computer Engineering</label>
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Other Qualification:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Qualification" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <label class="control-label col-sm-2" for="email" style="text-align:left">Select Gender:</label>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label>
+                    <input type="radio" name="gender" value="male"> Male<br>
+                    <input type="radio" name="gender" value="female"> Female<br>
+                </label>
+            </div><br><br><br><br><br>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <a href="http://localhost:11751/Admin/Admin" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Save Changes</a>
+                </div>
+            </div>
+        </form>
+    </div><br><br><br><br><br>
+</section>

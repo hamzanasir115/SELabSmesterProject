@@ -196,8 +196,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\VisitorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -668,6 +670,29 @@
     <Content Include="Views\Visitor\about.cshtml" />
     <Content Include="Views\Visitor\HomePage.cshtml" />
     <Content Include="Views\Visitor\Events.cshtml" />
+    <Content Include="Views\Visitor\EventsDetail.cshtml" />
+    <Content Include="Views\Visitor\Faculty.cshtml" />
+    <Content Include="Views\Visitor\FacultyDetail.cshtml" />
+    <Content Include="Views\Visitor\Achievement.cshtml" />
+    <Content Include="Views\Shared\LoginLayout.cshtml" />
+    <Content Include="Views\Student\Login.cshtml" />
+    <Content Include="Views\Shared\StudentLoginLayout.cshtml" />
+    <Content Include="Views\Student\DateSheet.cshtml" />
+    <Content Include="Views\Student\TimeTable.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\AddTimeTable.cshtml" />
+    <Content Include="Views\Admin\UpdateTimeTable.cshtml" />
+    <Content Include="Views\Admin\AddDateSheet.cshtml" />
+    <Content Include="Views\Admin\UpdateDateSheet.cshtml" />
+    <Content Include="Views\Admin\AddEvent.cshtml" />
+    <Content Include="Views\Admin\UpdateEvent.cshtml" />
+    <Content Include="Views\Admin\AddFaculty.cshtml" />
+    <Content Include="Views\Admin\UpdateFaculty.cshtml" />
+    <Content Include="Views\Admin\AddAchievements.cshtml" />
+    <Content Include="Views\Admin\UpdateAchievement.cshtml" />
+    <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Admin\RegisterStudent.cshtml" />
+    <Content Include="Views\Student\ForgetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

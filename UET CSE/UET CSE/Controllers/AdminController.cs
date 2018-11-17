@@ -6,72 +6,104 @@ using System.Web.Mvc;
 
 namespace UET_CSE.Controllers
 {
-    public class VisitorController : Controller
+    public class AdminController : Controller
     {
-        // GET: Visitor
+        // GET: Admin
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult HomePage()
+
+        public ActionResult AddTimeTable()
         {
-            ViewBag.Title = "WE ENSURE BETTER EDUCATION FOR A BETTER WORLD";
-            ViewBag.Info = "Computer science is the theory, experimentation, and engineering that form the basis for the design and use of computers. It involves the study of algorithms that process, store, and communicate digital information.";
+            ViewBag.Title = "Add Time Table";
             return View();
 
         }
-        public ActionResult about()
+
+        public ActionResult UpdateTimeTable()
         {
-            ViewBag.Title = "About";
+            ViewBag.Title = "Update Time Table";
+            return View();
+
+        }
+
+        public ActionResult AddDateSheet()
+        {
+            ViewBag.Title = "Add Date Sheet";
+            return View();
+
+        }
+
+        public ActionResult UpdateDateSheet()
+        {
+            ViewBag.Title = "Update Date Sheet";
+            return View();
+
+        }
+
+        public ActionResult AddEvent()
+        {
+            ViewBag.Title = "Add Event";
             return View();
         }
 
-        public ActionResult Events()
+        public ActionResult UpdateEvent()
         {
-            ViewBag.Title = "Events";
+            ViewBag.Title = "Update Event";
             return View();
         }
 
-        public ActionResult EventsDetail()
+        public ActionResult AddFaculty()
         {
-            ViewBag.Title = "Events Detail";
+            ViewBag.Title = "Add Faculty";
             return View();
         }
 
-        public ActionResult Faculty()
+        public ActionResult UpdateFaculty()
         {
-            ViewBag.Title = "Faculty";
-            return View();
-        }
-
-        public ActionResult FacultyDetail()
-        {
-            ViewBag.Title = "Faculty Detail";
+            ViewBag.Title = "Update Faculty";
             return View();
         }
 
 
-        public ActionResult Achievement()
+        public ActionResult AddAchievements()
         {
-            ViewBag.Title = "Achievements";
+            ViewBag.Title = "Add Achievement";
             return View();
         }
 
-        
-        // GET: Visitor/Details/5
+        public ActionResult UpdateAchievement()
+        {
+            ViewBag.Title = "Update Achievement";
+            return View();
+        }
+
+        public ActionResult Admin()
+        {
+            ViewBag.Title = "Admin";
+            return View();
+        }
+
+        public ActionResult RegisterStudent()
+        {
+            ViewBag.Title = "Register Students";
+            return View();
+        }
+        // GET: Admin/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Visitor/Create
+        // GET: Admin/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Visitor/Create
+        // POST: Admin/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -87,13 +119,13 @@ namespace UET_CSE.Controllers
             }
         }
 
-        // GET: Visitor/Edit/5
+        // GET: Admin/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Visitor/Edit/5
+        // POST: Admin/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -109,13 +141,13 @@ namespace UET_CSE.Controllers
             }
         }
 
-        // GET: Visitor/Delete/5
+        // GET: Admin/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Visitor/Delete/5
+        // POST: Admin/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

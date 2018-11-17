@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="event-form" style="background-color:aliceblue">
+    <div class="container" style="background-color:aliceblue">
+        <br><br><h2>@ViewBag.Title</h2><br><br>
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Session:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">2015</option>
+                        <option value="saab">2016</option>
+                        <option value="opel">2017</option>
+                        <option value="audi">2018</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Section:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">A</option>
+                        <option value="saab">B</option>
+                        <option value="opel">C</option>
+                        <option value="audi">D</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Date:</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="email" placeholder="Date" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Day:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">Monday</option>
+                        <option value="saab">Tuesday</option>
+                        <option value="opel">Wednesday</option>
+                        <option value="audi">Thursday</option>
+                        <option value="volvo">Friday</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Program:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">Compter Science</option>
+                        <option value="saab">Computer Engineering</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Subject:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">Artificial Intelligence</option>
+                        <option value="saab">Probability And Random Variables</option>
+                        <option value="opel">Analysis of Algorithm</option>
+                        <option value="audi">Theory of Automata</option>
+                        <option value="volvo">Software Engineering</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Enter Supritendent Name:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Supritendent Name" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Examination Time:</label>
+                <div class="col-sm-4">
+                    <input type="time" class="form-control" id="email" placeholder="Time" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Subject:</label>
+                <div class="col-sm-6">
+                    <select style="width:350px">
+                        <option value="volvo">N7</option>
+                        <option value="saab">N8</option>
+                        <option value="opel">N9</option>
+                        <option value="audi">N10</option>
+                    </select>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <a href="http://localhost:11751/Admin/Admin" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Add Date Sheet</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <a href="http://localhost:11751/Admin/UpdateDateSheet" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Update Date Sheet</a>
+                </div>
+            </div>
+        </form>
+    </div><br><br><br><br>
+</section>

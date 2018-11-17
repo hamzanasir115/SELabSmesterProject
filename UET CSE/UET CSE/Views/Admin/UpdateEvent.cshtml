@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="event-form" style="background-color:aliceblue">
+    <div class="container" style="background-color:aliceblue">
+        <br><br><h2>@ViewBag.Title</h2><br><br>
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Event Name:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Name" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Discription of Event:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="pwd" placeholder="Description" name="pwd" style="background-color:gainsboro">
+                </div>
+            </div><br>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Details</label><br><br>
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Start Date:</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="email" placeholder="Start Date" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">End Date:</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="email" placeholder="End Date" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Ticket Price:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Enter price" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Venue</label><br><br>
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Enter Place:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Place" name="email" style="background-color:gainsboro">
+                </div>
+            </div><br>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Image:</label>
+                <div class="col-sm-4">
+                    <input type="file" class="form-control" accept="image/*" name="pic" style="background-color:gainsboro">
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <a href="http://localhost:11751/Admin/Admin" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Save Changes</a>
+                </div>
+            </div>
+        </form>
+    </div><br><br><br><br>
+</section>
