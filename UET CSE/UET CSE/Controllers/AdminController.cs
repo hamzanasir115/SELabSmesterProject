@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UET_CSE.Models;
 
 namespace UET_CSE.Controllers
 {
@@ -86,6 +87,25 @@ namespace UET_CSE.Controllers
             return View();
         }
 
+
+        public ActionResult Login(AdminViewModel model)
+        {
+            ViewBag.Title = "Login";
+            var email = model.Email;
+            var password = model.Password;
+            UETCSEEntities db = new UETCSEEntities();
+            
+            
+            foreach (Admin admin in db.Admins)
+            {
+                if (admin.UserName == email && admin.Password == password)
+                {
+                    return View("Admin");
+                }
+
+            }
+            return View();
+        }
         public ActionResult RegisterStudent()
         {
             ViewBag.Title = "Register Students";

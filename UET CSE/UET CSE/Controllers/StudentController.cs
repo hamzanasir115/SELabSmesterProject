@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
+using UET_CSE.Models;
 using System.Web.Mvc;
 
 namespace UET_CSE.Controllers
@@ -20,9 +22,24 @@ namespace UET_CSE.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        [HttpPost]
+        public ActionResult Login(AdminViewModel model)
         {
             ViewBag.Title = "Login";
+            /*var email = model.Email;
+            var password = model.Password;
+            UETCSEEntities db = new UETCSEEntities();
+            
+            List<Admin> list = db.Admins.ToList();
+            foreach(Admin admin in list)
+            {
+                if(admin.UserName == email && admin.Password == password)
+                {
+                    return View();
+                }
+
+            }
+            */
             return View();
         }
 
