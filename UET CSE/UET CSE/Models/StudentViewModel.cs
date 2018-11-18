@@ -21,6 +21,11 @@ namespace UET_CSE.Models
         public string CNIC { get; set; }
 
         [Required]
+        [EmailAddress]
+        [Display(Name ="Email")]
+        public string Email { get; set; }
+
+        [Required]
         [Display(Name ="Registration Number")]
         public string RegistrationNumber { get; set; }
 

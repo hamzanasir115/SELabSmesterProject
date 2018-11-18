@@ -106,10 +106,36 @@ namespace UET_CSE.Controllers
             }
             return View();
         }
-        public ActionResult RegisterStudent()
+        public ActionResult RegisterStudent(StudentViewModel model)
         {
-            ViewBag.Title = "Register Students";
+
+            try
+            {
+                ViewBag.Title = "Register Students";
+                var StudentName = model.StudentName;
+                var FatherName = model.FatherName;
+                var RegNumber = model.RegistrationNumber;
+                var CNIC = model.CNIC;
+                var Email = model.Email;
+                var Gender = model.Gender;
+                Registered_Student std = new Registered_Student();
+                std.Name = StudentName;
+                std.Father_Name = FatherName;
+                std.CNIC = CNIC;
+                std.Email = Email;
+                std.Registration_Number = RegNumber;
+                std.Gender = Gender;
+                UETCSEEntities db = new UETCSEEntities();
+                db.Registered_Students.Add(std);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
             return View();
+            
         }
         // GET: Admin/Details/5
         public ActionResult Details(int id)

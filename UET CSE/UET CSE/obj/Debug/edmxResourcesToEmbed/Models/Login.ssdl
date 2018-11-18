@@ -7,7 +7,19 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Registered Student">
+    <Key>
+      <PropertyRef Name="Registration Number" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Father Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registration Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="text" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="UETCSEModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
