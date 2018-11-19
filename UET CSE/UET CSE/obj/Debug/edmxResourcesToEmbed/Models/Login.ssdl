@@ -7,7 +7,7 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Registered Student">
+  <EntityType Name="Registered_Student">
     <Key>
       <PropertyRef Name="Registration Number" />
     </Key>
@@ -20,6 +20,6 @@
   </EntityType>
   <EntityContainer Name="UETCSEModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

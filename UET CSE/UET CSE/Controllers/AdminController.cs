@@ -126,7 +126,7 @@ namespace UET_CSE.Controllers
                 std.Registration_Number = RegNumber;
                 std.Gender = Gender;
                 UETCSEEntities db = new UETCSEEntities();
-                db.Registered_Students.Add(std);
+                db.Registered_Student.Add(std);
                 db.SaveChanges();
                 return View("Admin");
             }

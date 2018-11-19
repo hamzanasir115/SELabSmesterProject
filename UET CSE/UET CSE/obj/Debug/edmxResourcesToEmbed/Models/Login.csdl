@@ -9,7 +9,7 @@
   </EntityType>
   <EntityContainer Name="UETCSEEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admins" EntityType="Self.Admin" />
-    <EntitySet Name="Registered_Students" EntityType="UETCSEModel.Registered_Student" />
+    <EntitySet Name="Registered_Student" EntityType="UETCSEModel.Registered_Student" />
   </EntityContainer>
   <EntityType Name="Registered_Student">
     <Key>

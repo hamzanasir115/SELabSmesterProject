@@ -211,6 +211,7 @@
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Login.Context.cs">
       <AutoGen>True</AutoGen>
