@@ -45,40 +45,29 @@ namespace UET_CSE.Controllers
 
         }
 
-        public ActionResult AddEvent(EventViewModel model, HttpPostedFileBase image1)
+        public ActionResult AddEvent()
         {
-            try
+            ViewBag.Title = "Add Date Sheet";
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult AddEvent(AddEvent addeventmodel)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
+            string extension = Path.GetExtension(addeventmodel.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+            addeventmodel.ImagePath = "~/Image/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+            addeventmodel.ImageFile.SaveAs(fileName);
+            using(UETCSEDbEntities db = new UETCSEDbEntities())
             {
-                UETCSEEntities db = new UETCSEEntities();
-                Event ev = new Event();
-                if (image1 != null)
-                {
-                    ev.Image = model.Image;
-                    ev.Image = new byte[image1.ContentLength];
-                    image1.InputStream.Read(ev.Image, 0, image1.ContentLength);
-                }
-                ViewBag.Title = "Add Event";
-                var EventName = model.EventName;
-                var Description = model.Description;
-                var StartDate = model.StartDate;
-                var EndDate = model.EndDate;
-                var TicketPrice = model.TicketPrice;
-                var Place = model.Place;
-                ev.Event_Name = EventName;
-                ev.Description = Description;
-                ev.Start_Date = StartDate;
-                ev.End_Date = EndDate;
-                ev.Ticket_Price = TicketPrice;
-                ev.Place = Place;
-                db.Events.Add(ev);
+                db.AddEvents.Add(addeventmodel);
                 db.SaveChanges();
-                return View("Admin");
             }
-            catch
-            {
-                return View();
-            }
-            
+            ModelState.Clear();
+            return View();
         }
 
         public ActionResult AddCourses()
@@ -125,55 +114,55 @@ namespace UET_CSE.Controllers
         }
 
 
-        public ActionResult Login(AdminViewModel model)
-        {
-            ViewBag.Title = "Login";
-            var email = model.Email;
-            var password = model.Password;
-            UETCSEEntities db = new UETCSEEntities();
+        //public ActionResult Login(AdminViewModel model)
+        //{
+        //    ViewBag.Title = "Login";
+        //    var email = model.Email;
+        //    var password = model.Password;
+        //    UETCSEEntities db = new UETCSEEntities();
             
             
-            foreach (Admin admin in db.Admins)
-            {
-                if (admin.UserName == email && admin.Password == password)
-                {
-                    return View("Admin");
-                }
+        //    foreach (Admin admin in db.Admins)
+        //    {
+        //        if (admin.UserName == email && admin.Password == password)
+        //        {
+        //            return View("Admin");
+        //        }
 
-            }
-            return View();
-        }
-        public ActionResult RegisterStudent(StudentViewModel model)
-        {
+        //    }
+        //    return View();
+        //}
+        //public ActionResult RegisterStudent(StudentViewModel model)
+        //{
 
-            try
-            {
-                ViewBag.Title = "Register Students";
-                var StudentName = model.StudentName;
-                var FatherName = model.FatherName;
-                var RegNumber = model.RegistrationNumber;
-                var CNIC = model.CNIC;
-                var Email = model.Email;
-                var Gender = model.Gender;
-                Registered_Student std = new Registered_Student();
-                std.Name = StudentName;
-                std.Father_Name = FatherName;
-                std.CNIC = CNIC;
-                std.Email = Email;
-                std.Registration_Number = RegNumber;
-                std.Gender = Gender;
-                UETCSEEntities db = new UETCSEEntities();
-                db.Registered_Student.Add(std);
-                db.SaveChanges();
-                return View("Admin");
-            }
-            catch
-            {
-                return View();
-            }
-            return View();
+        //    try
+        //    {
+        //        ViewBag.Title = "Register Students";
+        //        var StudentName = model.StudentName;
+        //        var FatherName = model.FatherName;
+        //        var RegNumber = model.RegistrationNumber;
+        //        var CNIC = model.CNIC;
+        //        var Email = model.Email;
+        //        var Gender = model.Gender;
+        //        Registered_Student std = new Registered_Student();
+        //        std.Name = StudentName;
+        //        std.Father_Name = FatherName;
+        //        std.CNIC = CNIC;
+        //        std.Email = Email;
+        //        std.Registration_Number = RegNumber;
+        //        std.Gender = Gender;
+        //        UETCSEEntities db = new UETCSEEntities();
+        //        db.Registered_Student.Add(std);
+        //        db.SaveChanges();
+        //        return View("Admin");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //    return View();
             
-        }
+        //}
         // GET: Admin/Details/5
         public ActionResult Details(int id)
         {

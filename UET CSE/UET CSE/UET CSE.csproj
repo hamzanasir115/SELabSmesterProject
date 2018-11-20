@@ -207,40 +207,37 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Admin.cs">
-      <DependentUpon>Login.tt</DependentUpon>
+    <Compile Include="Models\AddEvent.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\CoursesViewModel.cs" />
-    <Compile Include="Models\Event.cs">
-      <DependentUpon>Login.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Login.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Login.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Login.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Registered_Student.cs">
-      <DependentUpon>Login.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\StudentViewModel.cs" />
+    <Compile Include="Models\UETDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UETDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UETDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UETDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UETDb.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\UETCSEDb.mdf" />
+    <Content Include="App_Data\UETCSEDb_log.ldf">
+      <DependentUpon>UETCSEDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\animate.min.css" />
@@ -419,15 +416,15 @@
     <Content Include="js\superfish.min.js" />
     <Content Include="js\vendor\bootstrap.min.js" />
     <Content Include="js\vendor\jquery-2.2.4.min.js" />
-    <Content Include="Models\Login.Context.tt">
+    <Content Include="Models\UETDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Login.edmx</DependentUpon>
-      <LastGenOutput>Login.Context.cs</LastGenOutput>
+      <DependentUpon>UETDb.edmx</DependentUpon>
+      <LastGenOutput>UETDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Login.tt">
+    <Content Include="Models\UETDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Login.edmx</DependentUpon>
-      <LastGenOutput>Login.cs</LastGenOutput>
+      <DependentUpon>UETDb.edmx</DependentUpon>
+      <LastGenOutput>UETDb.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -462,12 +459,12 @@
     <Content Include="img\blog\.DS_Store" />
     <Content Include="img\elements\.DS_Store" />
     <Content Include="js\.DS_Store" />
-    <EntityDeploy Include="Models\Login.edmx">
+    <EntityDeploy Include="Models\UETDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Login.Designer.cs</LastGenOutput>
+      <LastGenOutput>UETDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Login.edmx.diagram">
-      <DependentUpon>Login.edmx</DependentUpon>
+    <Content Include="Models\UETDb.edmx.diagram">
+      <DependentUpon>UETDb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -731,7 +728,6 @@
     <Content Include="Views\Admin\UpdateTimeTable.cshtml" />
     <Content Include="Views\Admin\AddDateSheet.cshtml" />
     <Content Include="Views\Admin\UpdateDateSheet.cshtml" />
-    <Content Include="Views\Admin\AddEvent.cshtml" />
     <Content Include="Views\Admin\UpdateEvent.cshtml" />
     <Content Include="Views\Admin\AddFaculty.cshtml" />
     <Content Include="Views\Admin\UpdateFaculty.cshtml" />
@@ -742,9 +738,10 @@
     <Content Include="Views\Student\ForgetPassword.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Admin\AddCourses.cshtml" />
+    <Content Include="Views\Admin\AddEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
