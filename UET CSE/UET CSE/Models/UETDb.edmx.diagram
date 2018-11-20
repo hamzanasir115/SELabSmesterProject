@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a347db79d52b485f9db1dcdd1b2796d3" Name="Diagram1">
         <EntityTypeShape EntityType="UETCSEDbModel.AddEvent" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Admin" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Registered_Student" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

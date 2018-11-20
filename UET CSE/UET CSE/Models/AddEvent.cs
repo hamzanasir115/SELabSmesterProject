@@ -11,7 +11,6 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Web;
 
     public partial class AddEvent
@@ -23,7 +22,6 @@ namespace UET_CSE.Models
         public string End_Date { get; set; }
         public string Ticket_Price { get; set; }
         public string Place { get; set; }
-        [DisplayName("Choose Image")]
         public string ImagePath { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
     }

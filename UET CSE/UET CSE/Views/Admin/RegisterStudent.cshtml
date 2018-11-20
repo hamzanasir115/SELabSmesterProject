@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("AddEvent", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
-    
+
         <section class="event-form" style="background-color:aliceblue">
             <div class="container" style="background-color:aliceblue">
                 <br><br><h2>@ViewBag.Title</h2><br><br>

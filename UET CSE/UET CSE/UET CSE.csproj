@@ -210,10 +210,16 @@
     <Compile Include="Models\AddEvent.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\CoursesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Registered_Student.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Models\UETDb.Context.cs">
       <AutoGen>True</AutoGen>

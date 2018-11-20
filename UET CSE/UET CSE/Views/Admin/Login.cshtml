@@ -1,10 +1,10 @@
-﻿@model UET_CSE.Models.AdminViewModel
+﻿@model UET_CSE.Models.Admin
 
 @{
     Layout = "~/Views/Shared/LoginLayout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <section class="event-form" style="background-color:aliceblue">
         <div class="container" style="background-color:aliceblue">
@@ -13,10 +13,10 @@
 
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Email, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(model => model.UserName, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -26,14 +26,6 @@
                 <div class="col-md-10">
                     @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(model => model.RememberMe)
-                        @Html.LabelFor(model => model.RememberMe)
-                    </div>
                 </div>
             </div>
 

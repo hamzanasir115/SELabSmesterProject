@@ -113,56 +113,60 @@ namespace UET_CSE.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Login(Admin model)
+        {
+            ViewBag.Title = "Login";
+            //var email = model.UserName;
+            //var password = model.Password;
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+                db.Admins.Add(model);
+                db.SaveChanges();
+            }
 
-        //public ActionResult Login(AdminViewModel model)
-        //{
-        //    ViewBag.Title = "Login";
-        //    var email = model.Email;
-        //    var password = model.Password;
-        //    UETCSEEntities db = new UETCSEEntities();
-            
-            
-        //    foreach (Admin admin in db.Admins)
-        //    {
-        //        if (admin.UserName == email && admin.Password == password)
-        //        {
-        //            return View("Admin");
-        //        }
 
-        //    }
-        //    return View();
-        //}
-        //public ActionResult RegisterStudent(StudentViewModel model)
-        //{
+            //foreach (Admin admin in db.Admins)
+            //{
+            //    if (admin.UserName == email && admin.Password == password)
+            //    {
+            //        return View("Admin");
+            //    }
 
-        //    try
-        //    {
-        //        ViewBag.Title = "Register Students";
-        //        var StudentName = model.StudentName;
-        //        var FatherName = model.FatherName;
-        //        var RegNumber = model.RegistrationNumber;
-        //        var CNIC = model.CNIC;
-        //        var Email = model.Email;
-        //        var Gender = model.Gender;
-        //        Registered_Student std = new Registered_Student();
-        //        std.Name = StudentName;
-        //        std.Father_Name = FatherName;
-        //        std.CNIC = CNIC;
-        //        std.Email = Email;
-        //        std.Registration_Number = RegNumber;
-        //        std.Gender = Gender;
-        //        UETCSEEntities db = new UETCSEEntities();
-        //        db.Registered_Student.Add(std);
-        //        db.SaveChanges();
-        //        return View("Admin");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //    return View();
-            
-        //}
+            //}
+            ModelState.Clear();
+            return View();
+        }
+        public ActionResult RegisterStudent(StudentViewModel model)
+        {
+
+            try
+            {
+                ViewBag.Title = "Register Students";
+                var StudentName = model.StudentName;
+                var FatherName = model.FatherName;
+                var RegNumber = model.RegistrationNumber;
+                var CNIC = model.CNIC;
+                var Email = model.Email;
+                var Gender = model.Gender;
+                Registered_Student std = new Registered_Student();
+                std.Name = StudentName;
+                std.Father_Name = FatherName;
+                std.CNIC = CNIC;
+                std.Email = Email;
+                std.Registration_Number = RegNumber;
+                std.Gender = Gender;
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                db.Registered_Student.Add(std);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
         // GET: Admin/Details/5
         public ActionResult Details(int id)
         {
