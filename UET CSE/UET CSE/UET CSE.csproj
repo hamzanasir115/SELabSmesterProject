@@ -211,6 +211,10 @@
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\CoursesViewModel.cs" />
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>Login.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Login.Context.cs">
@@ -737,6 +741,7 @@
     <Content Include="Views\Admin\RegisterStudent.cshtml" />
     <Content Include="Views\Student\ForgetPassword.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\AddCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

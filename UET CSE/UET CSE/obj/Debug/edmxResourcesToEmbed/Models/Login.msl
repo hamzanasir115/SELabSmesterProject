@@ -21,5 +21,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="UETCSEModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+          <ScalarProperty Name="End_Date" ColumnName="End Date" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

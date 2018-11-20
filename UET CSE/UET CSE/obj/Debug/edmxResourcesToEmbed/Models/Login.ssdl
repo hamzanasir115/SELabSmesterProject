@@ -7,6 +7,18 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Event Name" />
+    </Key>
+    <Property Name="Event Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Start Date" Type="datetime" Nullable="false" />
+    <Property Name="End Date" Type="datetime" Nullable="false" />
+    <Property Name="Ticket Price" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Registered_Student">
     <Key>
       <PropertyRef Name="Registration Number" />
@@ -20,6 +32,7 @@
   </EntityType>
   <EntityContainer Name="UETCSEModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

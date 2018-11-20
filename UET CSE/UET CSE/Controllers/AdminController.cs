@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UET_CSE.Models;
+using System.IO;
 
 namespace UET_CSE.Controllers
 {
@@ -44,9 +45,45 @@ namespace UET_CSE.Controllers
 
         }
 
-        public ActionResult AddEvent()
+        public ActionResult AddEvent(EventViewModel model, HttpPostedFileBase image1)
         {
-            ViewBag.Title = "Add Event";
+            try
+            {
+                UETCSEEntities db = new UETCSEEntities();
+                Event ev = new Event();
+                if (image1 != null)
+                {
+                    ev.Image = model.Image;
+                    ev.Image = new byte[image1.ContentLength];
+                    image1.InputStream.Read(ev.Image, 0, image1.ContentLength);
+                }
+                ViewBag.Title = "Add Event";
+                var EventName = model.EventName;
+                var Description = model.Description;
+                var StartDate = model.StartDate;
+                var EndDate = model.EndDate;
+                var TicketPrice = model.TicketPrice;
+                var Place = model.Place;
+                ev.Event_Name = EventName;
+                ev.Description = Description;
+                ev.Start_Date = StartDate;
+                ev.End_Date = EndDate;
+                ev.Ticket_Price = TicketPrice;
+                ev.Place = Place;
+                db.Events.Add(ev);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+            
+        }
+
+        public ActionResult AddCourses()
+        {
+            ViewBag.Title = "Add Courses";
             return View();
         }
 
