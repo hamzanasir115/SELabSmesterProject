@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<UET_CSE.Models.AddFaculty>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,27 +7,27 @@
 <section class="popular-courses-area section-gap courses-page">
     <div class="container">
         <div class="row">
-            <div class="single-popular-carusel col-lg-3 col-md-6">
-                <div class="thumb-wrap relative">
-                    <div class="thumb relative">
-                        <div class="overlay overlay-bg"></div>
-                        <img class="img-fluid" src="~/img/p1.jpg" alt="">
+            @foreach (var item in Model)
+            {
+                <div class="single-popular-carusel col-lg-3 col-md-6">
+                    <div class="thumb-wrap relative">
+                        <div class="thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="@Url.Content(item.ImagePath)" alt="">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <h4>
+                            @item.Name
+                        </h4>
+                        <p>
+                            Designation = @item.Deisgnation
+                            Qualification = @item.Qualification
+                        </p>
                     </div>
                 </div>
-                <div class="details">
-                   <!-- Html.ActionLink("Dr. Shazia Arshad", "FacultyDetail", "Visitor")-->
-                    <a href="http://localhost:11751/Visitor/FacultyDetail">
-                        <h4>
-                            Dr. Shazia Arshad
-                        </h4>
-                    </a>
-                    <p>
-                        Chairperson Of CSE Department.
-                        Designation: Professor
-                        Latest Qualification: Ph.D
-                    </p>
-                </div>
-            </div>
+            }
+            
 
 
         </div>

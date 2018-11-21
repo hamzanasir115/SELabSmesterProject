@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UET_CSE.Models;
+using System.IO;
 
 namespace UET_CSE.Controllers
 {
@@ -30,19 +32,34 @@ namespace UET_CSE.Controllers
         public ActionResult Events()
         {
             ViewBag.Title = "Events";
-            return View();
+
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            List<AddEvent> EventList = db.AddEvents.ToList();
+
+            foreach(AddEvent ev in db.AddEvents)
+            {
+
+            }
+            return View(db.AddEvents);
         }
 
-        public ActionResult EventsDetail()
+        public ActionResult EventsDetail(int? Name)
         {
             ViewBag.Title = "Events Detail";
-            return View();
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+                return View(db.AddEvents.Where(x => x.Id == Name).FirstOrDefault());
+            }
         }
 
         public ActionResult Faculty()
         {
             ViewBag.Title = "Faculty";
-            return View();
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            List<AddFaculty> EventList = db.AddFaculties.ToList();
+
+            
+            return View(db.AddEvents);
         }
 
         public ActionResult FacultyDetail()
@@ -55,7 +72,11 @@ namespace UET_CSE.Controllers
         public ActionResult Achievement()
         {
             ViewBag.Title = "Achievements";
-            return View();
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            List<AddAchievement> EventList = db.AddAchievements.ToList();
+
+            
+            return View(db.AddAchievements);
         }
 
         

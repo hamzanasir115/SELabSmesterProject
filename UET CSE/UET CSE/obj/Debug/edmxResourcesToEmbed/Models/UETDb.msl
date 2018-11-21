@@ -49,13 +49,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Achievements">
+      <EntityTypeMapping TypeName="UETCSEDbModel.Achievement">
+        <MappingFragment StoreEntitySet="Achievement">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Achievement1" ColumnName="Achievement" />
+          <ScalarProperty Name="Achievement_Date" ColumnName="Achievement Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AddFaculties">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddFaculty">
         <MappingFragment StoreEntitySet="AddFaculty">
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Other_Qualification" ColumnName="Other Qualification" />
           <ScalarProperty Name="Qualification" ColumnName="Qualification" />
-          <ScalarProperty Name="Deisgnation" ColumnName="Deisgnation" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Name" ColumnName="Name" />

@@ -5,6 +5,7 @@
     <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
     <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
     <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
+    <EntitySet Name="Achievements" EntityType="UETCSEDbModel.Achievement" />
     <EntitySet Name="AddFaculties" EntityType="UETCSEDbModel.AddFaculty" />
   </EntityContainer>
   <EntityType Name="Admin">
@@ -36,7 +37,7 @@
     <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Ticket_Price" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Ticket_Price" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Place" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
@@ -51,15 +52,26 @@
     <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="AddFaculty">
+  <EntityType Name="Achievement">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Achievement_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Achievement1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AddFaculty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Name="Deisgnation" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Designation" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Other_Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />

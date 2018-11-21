@@ -11,9 +11,9 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Web;
-
+    using System.ComponentModel.DataAnnotations;
+    
     public partial class AddEvent
     {
         public int Id { get; set; }
@@ -22,11 +22,11 @@ namespace UET_CSE.Models
         public string Event_Name { get; set; }
         public string Description { get; set; }
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Start Date")]
         public System.DateTime Start_Date { get; set; }
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "End Date")]
         public System.DateTime End_Date { get; set; }
         [Display(Name = "Ticket Price")]

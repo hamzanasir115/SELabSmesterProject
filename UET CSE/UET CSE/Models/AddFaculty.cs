@@ -11,8 +11,8 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class AddFaculty
     {

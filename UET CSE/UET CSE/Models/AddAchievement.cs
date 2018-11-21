@@ -11,9 +11,8 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Web;
-
+    using System.ComponentModel.DataAnnotations;    
     public partial class AddAchievement
     {
         public int Id { get; set; }
@@ -30,5 +29,7 @@ namespace UET_CSE.Models
         [Required]
         public string ImagePath { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
+
+
     }
 }

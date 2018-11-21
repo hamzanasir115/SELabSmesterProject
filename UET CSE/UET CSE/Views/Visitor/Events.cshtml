@@ -1,31 +1,32 @@
-﻿
+﻿@model IEnumerable<UET_CSE.Models.AddEvent>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <section class="events-list-area section-gap event-page-lists">
     <div class="container">
         <div class="row align-items-center">
+        @foreach (var item in Model)
+        {
             <div class="col-lg-6 pb-30">
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/images (1).jpg" alt="">
+                    <div class="single-carusel row align-items-center">
+                        <div class="col-12 col-md-6 thumb">
+                            <img class="img-fluid" src="@Url.Content(item.ImagePath)" alt="">
+                        </div>
+                        <div class="detials col-12 col-md-6">
+                            <p>@item.Start_Date - @item.End_Date</p>
+                            @Html.ActionLink(@item.Event_Name,"EventsDetail",new { id = item.Id})
+                            
+                            <p>
+                                @item.Description
+                                
+                            </p>
+                        </div>
                     </div>
-                    <div class="detials col-12 col-md-6">
-                        <p>25th February, 2018</p>
-                        @*Html.ActionLink("Orientation","EventsDetail","Visitor")*@
-                        <a href="http://localhost:11751/Visitor/Events">
-                            <h4>
-                                Orientation
-                            </h4>
-                        </a>
-                        <p>
-
-                            For the Students of first year. orientation is a way for students to meet other students, become familiar with campus services, and register for fall classes. We are instituted orientation for incoming students to ease the transition into University.
-                        </p>
-                    </div>
-                </div>
+                
             </div>
-
+        }
 
 
 

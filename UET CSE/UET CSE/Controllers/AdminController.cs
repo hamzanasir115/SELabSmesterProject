@@ -106,6 +106,7 @@ namespace UET_CSE.Controllers
         }
         public ActionResult UpdateFaculty()
         {
+            ViewBag.Title = "Update Faculty";
             return View();
         }
 
@@ -130,7 +131,6 @@ namespace UET_CSE.Controllers
                 db.SaveChanges();
             }
             ModelState.Clear();
-
             return View();
         }
 
@@ -147,27 +147,33 @@ namespace UET_CSE.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            ViewBag.Title = "Login";
+            return View();
+        }
         [HttpPost]
         public ActionResult Login(Admin model)
         {
             ViewBag.Title = "Login";
+            UETCSEDbEntities db = new UETCSEDbEntities();
             //var email = model.UserName;
             //var password = model.Password;
-            using (UETCSEDbEntities db = new UETCSEDbEntities())
-            {
-                db.Admins.Add(model);
-                db.SaveChanges();
-            }
-
-
-            //foreach (Admin admin in db.Admins)
+            // using (UETCSEDbEntities db = new UETCSEDbEntities())
             //{
-            //    if (admin.UserName == email && admin.Password == password)
-            //    {
-            //        return View("Admin");
-            //    }
-
+            //   db.Admins.Add(model);
+            //  db.SaveChanges();
             //}
+
+
+            foreach (Admin admin in db.Admins)
+            {
+                if (admin.UserName == model.UserName && admin.Password == model.Password)
+                {
+                    return View("Admin");
+                }
+
+            }
             ModelState.Clear();
             return View();
         }

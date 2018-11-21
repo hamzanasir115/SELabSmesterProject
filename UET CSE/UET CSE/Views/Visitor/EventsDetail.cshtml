@@ -1,33 +1,40 @@
-﻿
+﻿@model UET_CSE.Models.AddEvent
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <section class="event-details-area section-gap">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 event-details-left">
                 <div class="main-img">
-                    <img class="img-fluid" src="~/img/event-details-img.jpg" alt="">
+                    <img class="img-fluid" src="@Url.Content(Model.ImagePath)" alt="">
                 </div>
                 <div class="details-content">
                     <div class="section-top-border">
-                        <h3 class="mb-30">Block Quotes</h3>
+                        <h3 class="mb-30">
+                            <dl>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Event_Name)
+                                </dd>
+                            </dl>
+                           
+                        </h3>
+                        
                         <div class="row">
                             <div class="col-lg-12">
                                 <blockquote class="generic-blockquote">
-                                    Description of the event
+                                    @Html.DisplayFor(model => model.Description)
                                 </blockquote>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="social-nav row no-gutters">
+   @*             <div class="social-nav row no-gutters">
                     <div class="col-lg-6 col-md-6 navs">
                         <a href="#" class="nav-prev"><span class="lnr lnr-arrow-left"></span>Prev Event</a>
                         <a href="#" class="nav-next">Next Event<span class="lnr lnr-arrow-right"></span></a>
                     </div>
-                </div>
+                </div>*@
             </div>
             <div class="col-lg-4 event-details-right">
                 <div class="single-event-details">
@@ -35,15 +42,19 @@
                     <ul class="mt-10">
                         <li class="justify-content-between d-flex">
                             <span>Start date</span>
-                            <span>15th April, 2018</span>
+                            <span>
+                            @Html.DisplayFor(model => model.Start_Date)
+                            </span>
                         </li>
                         <li class="justify-content-between d-flex">
                             <span>End date</span>
-                            <span>18th April, 2018</span>
+                            <span>
+                            @Html.DisplayFor(model => model.End_Date)
+                           </span>
                         </li>
                         <li class="justify-content-between d-flex">
                             <span>Ticket Price</span>
-                            <span>Free of Cost</span>
+                            <span>@Html.DisplayFor(model => model.Ticket_Price)</span>
                         </li>
                     </ul>
                 </div>
@@ -52,9 +63,9 @@
                     <ul class="mt-10">
                         <li class="justify-content-between d-flex">
                             <span>Place</span>
-                            <span>Main Hallroom</span>
+                            <span>@Html.DisplayFor(model => model.Place)</span>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>

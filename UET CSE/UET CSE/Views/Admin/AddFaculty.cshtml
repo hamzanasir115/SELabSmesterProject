@@ -1,14 +1,13 @@
 ﻿@model UET_CSE.Models.AddFaculty
 
 @{
-    ViewBag.Title = "AddFaculty";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 @using (Html.BeginForm("AddFaculty", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h2>Add Faculty</h2>
         <hr />
