@@ -5,33 +5,33 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Event Name" Type="varchar" MaxLength="250" />
-    <Property Name="Description" Type="varchar" MaxLength="250" />
-    <Property Name="Start Date" Type="varchar" MaxLength="250" />
-    <Property Name="End Date" Type="varchar" MaxLength="250" />
-    <Property Name="Ticket Price" Type="varchar" MaxLength="250" />
-    <Property Name="Place" Type="varchar" MaxLength="250" />
-    <Property Name="ImagePath" Type="varchar(max)" />
+    <Property Name="Event Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Start Date" Type="datetime" Nullable="false" />
+    <Property Name="End Date" Type="datetime" Nullable="false" />
+    <Property Name="Ticket Price" Type="nvarchar" MaxLength="150" />
+    <Property Name="Place" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-    <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
   <EntityType Name="Registered_Student">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="Father Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="CNIC" Type="nvarchar" MaxLength="50" />
-    <Property Name="Registration Number" Type="nvarchar" MaxLength="50" />
-    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Father Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Registration Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityContainer Name="UETCSEDbModelStoreContainer">
     <EntitySet Name="AddEvent" EntityType="Self.AddEvent" Schema="dbo" store:Type="Tables" />

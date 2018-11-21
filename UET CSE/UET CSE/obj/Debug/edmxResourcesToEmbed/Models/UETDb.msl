@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="UETCSEDbModelStoreContainer" CdmEntityContainer="UETCSEDbEntities">
-    <EntitySetMapping Name="AddEvents">
-      <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
-        <MappingFragment StoreEntitySet="AddEvent">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
-          <ScalarProperty Name="End_Date" ColumnName="End Date" />
-          <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
-          <ScalarProperty Name="Place" ColumnName="Place" />
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="UETCSEDbModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -33,6 +19,20 @@
           <ScalarProperty Name="CNIC" ColumnName="CNIC" />
           <ScalarProperty Name="Father_Name" ColumnName="Father Name" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddEvents">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
+        <MappingFragment StoreEntitySet="AddEvent">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+          <ScalarProperty Name="End_Date" ColumnName="End Date" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

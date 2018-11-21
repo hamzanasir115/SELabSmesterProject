@@ -11,15 +11,24 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
     public partial class AddEvent
     {
         public int Id { get; set; }
+        [Display(Name = "Event Name ")]
+
         public string Event_Name { get; set; }
         public string Description { get; set; }
-        public string Start_Date { get; set; }
-        public string End_Date { get; set; }
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
+        public DateTime Start_Date { get; set; }
+        [Display(Name = "End Date ")]
+        [DataType(DataType.Date)]
+        public DateTime End_Date { get; set; }
+        [Display(Name = "Ticket Price ")]
+
         public string Ticket_Price { get; set; }
         public string Place { get; set; }
         public string ImagePath { get; set; }
