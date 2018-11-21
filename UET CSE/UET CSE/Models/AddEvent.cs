@@ -17,21 +17,23 @@ namespace UET_CSE.Models
     public partial class AddEvent
     {
         public int Id { get; set; }
-        [Display(Name = "Event Name ")]
-
+        [Required]
+        [Display(Name = "Event Name")]
         public string Event_Name { get; set; }
         public string Description { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Start Date")]
+        public System.DateTime Start_Date { get; set; }
+        [Required]
         [DataType(DataType.Date)]
-        public DateTime Start_Date { get; set; }
-        [Display(Name = "End Date ")]
-        [DataType(DataType.Date)]
-        public DateTime End_Date { get; set; }
-        [Display(Name = "Ticket Price ")]
-
+        [Display(Name = "End Date")]
+        public System.DateTime End_Date { get; set; }
+        [Display(Name = "Ticket Price")]
         public string Ticket_Price { get; set; }
         public string Place { get; set; }
         public string ImagePath { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }
+

@@ -4,6 +4,7 @@
     <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
     <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
     <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
+    <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -37,5 +38,16 @@
     <Property Name="Ticket_Price" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Place" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AddAchievement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Achievement_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Achievement" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

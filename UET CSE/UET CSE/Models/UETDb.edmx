@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="UETCSEDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddAchievement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Achievement Date" Type="datetime" Nullable="false" />
+          <Property Name="Achievement" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
         <EntityType Name="AddEvent">
           <Key>
             <PropertyRef Name="Id" />
@@ -39,6 +50,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="UETCSEDbModelStoreContainer">
+          <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddEvent" EntityType="Self.AddEvent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
@@ -51,6 +63,7 @@
           <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
           <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
           <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
+          <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -84,6 +97,17 @@
           <Property Name="Ticket_Price" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Place" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AddAchievement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Achievement_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Achievement" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -123,6 +147,18 @@
                 <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddAchievements">
+            <EntityTypeMapping TypeName="UETCSEDbModel.AddAchievement">
+              <MappingFragment StoreEntitySet="AddAchievement">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Achievement" ColumnName="Achievement" />
+                <ScalarProperty Name="Achievement_Date" ColumnName="Achievement Date" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

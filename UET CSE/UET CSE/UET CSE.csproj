@@ -207,6 +207,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddAchievement.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AddEvent.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
@@ -737,7 +740,6 @@
     <Content Include="Views\Admin\UpdateEvent.cshtml" />
     <Content Include="Views\Admin\AddFaculty.cshtml" />
     <Content Include="Views\Admin\UpdateFaculty.cshtml" />
-    <Content Include="Views\Admin\AddAchievements.cshtml" />
     <Content Include="Views\Admin\UpdateAchievement.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Admin\RegisterStudent.cshtml" />
@@ -745,6 +747,7 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Admin\AddCourses.cshtml" />
     <Content Include="Views\Admin\AddEvent.cshtml" />
+    <Content Include="Views\Admin\AddAchievement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />

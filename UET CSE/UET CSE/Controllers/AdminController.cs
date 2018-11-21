@@ -47,7 +47,7 @@ namespace UET_CSE.Controllers
 
         public ActionResult AddEvent()
         {
-            ViewBag.Title = "Add Date Sheet";
+            ViewBag.Title = "Add Event";
             return View();
 
         }
@@ -95,11 +95,29 @@ namespace UET_CSE.Controllers
         }
 
 
-        public ActionResult AddAchievements()
+       public ActionResult AddAchievement()
         {
             ViewBag.Title = "Add Achievement";
             return View();
         }
+        [HttpPost]
+        public ActionResult AddAchievement(AddAchievement ac)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(ac.ImageFile.FileName);
+            string extension = Path.GetExtension(ac.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+            ac.ImagePath = "~/Image/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+            ac.ImageFile.SaveAs(fileName);
+            using(UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+                db.AddAchievements.Add(ac);
+                db.SaveChanges();
+            }
+            ModelState.Clear();
+            return View();
+        }
+
 
         public ActionResult UpdateAchievement()
         {
