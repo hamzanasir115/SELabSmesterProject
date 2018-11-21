@@ -29,6 +29,19 @@
           <Property Name="Place" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="AddFaculty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Deisgnation" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Other Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="Id" />
@@ -52,6 +65,7 @@
         <EntityContainer Name="UETCSEDbModelStoreContainer">
           <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddEvent" EntityType="Self.AddEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -64,6 +78,7 @@
           <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
           <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
           <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
+          <EntitySet Name="AddFaculties" EntityType="UETCSEDbModel.AddFaculty" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -108,6 +123,19 @@
           <Property Name="Achievement" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AddFaculty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Deisgnation" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -158,6 +186,20 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Achievement" ColumnName="Achievement" />
                 <ScalarProperty Name="Achievement_Date" ColumnName="Achievement Date" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddFaculties">
+            <EntityTypeMapping TypeName="UETCSEDbModel.AddFaculty">
+              <MappingFragment StoreEntitySet="AddFaculty">
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Other_Qualification" ColumnName="Other Qualification" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Deisgnation" ColumnName="Deisgnation" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

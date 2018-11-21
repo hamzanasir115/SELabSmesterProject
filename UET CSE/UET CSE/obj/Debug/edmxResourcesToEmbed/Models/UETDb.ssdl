@@ -24,6 +24,19 @@
     <Property Name="Place" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="AddFaculty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Deisgnation" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Other Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Admin">
     <Key>
       <PropertyRef Name="Id" />
@@ -47,6 +60,7 @@
   <EntityContainer Name="UETCSEDbModelStoreContainer">
     <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddEvent" EntityType="Self.AddEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

@@ -87,10 +87,25 @@ namespace UET_CSE.Controllers
             ViewBag.Title = "Add Faculty";
             return View();
         }
-
+        [HttpPost]
+        public ActionResult AddFaculty(AddFaculty fa)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(fa.ImageFile.FileName);
+            string extension = Path.GetExtension(fa.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+            fa.ImagePath = "~/Image/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+            fa.ImageFile.SaveAs(fileName);
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+                db.AddFaculties.Add(fa);
+                db.SaveChanges();
+            }
+            ModelState.Clear();
+            return View();
+        }
         public ActionResult UpdateFaculty()
         {
-            ViewBag.Title = "Update Faculty";
             return View();
         }
 
@@ -115,6 +130,7 @@ namespace UET_CSE.Controllers
                 db.SaveChanges();
             }
             ModelState.Clear();
+
             return View();
         }
 
@@ -131,33 +147,27 @@ namespace UET_CSE.Controllers
             return View();
         }
 
-        public ActionResult Login()
-        {
-            ViewBag.Title = "Login";
-            return View();
-        }
         [HttpPost]
         public ActionResult Login(Admin model)
         {
             ViewBag.Title = "Login";
-            UETCSEDbEntities db = new UETCSEDbEntities();
             //var email = model.UserName;
             //var password = model.Password;
-            // using (UETCSEDbEntities db = new UETCSEDbEntities())
-            //{
-            //   db.Admins.Add(model);
-            //  db.SaveChanges();
-            //}
-
-
-            foreach (Admin admin in db.Admins)
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
-                if (admin.UserName == model.UserName && admin.Password == model.Password)
-                {
-                    return View("Admin");
-                }
-
+                db.Admins.Add(model);
+                db.SaveChanges();
             }
+
+
+            //foreach (Admin admin in db.Admins)
+            //{
+            //    if (admin.UserName == email && admin.Password == password)
+            //    {
+            //        return View("Admin");
+            //    }
+
+            //}
             ModelState.Clear();
             return View();
         }

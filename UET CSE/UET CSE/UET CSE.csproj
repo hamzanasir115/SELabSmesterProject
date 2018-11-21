@@ -213,12 +213,14 @@
     <Compile Include="Models\AddEvent.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddFaculty.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admin.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\CoursesViewModel.cs" />
-    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Registered_Student.cs">
@@ -739,7 +741,6 @@
     <Content Include="Views\Admin\AddDateSheet.cshtml" />
     <Content Include="Views\Admin\UpdateDateSheet.cshtml" />
     <Content Include="Views\Admin\UpdateEvent.cshtml" />
-    <Content Include="Views\Admin\AddFaculty.cshtml" />
     <Content Include="Views\Admin\UpdateFaculty.cshtml" />
     <Content Include="Views\Admin\UpdateAchievement.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
@@ -749,6 +750,7 @@
     <Content Include="Views\Admin\AddCourses.cshtml" />
     <Content Include="Views\Admin\AddEvent.cshtml" />
     <Content Include="Views\Admin\AddAchievement.cshtml" />
+    <Content Include="Views\Admin\AddFaculty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
