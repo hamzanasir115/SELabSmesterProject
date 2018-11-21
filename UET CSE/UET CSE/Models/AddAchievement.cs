@@ -32,4 +32,3 @@ namespace UET_CSE.Models
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }
-
