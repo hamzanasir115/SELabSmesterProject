@@ -11,25 +11,14 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-    using System.ComponentModel.DataAnnotations;    
+    
     public partial class AddAchievement
     {
-        public int Id { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Achievement Date")]
         public System.DateTime Achievement_Date { get; set; }
-        [Required]
         public string Achievement { get; set; }
-        [Required]
         public string Email { get; set; }
-        [Required]
-        public string ImagePath { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
-
-
+        public string Image_Path { get; set; }
+        public int Id { get; set; }
     }
 }

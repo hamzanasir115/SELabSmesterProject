@@ -11,29 +11,16 @@ namespace UET_CSE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class AddFaculty
     {
         public int Id { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required]
         public string ImagePath { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
-        [Required]
-        public string Deisgnation { get; set; }
-        [Required]
+        public string Designation { get; set; }
         public string Qualification { get; set; }
-        [Required]
-        [Display(Name = "Other Qualification")]
         public string Other_Qualification { get; set; }
-        [Required]
         public string Gender { get; set; }
-
     }
 }

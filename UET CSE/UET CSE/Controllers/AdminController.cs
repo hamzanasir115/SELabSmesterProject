@@ -53,17 +53,32 @@ namespace UET_CSE.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddEvent(AddEvent addeventmodel)
+        public ActionResult AddEvent(EventViewModel addeventmodel)
         {
+            var EventName = addeventmodel.Event_Name;
+            var Description = addeventmodel.Description;
+            var StartDate = addeventmodel.Start_Date;
+            var EndDate = addeventmodel.End_Date;
+            var TicketPrice = addeventmodel.ImagePath;
+            var pLACE = addeventmodel.Place;
             string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
             string extension = Path.GetExtension(addeventmodel.ImageFile.FileName);
             fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
             addeventmodel.ImagePath = "~/Image/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
             addeventmodel.ImageFile.SaveAs(fileName);
+            var ImagePath = fileName;
+            AddEvent ev = new Models.AddEvent();
+            ev.Event_Name = EventName;
+            ev.Description = Description;
+            ev.Start_Date = StartDate;
+            ev.End_Date = EndDate;
+            ev.Ticket_Price = TicketPrice;
+            ev.Place = pLACE;
+            ev.ImagePath = ImagePath;
             using(UETCSEDbEntities db = new UETCSEDbEntities())
             {
-                db.AddEvents.Add(addeventmodel);
+                db.AddEvents.Add(ev);
                 db.SaveChanges();
             }
             ModelState.Clear();
@@ -88,7 +103,7 @@ namespace UET_CSE.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddFaculty(AddFaculty fa)
+        public ActionResult AddFaculty(FacultyViewModel fa)
         {
             string fileName = Path.GetFileNameWithoutExtension(fa.ImageFile.FileName);
             string extension = Path.GetExtension(fa.ImageFile.FileName);
@@ -96,9 +111,24 @@ namespace UET_CSE.Controllers
             fa.ImagePath = "~/Image/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
             fa.ImageFile.SaveAs(fileName);
+            var Name = fa.Name;
+            var Email = fa.Email;
+            var ImageFile = fileName;
+            var Designation = fa.Deisgnation;
+            var Qualification = fa.Qualification;
+            var OtherQual = fa.Other_Qualification;
+            var Gender = fa.Gender;
+            AddFaculty faculty = new Models.AddFaculty();
+            faculty.Name = Name;
+            faculty.Designation = Designation;
+            faculty.Email = Email;
+            faculty.Qualification = Qualification;
+            faculty.Other_Qualification = OtherQual;
+            faculty.Gender = Gender;
+            faculty.ImagePath = fileName;
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
-                db.AddFaculties.Add(fa);
+                db.AddFaculties.Add(faculty);
                 db.SaveChanges();
             }
             ModelState.Clear();
@@ -117,7 +147,7 @@ namespace UET_CSE.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddAchievement(AddAchievement ac)
+        public ActionResult AddAchievement(AchievementViewModel ac)
         {
             string fileName = Path.GetFileNameWithoutExtension(ac.ImageFile.FileName);
             string extension = Path.GetExtension(ac.ImageFile.FileName);
@@ -125,9 +155,22 @@ namespace UET_CSE.Controllers
             ac.ImagePath = "~/Image/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
             ac.ImageFile.SaveAs(fileName);
+
+            var Name = ac.Name;
+            var Email = ac.Email;
+            var ImagePath = ac.ImagePath;
+            var ImageFile = ac.ImageFile;
+            var Achievement = ac.Achievement;
+            var AchievementDate = ac.Achievement_Date;
+            AddAchievement ach = new Models.AddAchievement();
+            ach.Name = Name;
+            ach.Email = Email;
+            ach.Achievement = Achievement;
+            ach.Achievement_Date = AchievementDate;
+            ach.Image_Path = ImagePath;
             using(UETCSEDbEntities db = new UETCSEDbEntities())
             {
-                db.AddAchievements.Add(ac);
+                db.AddAchievements.Add(ach);
                 db.SaveChanges();
             }
             ModelState.Clear();
@@ -197,7 +240,7 @@ namespace UET_CSE.Controllers
                 std.Registration_Number = RegNumber;
                 std.Gender = Gender;
                 UETCSEDbEntities db = new UETCSEDbEntities();
-                db.Registered_Student.Add(std);
+                db.Registered_Students.Add(std);
                 db.SaveChanges();
                 return View("Admin");
             }

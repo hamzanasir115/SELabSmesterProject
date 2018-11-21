@@ -1,25 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="UETCSEDbModelStoreContainer" CdmEntityContainer="UETCSEDbEntities">
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="UETCSEDbModel.Admin">
-        <MappingFragment StoreEntitySet="Admin">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
+    <EntitySetMapping Name="AddAchievements">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AddAchievement">
+        <MappingFragment StoreEntitySet="AddAchievement">
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Registered_Student">
-      <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
-        <MappingFragment StoreEntitySet="Registered_Student">
+          <ScalarProperty Name="Image_Path" ColumnName="Image Path" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
-          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="Father_Name" ColumnName="Father Name" />
+          <ScalarProperty Name="Achievement" ColumnName="Achievement" />
+          <ScalarProperty Name="Achievement_Date" ColumnName="Achievement Date" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -33,31 +23,6 @@
           <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AddAchievements">
-      <EntityTypeMapping TypeName="UETCSEDbModel.AddAchievement">
-        <MappingFragment StoreEntitySet="AddAchievement">
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Achievement" ColumnName="Achievement" />
-          <ScalarProperty Name="Achievement_Date" ColumnName="Achievement Date" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Achievements">
-      <EntityTypeMapping TypeName="UETCSEDbModel.Achievement">
-        <MappingFragment StoreEntitySet="Achievement">
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Achievement1" ColumnName="Achievement" />
-          <ScalarProperty Name="Achievement_Date" ColumnName="Achievement Date" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -72,6 +37,26 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="UETCSEDbModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registered_Students">
+      <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
+        <MappingFragment StoreEntitySet="Registered Student">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="Father_Name" ColumnName="Father Name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

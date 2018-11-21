@@ -45,11 +45,7 @@ namespace UET_CSE.Controllers
 
         public ActionResult EventsDetail(int? Name)
         {
-            ViewBag.Title = "Events Detail";
-            using (UETCSEDbEntities db = new UETCSEDbEntities())
-            {
-                return View(db.AddEvents.Where(x => x.Id == Name).FirstOrDefault());
-            }
+            return View();
         }
 
         public ActionResult Faculty()
