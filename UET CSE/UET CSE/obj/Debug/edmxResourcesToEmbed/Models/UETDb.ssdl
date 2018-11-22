@@ -11,7 +11,7 @@
     <Property Name="Image Path" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <EntityType Name="AddEvent">
+  <EntityType Name="AddEvents">
     <Key>
       <PropertyRef Name="Event Name" />
     </Key>
@@ -21,7 +21,7 @@
     <Property Name="End Date" Type="datetime" Nullable="false" />
     <Property Name="Ticket Price" Type="nvarchar" MaxLength="50" />
     <Property Name="Place" Type="nvarchar" MaxLength="150" />
-    <Property Name="ImagePath" Type="varchar(max)" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="AddFaculty">
     <Key>
@@ -56,7 +56,7 @@
   </EntityType>
   <EntityContainer Name="UETCSEDbModelStoreContainer">
     <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AddEvent" EntityType="Self.AddEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />

@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<UET_CSE.Models.AddAchievement>
 
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -13,12 +12,12 @@
                 <div class="col-lg-6 pb-30">
                     <div class="single-carusel row align-items-center">
                         <div class="col-12 col-md-6 thumb">
-                            <img class="img-fluid" src="@Url.Content(item.ImagePath)" alt="" style="width:263px;height:200px;">
+                            <img class="img-fluid" src="@Url.Content(item.Image_Path)" alt="" style="width:263px;height:200px;">
                         </div>
                         <div class="detials col-12 col-md-6">
-                                <h4>
-                                    @item.Achievement
-                                </h4>
+                            <h4>
+                                @item.Achievement
+                            </h4>
                             <p>
                                 Name: @item.Name
                                 <br />
@@ -28,7 +27,7 @@
                     </div>
                 </div>
             }
-            
+
         </div>
     </div>
 </section>

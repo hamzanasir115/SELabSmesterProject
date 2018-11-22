@@ -26,9 +26,9 @@ namespace UET_CSE.Models
         }
     
         public virtual DbSet<AddAchievement> AddAchievements { get; set; }
-        public virtual DbSet<AddEvent> AddEvents { get; set; }
         public virtual DbSet<AddFaculty> AddFaculties { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Registered_Student> Registered_Students { get; set; }
+        public virtual DbSet<AddEvent> AddEvents { get; set; }
     }
 }

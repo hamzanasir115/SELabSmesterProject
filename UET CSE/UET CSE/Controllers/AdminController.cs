@@ -54,35 +54,42 @@ namespace UET_CSE.Controllers
 
         [HttpPost]
         public ActionResult AddEvent(EventViewModel addeventmodel)
-        {
-            var EventName = addeventmodel.Event_Name;
-            var Description = addeventmodel.Description;
-            var StartDate = addeventmodel.Start_Date;
-            var EndDate = addeventmodel.End_Date;
-            var TicketPrice = addeventmodel.ImagePath;
-            var pLACE = addeventmodel.Place;
-            string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
-            string extension = Path.GetExtension(addeventmodel.ImageFile.FileName);
-            fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
-            addeventmodel.ImagePath = "~/Image/" + fileName;
-            fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
-            addeventmodel.ImageFile.SaveAs(fileName);
-            var ImagePath = fileName;
-            AddEvent ev = new Models.AddEvent();
-            ev.Event_Name = EventName;
-            ev.Description = Description;
-            ev.Start_Date = StartDate;
-            ev.End_Date = EndDate;
-            ev.Ticket_Price = TicketPrice;
-            ev.Place = pLACE;
-            ev.ImagePath = ImagePath;
-            using(UETCSEDbEntities db = new UETCSEDbEntities())
-            {
-                db.AddEvents.Add(ev);
-                db.SaveChanges();
-            }
-            ModelState.Clear();
-            return View();
+        {       
+                var EventName = addeventmodel.Event_Name;
+                var Description = addeventmodel.Description;
+                var StartDate = addeventmodel.Start_Date;
+                var EndDate = addeventmodel.End_Date;
+                var TicketPrice = addeventmodel.Ticket_Price;
+                var pLACE = addeventmodel.Place;
+                string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
+                string extension = Path.GetExtension(addeventmodel.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                addeventmodel.ImagePath = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                addeventmodel.ImageFile.SaveAs(fileName);
+                var ImagePath = addeventmodel.ImagePath;
+            var ImageFile = addeventmodel.ImageFile;
+                AddEvent ev = new Models.AddEvent();
+                ev.Event_Name = EventName;
+                ev.Description = Description;
+                ev.Start_Date = StartDate;
+                ev.End_Date = EndDate;
+                ev.Ticket_Price = TicketPrice;
+                ev.Place = pLACE;
+                ev.ImagePath = ImagePath;
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddEvents.Add(ev);
+                    db.SaveChanges();
+                    
+                }
+                ModelState.Clear();
+                return View("Admin");
+
+            
+            
+            
+            
         }
 
         public ActionResult AddCourses()
@@ -113,7 +120,8 @@ namespace UET_CSE.Controllers
             fa.ImageFile.SaveAs(fileName);
             var Name = fa.Name;
             var Email = fa.Email;
-            var ImageFile = fileName;
+            var ImageFile = fa.ImageFile;
+            var ImagePath = fa.ImagePath;
             var Designation = fa.Deisgnation;
             var Qualification = fa.Qualification;
             var OtherQual = fa.Other_Qualification;
@@ -125,7 +133,7 @@ namespace UET_CSE.Controllers
             faculty.Qualification = Qualification;
             faculty.Other_Qualification = OtherQual;
             faculty.Gender = Gender;
-            faculty.ImagePath = fileName;
+            faculty.ImagePath = ImagePath;
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
                 db.AddFaculties.Add(faculty);

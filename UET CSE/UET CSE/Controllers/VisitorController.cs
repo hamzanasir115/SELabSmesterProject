@@ -32,14 +32,7 @@ namespace UET_CSE.Controllers
         public ActionResult Events()
         {
             ViewBag.Title = "Events";
-
             UETCSEDbEntities db = new UETCSEDbEntities();
-            List<AddEvent> EventList = db.AddEvents.ToList();
-
-            foreach(AddEvent ev in db.AddEvents)
-            {
-
-            }
             return View(db.AddEvents);
         }
 
@@ -55,7 +48,7 @@ namespace UET_CSE.Controllers
             List<AddFaculty> EventList = db.AddFaculties.ToList();
 
             
-            return View(db.AddEvents);
+            return View(db.AddFaculties);
         }
 
         public ActionResult FacultyDetail()
@@ -69,9 +62,6 @@ namespace UET_CSE.Controllers
         {
             ViewBag.Title = "Achievements";
             UETCSEDbEntities db = new UETCSEDbEntities();
-            List<AddAchievement> EventList = db.AddAchievements.ToList();
-
-            
             return View(db.AddAchievements);
         }
 

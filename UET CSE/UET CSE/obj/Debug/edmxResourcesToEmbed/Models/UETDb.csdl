@@ -2,10 +2,10 @@
 <Schema Namespace="UETCSEDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="UETCSEDbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
-    <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
     <EntitySet Name="AddFaculties" EntityType="UETCSEDbModel.AddFaculty" />
     <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
     <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
+    <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
   </EntityContainer>
   <EntityType Name="AddAchievement">
     <Key>
@@ -17,18 +17,6 @@
     <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Image_Path" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
-  <EntityType Name="AddEvent">
-    <Key>
-      <PropertyRef Name="Event_Name" />
-    </Key>
-    <Property Name="Event_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Ticket_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Place" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="AddFaculty">
     <Key>
@@ -60,5 +48,17 @@
     <Property Name="Registration_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Gender" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AddEvent">
+    <Key>
+      <PropertyRef Name="Event_Name" />
+    </Key>
+    <Property Name="Event_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ticket_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Place" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
