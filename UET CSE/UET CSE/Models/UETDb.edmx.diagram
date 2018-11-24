@@ -9,7 +9,8 @@
         <EntityTypeShape EntityType="UETCSEDbModel.AddEvent" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="UETCSEDbModel.AddFaculty" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="UETCSEDbModel.Admin" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.Registered_Student" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Cours" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Registered_Student" Width="1.5" PointX="4.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -5,7 +5,8 @@
     <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
     <EntitySet Name="AddFaculties" EntityType="UETCSEDbModel.AddFaculty" />
     <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
-    <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
+    <EntitySet Name="Courses" EntityType="UETCSEDbModel.Cours" />
+    <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
   </EntityContainer>
   <EntityType Name="AddAchievement">
     <Key>
@@ -49,6 +50,16 @@
     </Key>
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="SubjectCode" />
+    </Key>
+    <Property Name="SubjectCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectAbbreviation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreditHours" Type="Int32" Nullable="false" />
+    <Property Name="SemesterNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Registered_Student">
     <Key>

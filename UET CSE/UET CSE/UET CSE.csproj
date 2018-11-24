@@ -221,6 +221,9 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\Cours.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CoursesViewModel.cs" />
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\FacultyViewModel.cs" />

@@ -17,11 +17,17 @@ namespace UET_CSE.Models
         public string SubjectName { get; set; }
 
         [Required]
+        [Display(Name ="Subject Abbreviation")]
+        public string SubjectAbbreviation { get; set; }
+
+        [Required]
         [Display(Name ="Credit Hours")]
         public int CreditHours{ get; set; }
 
         [Required]
         [Display(Name ="Semester Number")]
+
+        
         public int SemesterNumber { get; set; }
     }
 }

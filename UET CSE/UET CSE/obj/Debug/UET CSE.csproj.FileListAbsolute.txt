@@ -489,3 +489,85 @@ E:\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.OAuth.xml
 E:\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Google.xml
 E:\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Twitter.xml
 E:\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\ApplicationInsights.config
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\csc.exe
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\System.Collections.Immutable.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\System.Reflection.Metadata.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\vbc.exe
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\VBCSCompiler.exe
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\roslyn\VBCSCompiler.exe.config
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\UET CSE.dll.config
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\UET CSE.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\UET CSE.pdb
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Antlr3.Runtime.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\EntityFramework.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\EntityFramework.SqlServer.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.Agent.Intercept.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.DependencyCollector.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.Web.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.WindowsServer.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.ApplicationInsights.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AspNet.Identity.Core.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Cookies.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Facebook.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Google.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.OAuth.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Twitter.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Web.Infrastructure.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Newtonsoft.Json.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Owin.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Helpers.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Mvc.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Optimization.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Razor.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.WebPages.Deployment.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.WebPages.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.WebPages.Razor.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\WebGrease.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.DependencyCollector.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.Web.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AI.WindowsServer.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.ApplicationInsights.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Helpers.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Mvc.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Optimization.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.Razor.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.WebPages.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.WebPages.Deployment.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\System.Web.WebPages.Razor.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Antlr3.Runtime.pdb
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Newtonsoft.Json.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\EntityFramework.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\EntityFramework.SqlServer.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AspNet.Identity.Core.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Facebook.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Cookies.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.OAuth.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Google.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.Twitter.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\obj\Debug\UET CSE.csprojResolveAssemblyReference.cache
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\obj\Debug\UET CSE.dll
+F:\UNI DATA\Semester 5\SE LAB\SELabSmesterProject\UET CSE\UET CSE\obj\Debug\UET CSE.pdb

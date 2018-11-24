@@ -43,7 +43,17 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Registered_Student">
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="SubjectCode" />
+    </Key>
+    <Property Name="SubjectCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreditHours" Type="int" Nullable="false" />
+    <Property Name="SemesterNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registered Student">
     <Key>
       <PropertyRef Name="Registration Number" />
     </Key>
@@ -59,6 +69,7 @@
     <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -97,6 +97,23 @@ namespace UET_CSE.Controllers
             ViewBag.Title = "Add Courses";
             return View();
         }
+        [HttpPost]
+        public ActionResult AddCourses(CoursesViewModel model)
+        {
+            ViewBag.Title = "Add Courses";
+            Cours co = new Cours();
+            co.SemesterNumber = Convert.ToString(model.SemesterNumber);
+            co.SubjectName = model.SubjectName;
+            co.SubjectCode = model.SubjectCode;
+            co.SubjectAbbreviation = model.SubjectAbbreviation;
+            co.CreditHours = model.CreditHours;
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            db.Courses.Add(co);
+            db.SaveChanges();
+            ModelState.Clear();
+            return View("Admin");
+        }
+       
 
         public ActionResult UpdateEvent()
         {
@@ -184,7 +201,7 @@ namespace UET_CSE.Controllers
             ModelState.Clear();
             return View("Admin");
         }
-
+        
 
         public ActionResult UpdateAchievement()
         {
@@ -208,22 +225,12 @@ namespace UET_CSE.Controllers
         {
             ViewBag.Title = "Login";
             UETCSEDbEntities db = new UETCSEDbEntities();
-            //var email = model.UserName;
-            //var password = model.Password;
-            // using (UETCSEDbEntities db = new UETCSEDbEntities())
-            //{
-            //   db.Admins.Add(model);
-            //  db.SaveChanges();
-            //}
-
-
-            foreach (Admin admin in db.Admins)
+            foreach(Admin ad in db.Admins)
             {
-                if (admin.UserName == model.UserName && admin.Password == model.Password)
+                if(ad.UserName == model.UserName && ad.Password == model.Password)
                 {
                     return View("Admin");
                 }
-
             }
             ModelState.Clear();
             return View();
@@ -248,7 +255,7 @@ namespace UET_CSE.Controllers
                 std.Registration_Number = RegNumber;
                 std.Gender = Gender;
                 UETCSEDbEntities db = new UETCSEDbEntities();
-                db.Registered_Student.Add(std);
+                db.Registered_Students.Add(std);
                 db.SaveChanges();
                 return View("Admin");
             }
