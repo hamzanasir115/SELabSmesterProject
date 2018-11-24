@@ -140,7 +140,7 @@ namespace UET_CSE.Controllers
                 db.SaveChanges();
             }
             ModelState.Clear();
-            return View();
+            return View("Admin");
         }
         public ActionResult UpdateFaculty()
         {
@@ -182,7 +182,7 @@ namespace UET_CSE.Controllers
                 db.SaveChanges();
             }
             ModelState.Clear();
-            return View();
+            return View("Admin");
         }
 
 

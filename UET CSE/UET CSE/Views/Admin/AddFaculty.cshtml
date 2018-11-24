@@ -6,11 +6,11 @@
 
 @using (Html.BeginForm("AddFaculty", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     <section class="event-form" style="background-color:aliceblue">
         <div class="container" style="background-color:aliceblue">
             <br><br><h2>@ViewBag.Title</h2><br><br>
             <form class="form-horizontal" action="/action_page.php">
-                @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
                     <hr />
