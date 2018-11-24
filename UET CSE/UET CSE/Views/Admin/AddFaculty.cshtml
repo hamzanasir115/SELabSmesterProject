@@ -6,92 +6,90 @@
 
 @using (Html.BeginForm("AddFaculty", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h2>Add Faculty</h2>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input name="ImageFile" id="ImageFile" type="file" />
-                @Html.ValidationMessageFor(model => model.ImagePath)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input name="ImageFile" id="ImageFile" type="file" />
+                            @Html.ValidationMessageFor(model => model.ImagePath)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Deisgnation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                Dean
-                @Html.RadioButtonFor(model => model.Deisgnation, "Dean")
-                Chairperson
-                @Html.RadioButtonFor(model => model.Deisgnation, "ChairPerson")
-                Professor
-                @Html.RadioButtonFor(model => model.Deisgnation, "Professor")
-                Assistant Professor
-                @Html.RadioButtonFor(model => model.Deisgnation, "Assistant Professor")
-                Associate Professor
-                @Html.RadioButtonFor(model => model.Deisgnation, "Associate Professor")
-                Lecturer
-                @Html.RadioButtonFor(model => model.Deisgnation, "Lecturer")
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Deisgnation, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Deisgnation, new List<SelectListItem>
+                            { new SelectListItem{Text="Dean", Value="Dean", Selected =true},
+                              new SelectListItem{Text="Chair Person", Value="Chair Person" },
+                               new SelectListItem{Text="Professor", Value="Professor"},
+                                new SelectListItem{Text="Assistant Professor", Value="Assistant Professor"},
+                                new SelectListItem{Text="Lecturer", Value="Lecturer"}})
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Qualification, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                Msc. Computer Science
-                @Html.RadioButtonFor(model => model.Qualification, "Msc. Computer Science")
-                Msc. Computer Engineering
-                @Html.RadioButtonFor(model => model.Qualification, "Msc. Computer Engineering")
-                Phd Computer Science
-                @Html.RadioButtonFor(model => model.Qualification, "Phd Computer Science")
-                Phd Computer Engineering
-                @Html.RadioButtonFor(model => model.Qualification, "Phd Computer Engineering")
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Qualification, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Qualification, new List<SelectListItem>
+                            { new SelectListItem{Text="Msc. Computer Science", Value="Msc. Computer Science", Selected =true},
+                              new SelectListItem{Text="Msc. Computer Engineering", Value="Msc. Engineering" },
+                               new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"},
+                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"} })
+                            </div>
+                
+                        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Other_Qualification, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Other_Qualification, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Other_Qualification, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Other_Qualification, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Other_Qualification, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Other_Qualification, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                Male
-                @Html.RadioButtonFor(model => model.Gender, "Male")
-                Female
-                @Html.RadioButtonFor(model => model.Gender, "Female")
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            Male
+                            @Html.RadioButtonFor(model => model.Gender, "Male", new { @checked = true })
+                            Female
+                            @Html.RadioButtonFor(model => model.Gender, "Female")
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Add" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div><br><br><br>
+        </section>
+                }
 
 

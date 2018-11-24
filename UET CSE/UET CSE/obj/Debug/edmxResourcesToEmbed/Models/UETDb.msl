@@ -13,6 +13,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AddEvents">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
+        <MappingFragment StoreEntitySet="AddEvents">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+          <ScalarProperty Name="End_Date" ColumnName="End Date" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AddFaculties">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddFaculty">
         <MappingFragment StoreEntitySet="AddFaculty">
@@ -35,28 +48,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Registered_Students">
+    <EntitySetMapping Name="Registered_Student">
       <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
-        <MappingFragment StoreEntitySet="Registered Student">
+        <MappingFragment StoreEntitySet="Registered_Student">
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
           <ScalarProperty Name="CNIC" ColumnName="CNIC" />
           <ScalarProperty Name="Father_Name" ColumnName="Father Name" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AddEvents">
-      <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
-        <MappingFragment StoreEntitySet="AddEvents">
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-          <ScalarProperty Name="Place" ColumnName="Place" />
-          <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
-          <ScalarProperty Name="End_Date" ColumnName="End Date" />
-          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
