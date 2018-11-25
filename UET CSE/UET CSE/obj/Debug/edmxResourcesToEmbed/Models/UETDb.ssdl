@@ -36,6 +36,21 @@
     <Property Name="Other Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Gender" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="AddTimeTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Session" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Section" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EndTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Admin">
     <Key>
       <PropertyRef Name="UserName" />
@@ -68,6 +83,7 @@
     <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddTimeTable" EntityType="Self.AddTimeTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />

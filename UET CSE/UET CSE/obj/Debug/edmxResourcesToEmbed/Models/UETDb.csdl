@@ -4,6 +4,7 @@
     <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
     <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
     <EntitySet Name="AddFaculties" EntityType="UETCSEDbModel.AddFaculty" />
+    <EntitySet Name="AddTimeTables" EntityType="UETCSEDbModel.AddTimeTable" />
     <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
     <EntitySet Name="Courses" EntityType="UETCSEDbModel.Cours" />
     <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
@@ -43,6 +44,21 @@
     <Property Name="Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Other_Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AddTimeTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectAbbreviation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Day" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Place" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Session" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Section" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EndTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>

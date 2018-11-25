@@ -17,10 +17,36 @@ namespace UET_CSE.Controllers
         }
 
 
-        public ActionResult AddTimeTable()
+        public ActionResult AddTimeTable(TimeTableViewModel model)
         {
             ViewBag.Title = "Add Time Table";
-            return View();
+            try
+            {
+                AddTimeTable time = new AddTimeTable();
+                time.StartTime = Convert.ToString(model.StartTime);
+                time.EndTime = Convert.ToString(model.EndTime);
+                time.SubjectName = model.SubjectName;
+                time.SubjectAbbreviation = model.SubjectAbbreviation;
+                time.Day = model.Day;
+                time.TeacherName = model.TeacherName;
+                time.Place = model.Place;
+                time.Session = model.Session;
+                time.Section = model.Section;
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddTimeTables.Add(time);
+                    db.SaveChanges();
+
+                }
+                ModelState.Clear();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+            
+            
 
         }
 

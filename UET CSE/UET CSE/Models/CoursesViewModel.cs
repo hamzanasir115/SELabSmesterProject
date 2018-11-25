@@ -26,8 +26,6 @@ namespace UET_CSE.Models
 
         [Required]
         [Display(Name ="Semester Number")]
-
-        
         public int SemesterNumber { get; set; }
     }
 }

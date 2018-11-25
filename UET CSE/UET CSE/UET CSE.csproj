@@ -217,6 +217,9 @@
     <Compile Include="Models\AddFaculty.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddTimeTable.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admin.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
@@ -233,6 +236,7 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentViewModel.cs" />
+    <Compile Include="Models\TimeTableViewModel.cs" />
     <Compile Include="Models\UETDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -244,6 +248,11 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UETDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UETDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UETDb1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UETDb.edmx</DependentUpon>
@@ -475,7 +484,7 @@
     <Content Include="js\.DS_Store" />
     <EntityDeploy Include="Models\UETDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UETDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>UETDb1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\UETDb.edmx.diagram">
       <DependentUpon>UETDb.edmx</DependentUpon>

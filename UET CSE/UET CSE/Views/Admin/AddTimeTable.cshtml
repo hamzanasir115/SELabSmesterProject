@@ -1,92 +1,107 @@
-﻿
+﻿@model UET_CSE.Models.TimeTableViewModel
+
 @{
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<section class="event-form" style="background-color:aliceblue">
-    <div class="container" style="background-color:aliceblue">
-        <br><br><h2>@ViewBag.Title</h2><br><br>
-        <form class="form-horizontal" action="/action_page.php">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Session:</label>
-                <div class="col-sm-6">
-                    <select style="width:350px">
-                        <option value="volvo">2015</option>
-                        <option value="saab">2016</option>
-                        <option value="opel">2017</option>
-                        <option value="audi">2018</option>
-                    </select>
-                </div>
-            </div><br>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Section:</label>
-                <div class="col-sm-6">
-                    <select style="width:350px">
-                        <option value="volvo">A</option>
-                        <option value="saab">B</option>
-                        <option value="opel">C</option>
-                        <option value="audi">D</option>
-                    </select>
-                </div>
-            </div><br>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Hall:</label>
-                <div class="col-sm-6">
-                    <select style="width:350px">
-                        <option value="volvo">N1</option>
-                        <option value="saab">N2</option>
-                        <option value="opel">N3</option>
-                        <option value="audi">N4</option>
-                    </select>
-                </div>
-            </div><br>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Day:</label>
-                <div class="col-sm-6">
-                    <select style="width:350px">
-                        <option value="volvo">Monday</option>
-                        <option value="saab">Tuesday</option>
-                        <option value="opel">Wednesday</option>
-                        <option value="audi">Thursday</option>
-                        <option value="volvo">Friday</option>
-                    </select>
-                </div>
-            </div><br>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Lecture Time:</label>
-                <div class="col-sm-4">
-                    <input type="time" class="form-control" id="email" placeholder="Time" name="email" style="background-color:gainsboro">
-                </div>
-            </div><br>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Select Subject:</label>
-                <div class="col-sm-6">
-                    <select style="width:350px">
-                        <option value="volvo">Artificial Intelligence</option>
-                        <option value="saab">Probability And Random Variables</option>
-                        <option value="opel">Analysis of Algorithm</option>
-                        <option value="audi">Theory of Automata</option>
-                        <option value="volvo">Software Engineering</option>
-                    </select>
-                </div>
-            </div><br>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Enter Teacher Name:</label>
-                <div class="col-sm-4">
-                    <input type="email" class="form-control" id="email" placeholder="Teacher Name" name="email" style="background-color:gainsboro">
-                </div>
-            </div><br>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <a href="http://localhost:11751/Admin/Admin" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Add Time Table</a>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <a href="http://localhost:11751/Admin/UpdateEvent" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Update Time Table</a>
-                </div>
-            </div>
 
-        </form>
-    </div><br><br><br><br>
-</section>
+@using (Html.BeginForm("AddTimeTable", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SubjectName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SubjectName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SubjectName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SubjectAbbreviation, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SubjectAbbreviation, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SubjectAbbreviation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Day, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Day, new List<SelectListItem>
+                            { new SelectListItem{Text="Monday", Value="Monday", Selected =true},
+                              new SelectListItem{Text="Tuesday", Value="Tuesday" },
+                               new SelectListItem{Text="Wednesday", Value="Wednesday"},
+                               new SelectListItem{Text="Thursday", Value="Thursday"},
+                                new SelectListItem {Text="Friday", Value="Friday" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TeacherName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TeacherName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TeacherName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Place, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Place, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Section, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Section, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Section, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Session, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Session, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Add" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div><br><br><br>
+    </section>
+}
+
+
+
+

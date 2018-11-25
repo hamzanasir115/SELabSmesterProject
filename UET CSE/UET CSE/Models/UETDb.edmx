@@ -41,6 +41,21 @@
           <Property Name="Other Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="AddTimeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Place" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Session" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Section" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EndTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="UserName" />
@@ -73,6 +88,7 @@
           <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddTimeTable" EntityType="Self.AddTimeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />
@@ -85,6 +101,7 @@
           <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
           <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
           <EntitySet Name="AddFaculties" EntityType="UETCSEDbModel.AddFaculty" />
+          <EntitySet Name="AddTimeTables" EntityType="UETCSEDbModel.AddTimeTable" />
           <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
           <EntitySet Name="Courses" EntityType="UETCSEDbModel.Cours" />
           <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
@@ -124,6 +141,21 @@
           <Property Name="Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Other_Qualification" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AddTimeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectAbbreviation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Day" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Session" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Section" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EndTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -194,6 +226,22 @@
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddTimeTables">
+            <EntityTypeMapping TypeName="UETCSEDbModel.AddTimeTable">
+              <MappingFragment StoreEntitySet="AddTimeTable">
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="SubjectAbbreviation" ColumnName="SubjectAbbreviation" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
