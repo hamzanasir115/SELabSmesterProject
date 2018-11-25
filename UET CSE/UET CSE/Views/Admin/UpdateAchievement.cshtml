@@ -1,54 +1,68 @@
-﻿
+﻿@model UET_CSE.Models.AddAchievement
+
 @{
+    ViewBag.Title = "UpdateAchievement";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<section class="event-form" style="background-color:aliceblue">
-    <div class="container">
-        <br><br><h2>Update Achievements & Records</h2><br><br>
-        <form class="form-horizontal" action="/action_page.php">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Enter Name:</label>
-                <div class="col-sm-4">
-                    <input type="email" class="form-control" id="email" placeholder="Enter Name" name="email" style="background-color:gainsboro">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd" style="text-align:left">Achievement Date:</label>
-                <div class="col-sm-4">
-                    <input type="date" class="form-control" id="pwd" placeholder="Enter Date" name="pwd" style="background-color:gainsboro">
-                </div>
-            </div>
+<h2>UpdateAchievement</h2>
 
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="name" style="text-align:left">Achievement:</label>
-                <div class="col-sm-4">
-                    <input type="email" class="form-control" id="email" placeholder="Enter Achievemet " name="email" style="background-color:gainsboro">
-                </div>
+@using (Html.BeginForm("AddAchievement", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>AddAchievement</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Email:</label>
-                <div class="col-sm-4">
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" style="background-color:gainsboro">
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Achievement_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Achievement_Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Achievement_Date, "", new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Detail:</label>
-                <div class="col-sm-4">
-                    <input type="email" class="form-control" id="email" placeholder="Enter detail" name="email" style="background-color:gainsboro">
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Achievement, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Achievement, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Achievement, "", new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email" style="text-align:left">Select Image:</label>
-                <div class="col-sm-4">
-                    <input type="file" class="form-control" accept="image/*" name="pic" style="background-color:gainsboro">
-                </div>
-            </div><br>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <a href="http://localhost:11751/Admin/Admin" class="genric-btn primary small" style="background-color:rgba(4,9,30,0.9);color:white;margin-left:10%;margin-right:90%;display:block;width:200px;font-size:15px">Save Changes</a>
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
-        </form>
-    </div><br><br>
-</section>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image_Path, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Image_Path, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Image_Path, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -7,7 +7,7 @@
     <EntitySet Name="AddTimeTables" EntityType="UETCSEDbModel.AddTimeTable" />
     <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
     <EntitySet Name="Courses" EntityType="UETCSEDbModel.Cours" />
-    <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
+    <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
   </EntityContainer>
   <EntityType Name="AddAchievement">
     <Key>

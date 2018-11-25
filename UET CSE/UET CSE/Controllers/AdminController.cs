@@ -229,12 +229,36 @@ namespace UET_CSE.Controllers
         }
         
 
-        public ActionResult UpdateAchievement()
+        public ActionResult UpdateAchievement(int id)
         {
             ViewBag.Title = "Update Achievement";
-            return View();
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+                
+                return View(db.AddAchievements.Where(x => x.Id == id).Single());
+            }
         }
-
+        [HttpPost]
+        public ActionResult UpdateAchievement(AddAchievement obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddAchievements.Find(id).Name = obj.Name;
+                    db.AddAchievements.Find(id).Achievement_Date = obj.Achievement_Date;
+                    db.AddAchievements.Find(id).Achievement = obj.Achievement;
+                    db.AddAchievements.Find(id).Email = obj.Email;
+                    db.AddAchievements.Find(id).Image_Path = obj.Image_Path;
+                    db.SaveChanges();
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
         public ActionResult Admin()
         {
             ViewBag.Title = "Admin";
@@ -281,7 +305,7 @@ namespace UET_CSE.Controllers
                 std.Registration_Number = RegNumber;
                 std.Gender = Gender;
                 UETCSEDbEntities db = new UETCSEDbEntities();
-                db.Registered_Students.Add(std);
+                db.Registered_Student.Add(std);
                 db.SaveChanges();
                 return View("Admin");
             }

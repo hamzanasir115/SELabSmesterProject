@@ -75,9 +75,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Registered_Students">
+    <EntitySetMapping Name="Registered_Student">
       <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
-        <MappingFragment StoreEntitySet="Registered Student">
+        <MappingFragment StoreEntitySet="Registered_Student">
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />

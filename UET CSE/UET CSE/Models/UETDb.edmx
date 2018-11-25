@@ -73,7 +73,7 @@
           <Property Name="CreditHours" Type="int" Nullable="false" />
           <Property Name="SemesterNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Registered Student">
+        <EntityType Name="Registered_Student">
           <Key>
             <PropertyRef Name="Registration Number" />
           </Key>
@@ -91,7 +91,7 @@
           <EntitySet Name="AddTimeTable" EntityType="Self.AddTimeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -104,7 +104,7 @@
           <EntitySet Name="AddTimeTables" EntityType="UETCSEDbModel.AddTimeTable" />
           <EntitySet Name="Admins" EntityType="UETCSEDbModel.Admin" />
           <EntitySet Name="Courses" EntityType="UETCSEDbModel.Cours" />
-          <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
+          <EntitySet Name="Registered_Student" EntityType="UETCSEDbModel.Registered_Student" />
         </EntityContainer>
         <EntityType Name="AddAchievement">
           <Key>
@@ -265,9 +265,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Registered_Students">
+          <EntitySetMapping Name="Registered_Student">
             <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
-              <MappingFragment StoreEntitySet="Registered Student">
+              <MappingFragment StoreEntitySet="Registered_Student">
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
