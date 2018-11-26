@@ -424,27 +424,73 @@ namespace UET_CSE.Controllers
             }
 
         }
-        // GET: Admin/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DeleteAchievement(int id)
         {
-            return View();
+            ViewBag.Title = "Delete Achievement";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddAchievement ach = db.AddAchievements.Find(id);
+            return View(ach);
         }
 
-        // GET: Admin/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult DeleteAchievement(int id, AddAchievement obj)
         {
             try
             {
-                // TODO: Add insert logic here
+                ViewBag.Title = "Delete Achievement";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddAchievements.Single(x => x.Id == id);
+                db.AddAchievements.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult DeleteEvent(int id)
+        {
+            ViewBag.Title = "Delete Event";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddEvent ev = db.AddEvents.Find(id);
+            return View(ev);
+        }
 
-                return RedirectToAction("Index");
+        [HttpPost]
+        public ActionResult DeleteEvent(int id, AddEvent obj)
+        {
+            try
+            {
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddEvents.Single(x => x.Id == id);
+                db.AddEvents.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult DeleteFaculty(int id)
+        {
+            ViewBag.Title = "Delete Faculty";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddFaculty fa = db.AddFaculties.Find(id);
+            return View(fa);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteFaculty(int id, AddFaculty obj)
+        {
+            try
+            {
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddFaculties.Single(x => x.Id == id);
+                db.AddFaculties.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
             }
             catch
             {
@@ -452,43 +498,24 @@ namespace UET_CSE.Controllers
             }
         }
 
-        // GET: Admin/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult DeleteCourse(int id)
         {
-            return View();
+            ViewBag.Title = "Delete Course";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            Cours c = db.Courses.Find(id);
+            return View(c);
         }
 
-        // POST: Admin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult DeleteCourse(int id, Cours obj)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Admin/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.Courses.Single(x => x.Id == id);
+                db.Courses.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
             }
             catch
             {

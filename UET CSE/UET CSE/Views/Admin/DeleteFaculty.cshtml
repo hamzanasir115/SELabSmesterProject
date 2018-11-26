@@ -1,0 +1,80 @@
+﻿@model UET_CSE.Models.AddFaculty
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("DeleteFaculty", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                @Html.AntiForgeryToken()
+                <h3>Are you sure you want to delete this?</h3>
+
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ImagePath)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ImagePath)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Designation)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Designation)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Qualification)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Qualification)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Other_Qualification)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Other_Qualification)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Gender)
+                    </dd>
+
+                </dl>
+
+                <input type="submit" value="Delete" class="btn btn-default" /> 
+        </form>
+        </div>
+        </section>
+        }

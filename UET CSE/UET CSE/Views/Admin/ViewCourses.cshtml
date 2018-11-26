@@ -10,6 +10,7 @@
         <div class="container" style="background-color:aliceblue">
             <br><br><h2>@ViewBag.Title</h2><br><br>
             <form class="form-horizontal" action="/action_page.php">
+                @Html.AntiForgeryToken()
                 <table class="table">
                     <tr>
                         <th>
@@ -50,13 +51,13 @@
                             </td>
                             <td>
                                 @Html.ActionLink("View", "UpdateCourses", new { id = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                @Html.ActionLink("Delete", "DeleteCourse", new { id = item.Id })
                             </td>
                         </tr>
                     }
-
-                </table>
+                    </table>
                 </form>
             </div>
         </section>
+
                 }
