@@ -20,6 +20,10 @@ namespace UET_CSE.Models
         [DataType(DataType.Date)]
         [Display(Name = "End Date")]
         public System.DateTime End_Date { get; set; }
+        [Required]
+        [Display(Name ="Event Time")]
+        [DataType(DataType.Time)]
+        public TimeSpan Event_Time { get; set; }
         [Display(Name = "Ticket Price")]
         public string Ticket_Price { get; set; }
         public string Place { get; set; }

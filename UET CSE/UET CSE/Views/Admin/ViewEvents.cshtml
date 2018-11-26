@@ -1,0 +1,74 @@
+﻿@model IEnumerable<UET_CSE.Models.AddEvent>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("ViewEvents", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Event_Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Start_Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.End_Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Ticket_Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Place)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ImagePath)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Event_Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Start_Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.End_Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ticket_Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Place)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ImagePath)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "UpdateEvent", new { id=item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </form>
+        </div>
+    </section>
+}

@@ -14,6 +14,7 @@ namespace UET_CSE.Models
     
     public partial class Cours
     {
+        public int Id { get; set; }
         public string SubjectCode { get; set; }
         public string SubjectName { get; set; }
         public string SubjectAbbreviation { get; set; }

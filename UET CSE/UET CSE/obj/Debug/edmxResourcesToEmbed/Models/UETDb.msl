@@ -19,10 +19,12 @@
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Place" ColumnName="Place" />
           <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+          <ScalarProperty Name="Event_Time" ColumnName="Event Time" />
           <ScalarProperty Name="End_Date" ColumnName="End Date" />
           <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -72,6 +74,7 @@
           <ScalarProperty Name="SubjectAbbreviation" ColumnName="SubjectAbbreviation" />
           <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
           <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

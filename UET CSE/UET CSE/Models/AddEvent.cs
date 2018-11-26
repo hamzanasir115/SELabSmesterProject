@@ -14,10 +14,12 @@ namespace UET_CSE.Models
     
     public partial class AddEvent
     {
+        public int Id { get; set; }
         public string Event_Name { get; set; }
         public string Description { get; set; }
         public System.DateTime Start_Date { get; set; }
         public System.DateTime End_Date { get; set; }
+        public string Event_Time { get; set; }
         public string Ticket_Price { get; set; }
         public string Place { get; set; }
         public string ImagePath { get; set; }

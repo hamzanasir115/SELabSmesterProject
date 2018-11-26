@@ -762,6 +762,11 @@
     <Content Include="Views\Admin\AddCourses.cshtml" />
     <Content Include="Views\Admin\AddEvent.cshtml" />
     <Content Include="Views\Admin\AddAchievement.cshtml" />
+    <Content Include="Views\Admin\ViewAchievement.cshtml" />
+    <Content Include="Views\Admin\ViewEvents.cshtml" />
+    <Content Include="Views\Admin\ViewFaculty.cshtml" />
+    <Content Include="Views\Admin\UpdateCourses.cshtml" />
+    <Content Include="Views\Admin\ViewCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

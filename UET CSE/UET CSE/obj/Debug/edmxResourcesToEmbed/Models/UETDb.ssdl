@@ -13,12 +13,14 @@
   </EntityType>
   <EntityType Name="AddEvents">
     <Key>
-      <PropertyRef Name="Event Name" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Event Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="150" />
-    <Property Name="Start Date" Type="datetime" Nullable="false" />
-    <Property Name="End Date" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Start Date" Type="date" Nullable="false" />
+    <Property Name="End Date" Type="date" Nullable="false" />
+    <Property Name="Event Time" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Ticket Price" Type="nvarchar" MaxLength="50" />
     <Property Name="Place" Type="nvarchar" MaxLength="150" />
     <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
@@ -60,8 +62,9 @@
   </EntityType>
   <EntityType Name="Courses">
     <Key>
-      <PropertyRef Name="SubjectCode" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectCode" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />

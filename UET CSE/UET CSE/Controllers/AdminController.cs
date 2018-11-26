@@ -85,6 +85,7 @@ namespace UET_CSE.Controllers
                 var Description = addeventmodel.Description;
                 var StartDate = addeventmodel.Start_Date;
                 var EndDate = addeventmodel.End_Date;
+                var EventTime = addeventmodel.Event_Time;
                 var TicketPrice = addeventmodel.Ticket_Price;
                 var pLACE = addeventmodel.Place;
                 string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
@@ -94,12 +95,13 @@ namespace UET_CSE.Controllers
                 fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
                 addeventmodel.ImageFile.SaveAs(fileName);
                 var ImagePath = addeventmodel.ImagePath;
-            var ImageFile = addeventmodel.ImageFile;
+                var ImageFile = addeventmodel.ImageFile;
                 AddEvent ev = new Models.AddEvent();
                 ev.Event_Name = EventName;
                 ev.Description = Description;
-                ev.Start_Date = StartDate;
-                ev.End_Date = EndDate;
+                ev.Start_Date = StartDate.Date;
+                ev.End_Date = EndDate.Date;
+                ev.Event_Time = Convert.ToString(EventTime);
                 ev.Ticket_Price = TicketPrice;
                 ev.Place = pLACE;
                 ev.ImagePath = ImagePath;
@@ -111,13 +113,121 @@ namespace UET_CSE.Controllers
                 }
                 ModelState.Clear();
                 return View("Admin");
-
-            
-            
-            
-            
         }
 
+        public ActionResult ViewEvents()
+        {
+            ViewBag.Title = "View Events";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            return View(db.AddEvents);
+        }
+        public ActionResult UpdateEvent(int id)
+        {
+            ViewBag.Title = "Update Event";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.AddEvents.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateEvent(AddEvent obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                { 
+                    db.AddEvents.Find(id).Event_Name = obj.Event_Name;
+                    db.AddEvents.Find(id).Description = obj.Description;
+                    db.AddEvents.Find(id).Start_Date= obj.Start_Date;
+                    db.AddEvents.Find(id).End_Date = obj.End_Date;
+                    db.AddEvents.Find(id).Event_Time = obj.Event_Time;
+                    db.AddEvents.Find(id).Ticket_Price = obj.Ticket_Price;
+                    db.AddEvents.Find(id).Place = obj.Place;
+                    db.AddEvents.Find(id).ImagePath = obj.ImagePath;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult UpdateFaculty(int id)
+        {
+            ViewBag.Title = "Update Faculty";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.AddFaculties.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateFaculty(AddFaculty obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddFaculties.Find(id).Name = obj.Name;
+                    db.AddFaculties.Find(id).Email = obj.Email;
+                    db.AddFaculties.Find(id).ImagePath = obj.ImagePath;
+                    db.AddFaculties.Find(id).Designation = obj.Designation;
+                    db.AddFaculties.Find(id).Qualification = obj.Qualification;
+                    db.AddFaculties.Find(id).Other_Qualification = obj.Other_Qualification;
+                    db.AddFaculties.Find(id).Gender = obj.Gender;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult ViewFaculty()
+        {
+            ViewBag.Title = "View Faculty";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            return View(db.AddFaculties);
+        }
+        public ActionResult UpdateCourses(int id)
+        {
+            ViewBag.Title = "Update Courses";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.Courses.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateCourses(Cours obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.Courses.Find(id).SubjectCode = obj.SubjectCode;
+                    db.Courses.Find(id).SubjectName = obj.SubjectName;
+                    db.Courses.Find(id).SubjectAbbreviation = obj.SubjectAbbreviation;
+                    db.Courses.Find(id).CreditHours = obj.CreditHours;
+                    db.Courses.Find(id).SemesterNumber = obj.SemesterNumber;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult ViewCourses()
+        {
+            ViewBag.Title = "View Course";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            return View(db.Courses);
+        }
         public ActionResult AddCourses()
         {
             ViewBag.Title = "Add Courses";
@@ -141,11 +251,7 @@ namespace UET_CSE.Controllers
         }
        
 
-        public ActionResult UpdateEvent()
-        {
-            ViewBag.Title = "Update Event";
-            return View();
-        }
+       
 
         public ActionResult AddFaculty()
         {
@@ -185,12 +291,6 @@ namespace UET_CSE.Controllers
             ModelState.Clear();
             return View("Admin");
         }
-        public ActionResult UpdateFaculty()
-        {
-            ViewBag.Title = "Update Faculty";
-            return View();
-        }
-
 
        public ActionResult AddAchievement()
         {
@@ -235,7 +335,7 @@ namespace UET_CSE.Controllers
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
                 
-                return View(db.AddAchievements.Where(x => x.Id == id).Single());
+               return View(db.AddAchievements.Where(x => x.Id == id).Single());
             }
         }
         [HttpPost]
@@ -252,12 +352,21 @@ namespace UET_CSE.Controllers
                     db.AddAchievements.Find(id).Image_Path = obj.Image_Path;
                     db.SaveChanges();
                 }
-                return View();
+                return View("Admin");
             }
             catch
             {
                 return View();
             }
+        }
+
+        
+        public ActionResult ViewAchievement()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View Achievement";
+            
+            return View(db.AddAchievements);
         }
         public ActionResult Admin()
         {

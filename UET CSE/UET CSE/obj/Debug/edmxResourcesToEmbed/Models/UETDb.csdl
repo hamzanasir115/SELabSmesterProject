@@ -22,12 +22,14 @@
   </EntityType>
   <EntityType Name="AddEvent">
     <Key>
-      <PropertyRef Name="Event_Name" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Event_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Event_Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Ticket_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Place" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
@@ -69,8 +71,9 @@
   </EntityType>
   <EntityType Name="Cours">
     <Key>
-      <PropertyRef Name="SubjectCode" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="SubjectCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SubjectAbbreviation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
