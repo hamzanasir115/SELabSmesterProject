@@ -339,12 +339,13 @@ namespace UET_CSE.Controllers
             }
         }
         [HttpPost]
-        public ActionResult UpdateAchievement(AddAchievement obj, int id)
+        public ActionResult UpdateAchievement(AddAchievement obj, int id, HttpPostedFileBase image)
         {
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
                 {
+                    
                     db.AddAchievements.Find(id).Name = obj.Name;
                     db.AddAchievements.Find(id).Achievement_Date = obj.Achievement_Date;
                     db.AddAchievements.Find(id).Achievement = obj.Achievement;
