@@ -9,49 +9,46 @@
     <Property Name="Achievement" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Image Path" Type="varchar" MaxLength="250" Nullable="false" />
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="AddEvents">
+  <EntityType Name="AddDateSheets">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="Session" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Session" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Section" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Program" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Supritendent Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Time" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hall" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AddEvent">
+    <Key>
+      <PropertyRef Name="Event Name" />
+    </Key>
     <Property Name="Event Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="50" />
-    <Property Name="Start Date" Type="date" Nullable="false" />
-    <Property Name="End Date" Type="date" Nullable="false" />
-    <Property Name="Event Time" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="150" />
+    <Property Name="Start Date" Type="datetime" Nullable="false" />
+    <Property Name="End Date" Type="datetime" Nullable="false" />
     <Property Name="Ticket Price" Type="nvarchar" MaxLength="50" />
     <Property Name="Place" Type="nvarchar" MaxLength="150" />
-    <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Image Path" Type="varchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="AddFaculty">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Designation" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Other Qualification" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="AddTimeTable">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Place" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Session" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Section" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="StartTime" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="EndTime" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>
@@ -59,17 +56,6 @@
     </Key>
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Courses">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SubjectCode" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CreditHours" Type="int" Nullable="false" />
-    <Property Name="SemesterNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Registered_Student">
     <Key>
@@ -84,11 +70,10 @@
   </EntityType>
   <EntityContainer Name="UETCSEDbModelStoreContainer">
     <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddDateSheets" EntityType="Self.AddDateSheets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddEvent" EntityType="Self.AddEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AddTimeTable" EntityType="Self.AddTimeTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registered_Student" EntityType="Self.Registered_Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -12,17 +12,16 @@ namespace UET_CSE.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AddTimeTable
+    public partial class AddDateSheet
     {
-        public int Id { get; set; }
-        public string SubjectName { get; set; }
-        public string SubjectAbbreviation { get; set; }
-        public string Day { get; set; }
-        public string Place { get; set; }
         public string Session { get; set; }
         public string Section { get; set; }
-        public string StartTime { get; set; }
-        public string EndTime { get; set; }
-        public string TeacherName { get; set; }
+        public System.DateTime Date { get; set; }
+        public string Day { get; set; }
+        public string Program { get; set; }
+        public string Subject { get; set; }
+        public string Supritendent_Name { get; set; }
+        public string Time { get; set; }
+        public string Hall { get; set; }
     }
 }
