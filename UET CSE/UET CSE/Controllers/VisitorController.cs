@@ -20,6 +20,11 @@ namespace UET_CSE.Controllers
         {
             ViewBag.Title = "WE ENSURE BETTER EDUCATION FOR A BETTER WORLD";
             ViewBag.Info = "Computer science is the theory, experimentation, and engineering that form the basis for the design and use of computers. It involves the study of algorithms that process, store, and communicate digital information.";
+
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Events = db.AddEvents;
+            ViewBag.Faculty = db.AddFaculties;
+            ViewBag.Achievements = db.AddAchievements;
             return View();
 
         }
@@ -51,10 +56,38 @@ namespace UET_CSE.Controllers
             return View(db.AddFaculties);
         }
 
-        public ActionResult FacultyDetail()
+        public ActionResult FacultyDetail(int id)
         {
             ViewBag.Title = "Faculty Detail";
-            return View();
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+              return View(db.AddFaculties.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult FacultyDetail(AddFaculty obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddFaculties.Find(id).Name = obj.Name;
+                    db.AddFaculties.Find(id).Email = obj.Email;
+                    db.AddFaculties.Find(id).Designation = obj.Designation;
+                    db.AddFaculties.Find(id).Qualification = obj.Qualification;
+                    db.AddFaculties.Find(id).Other_Qualification = obj.Other_Qualification;
+                    db.AddFaculties.Find(id).Gender = obj.Gender;
+                    ViewBag.Image = Server.MapPath("~") + db.AddFaculties.Find(id).ImagePath;
+                    db.AddFaculties.Find(id).ImagePath = obj.ImagePath;
+                    db.SaveChanges();
+                }
+                    return View("HomePage");
+            }
+            catch
+            {
+                return View();
+            }
+            
         }
 
 

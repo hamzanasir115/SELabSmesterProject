@@ -24,6 +24,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.End_Date)
                         </th>
+                        
                         <th>
                             @Html.DisplayNameFor(model => model.Ticket_Price)
                         </th>
@@ -49,6 +50,9 @@
                                 @Html.DisplayFor(modelItem => item.Start_Date)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.EventTime )
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.End_Date)
                             </td>
                             <td>
@@ -61,8 +65,8 @@
                                 @Html.DisplayFor(modelItem => item.ImagePath)
                             </td>
                             <td>
-                                @Html.ActionLink("Update", "UpdateEvent", new { id=item.Id }) |
-                                @Html.ActionLink("Delete", "DeleteEvent", new { id=item.Id })
+                                @Html.ActionLink("Update", "UpdateEvent", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "DeleteEvent", new { id = item.Id })
                             </td>
                         </tr>
                     }

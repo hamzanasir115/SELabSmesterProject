@@ -227,6 +227,21 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserRole.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cours.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
@@ -235,6 +250,9 @@
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\FacultyViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginPerson.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Registered_Student.cs">
       <DependentUpon>UETDb.tt</DependentUpon>

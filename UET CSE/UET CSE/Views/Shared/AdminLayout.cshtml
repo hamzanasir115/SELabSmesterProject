@@ -73,7 +73,7 @@
                             @Html.ActionLink("Faculty", "AddFaculty", "Admin")
                             <ul>
                                 <li>@Html.ActionLink("Add", "AddFaculty", "Admin")</li>
-                                <li>@Html.ActionLink("Update", "UpdateEvent", "Admin")</li>
+                                <li>@Html.ActionLink("View", "ViewFaculty", "Admin")</li>
                             </ul>
                         </li>
                         <li class="menu-has-children">
@@ -81,7 +81,7 @@
                             <ul>
                                 <li>@Html.ActionLink("Add", "AddEvent", "Admin")
                                     </li>
-                                <li>@Html.ActionLink("Update", "UpdateEvent", "Admin")</li>
+                                <li>@Html.ActionLink("View", "ViewEvents", "Admin")</li>
                             </ul>
                         </li>
                         <li class="menu-has-children">
@@ -89,10 +89,19 @@
                             <ul>
                                 <li>@Html.ActionLink("Add", "AddAchievement", "Admin")
                                     </li>
-                                <li>@Html.ActionLink("Update", "UpdateAchievement", "Admin")</li>
+                                <li>@Html.ActionLink("View", "ViewAchievement", "Admin")</li>
                             </ul>
                         </li>
-                        <li> @Html.ActionLink("Courses", "AddCourses", "Admin")</li>
+                        <li class="menu-has-children">
+                         @Html.ActionLink("Courses", "AddCourses", "Admin")
+                            <ul>
+                                <li>@Html.ActionLink("Add", "AddCourses", "Admin") </li>
+                                <li>@Html.ActionLink("View", "ViewCourses", "Admin")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            @Html.ActionLink("Logout", "HomePage", "Visitor")
+                        </li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>

@@ -197,87 +197,29 @@
         </div>
         <div class="row">
             <div class="active-upcoming-event-carusel">
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/download.jpg" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <p>25th November, 2018</p>
-                        <a href="http://localhost:11751/Visitor/EventsDetail">
-                            <h4>
-                                Convocation
-                            </h4>
-                        </a>
-                        <p>
-                            For the Students of CS and CE, we are arranging an event to certify the students with thier degrees and medals. This is the final event for the batch from university. After that event they will be graduated officially.
-                        </p>
-                    </div>
-                </div>
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/e2.jpg" alt="">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <p>25th February, 2018</p>
-                        <a href="http://localhost:11751/Visitor/EventsDetail">
-                            <h4>
-                                Orientation
-                            </h4>
-                        </a>
-                        <p>
-                            For the Students of first year. orientation is a way for students to meet other students, become familiar with campus services, and register for fall classes. We are instituted orientation for incoming students to ease the transition into University.
-                        </p>
-                    </div>
-                </div>
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/333-degrees-awarded-at-greenwich-university-s-convocation-1514077932-3687.jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <p>25th February, 2018</p>
-                        <a href="http://localhost:11751/Visitor/EventsDetail">
-                            <h4>
-                                Convocation Rehearsal
-                            </h4>
-                        </a>
-                        <p>
-                            For the Students of CS and CE, we are arranging an event to certify the students with thier degrees and medals. This is the final event for the batch from university. After that event they will be graduated officially.
-                        </p>
-                    </div>
-                </div>
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/images (1).jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <p>25th February, 2018</p>
-                        <a href="http://localhost:11751/Visitor/EventsDetail">
-                            <h4>
-                                Orientation
-                            </h4>
-                        </a>
-                        <p>
-                            For the Students of first year. orientation is a way for students to meet other students, become familiar with campus services, and register for fall classes. We are instituted orientation for incoming students to ease the transition into University.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/images (1).jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <p>25th February, 2018</p>
-                        <a href="http://localhost:11751/Visitor/EventsDetail">
-                            <h4>
-                                Orientation
-                            </h4>
-                        </a>
-                        <p>
-                            For the Students of first year. orientation is a way for students to meet other students, become familiar with campus services, and register for fall classes. We are instituted orientation for incoming students to ease the transition into University.
-                        </p>
-                    </div>
-                </div>
+                @{
+                    foreach (var item in ViewBag.Events)
+                    {
+                        <div class="single-carusel row align-items-center">
+                            <div class="col-12 col-md-6 thumb">
+                                <img class="img-fluid" src="@Url.Content(@item.ImagePath)" style="width:263px;height:200px;">
+                            </div>
+                            <div class="detials col-12 col-md-6">
+                                <p>@item.Start_Date - @item.End_Date</p>
+                                <a href="http://localhost:11751/Visitor/EventsDetail">
+                                    <h4>
+                                        @item.Event_Name
+                                    </h4>
+                                </a>
+                                <p>
+                                    @item.Description
+                                </p>
+                            </div>
+                        </div>
+                    }
+                }
+                
+                
 </section>
 <!-- End upcoming-event Area -->
 <!-- Start Achievement Section-->
@@ -294,133 +236,37 @@
         </div>
         <div class="row">
             <div class="active-popular-carusel">
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/BscComputerScience.jpg" alt="" style="width:263px;height:200px;">
+                @foreach (var item in ViewBag.Faculty)
+                {
+                    <div class="single-popular-carusel">
+                        <div class="thumb-wrap relative">
+                            <div class="thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <img class="img-fluid" src="@Url.Content(@item.ImagePath)" alt="" style="width:263px;height:200px;">
+                            </div>
+                            <div class="meta d-flex justify-content-between">
+                                <!--                @*  <p><span class="lnr lnr-users"></span>  <span @*class="lnr lnr-bubble"></span></p>*@
+                                       -->
+                                <br>
+                            </div>
                         </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                @*  <p><span class="lnr lnr-users"></span>  <span @*class="lnr lnr-bubble"></span></p>*@
-                                   -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="http://localhost:11751/Visitor/FacultyDetail">
+                        <div class="details">
+                           
                             <h4>
-                                Dr. Shazia Arshad
-                            </h4>
-                        </a>
-                        <p>
-                            Chairperson Of CSE Department.
-                            Designation: Professor
-                            Latest Qualification: Ph.D
-                        </p>
-                    </div>
-                </div>
 
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/BscComputerScience.jpg" alt="" style="width:263px;height:200px;">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                                @*  <p><span class="lnr lnr-users"></span>  <span @*class="lnr lnr-bubble"></span></p>*@
-                                  -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="http://localhost:11751/Visitor/FacultyDetail">
-                            <h4>
-                                Prof. Dr. Abdul Sattar Shakir
-                            </h4>
-                        </a>
-                        <p>
-                            Dean Of CSE Department.
-                            Designation: Professor
-                            Latest Qualification: Ph.D
-                        </p>
-                    </div>
-                </div>
-
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/BscComputerScience.jpg" alt="" style="width:263px;height:200px;">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                                @*  <p><span class="lnr lnr-users"></span>  <span @*class="lnr lnr-bubble"></span></p>*@
-                                   -->
-                            <br>
+                            @item.Name
+                                <!--@Html.ActionLink((string)item.Name, "FacultyDetail", "Visitor", new { id = item.Id })
+                            --></h4>
+                            <p>
+                                Designation : @item.Designation
+                                <br />
+                                Qualification : @item.Qualification
+                                <br />
+                            </p>
                         </div>
                     </div>
-                    <div class="details">
-                        <a href="http://localhost:11751/Visitor/FacultyDetail">
-                            <h4>
-                                Prof. Dr. Muhammad Shahbaz
-                            </h4>
-                        </a>
-                        <p>
-                            Designation: Professor
-                            Latest Qualification: Ph.D
-                        </p>
-                    </div>
-                </div>
-
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/BscComputerScience.jpg" alt="" style="width:263px;height:200px;">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                                @*  <p><span class="lnr lnr-users"></span>  <span @*class="lnr lnr-bubble"></span></p>*@
-                                -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="http://localhost:11751/Visitor/FacultyDetail">
-                            <h4>
-                                Prof. Dr. Muhammad Shoaib
-                            </h4>
-                        </a>
-                        <p>
-                            Designation: Professor
-                            Latest Qualification: Ph.D
-                        </p>
-                    </div>
-                </div>
-
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/BscComputerScience.jpg" alt="" style="width:263px;height:200px;">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                                @*  <p><span class="lnr lnr-users"></span>  <span @*class="lnr lnr-bubble"></span></p>*@
-                                  -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="http://localhost:11751/Visitor/FacultyDetail">
-                            <h4>
-                                Dr. Irfan Ullah Ch.
-                            </h4>
-                        </a>
-                        <p>
-                            Designation: Professor
-                            Latest Qualification: Ph.D
-                        </p>
-                    </div>
-                </div>
-
+                }
+                
 
             </div>
         </div>
@@ -441,73 +287,26 @@
         </div>
         <div class="row">
             <div class="active-upcoming-event-carusel">
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/download.jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <a href="http://localhost:11751/Visitor/Achievement">
+                @foreach (var item in ViewBag.Achievements)
+                {
+                    <div class="single-carusel row align-items-center">
+                        <div class="col-12 col-md-6 thumb">
+                            <img class="img-fluid" src="@Url.Content(@item.Image_Path)" alt="" style="width:263px;height:200px;">
+                        </div>
+                        <div class="detials col-12 col-md-6">
                             <h4>
-                                Runner up of Pakistan's largest API based hackathon with multiple investment offers.
+                                @Html.ActionLink((string)item.Name, "Achievement", "Visitor", new { @style = "font-weight:bold" })
                             </h4>
-                        </a>
-                        <p>
-                            Name: Hamza Nasir<br>
-                            Registration Number: 2016-CS-155
-                        </p>
+                                <p>
+                                @item.Achievement
+                                <br />
+                                Name: @item.Name
+                                <br />
+                                Email: @item.Email<br>
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/download.jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <a href="http://localhost:11751/Visitor/Achievement">
-                            <h4>
-                                Runner up Plan 9.
-                            </h4>
-                        </a>
-                        <p>
-                            Name: Muhammad Hamza Nasir<br>
-                            Registration Number: 2016-CS-115
-                        </p>
-                    </div>
-                </div>
-
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/download.jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <a href="http://localhost:11751/Visitor/Achievement">
-                            <h4>
-                                Gold Medalist of 14 Session.
-                            </h4>
-                        </a>
-                        <p>
-                            Name: Wania Zahid<br>
-                            Registration Number: 2014-CS-15
-                        </p>
-                    </div>
-                </div>
-
-                <div class="single-carusel row align-items-center">
-                    <div class="col-12 col-md-6 thumb">
-                        <img class="img-fluid" src="~/img/download.jpg" alt="" style="width:263px;height:200px;">
-                    </div>
-                    <div class="detials col-12 col-md-6">
-                        <a href="http://localhost:11751/Visitor/Achievement">
-                            <h4>
-                                Runner Up of Coding Competition
-                            </h4>
-                        </a>
-                        <p>
-                            Name: Abdullah<br>
-                            Registration Number: 2018-CS-120
-                        </p>
-                    </div>
-                </div>
+                }               
             </div>
         </div>
 </section>

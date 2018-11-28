@@ -16,26 +16,26 @@
     <EntitySetMapping Name="AddDateSheets">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddDateSheet">
         <MappingFragment StoreEntitySet="AddDateSheets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Hall" ColumnName="Hall" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Supritendent_Name" ColumnName="Supritendent Name" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Program" ColumnName="Program" />
-          <ScalarProperty Name="Day" ColumnName="Day" />
           <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
           <ScalarProperty Name="Section" ColumnName="Section" />
           <ScalarProperty Name="Session" ColumnName="Session" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AddEvents">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
         <MappingFragment StoreEntitySet="AddEvents">
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Place" ColumnName="Place" />
           <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
-          <ScalarProperty Name="Event_Time" ColumnName="Event Time" />
           <ScalarProperty Name="End_Date" ColumnName="End Date" />
           <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -82,6 +82,59 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="UETCSEDbModel.Cours">
         <MappingFragment StoreEntitySet="Courses">
@@ -94,9 +147,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Registered_Student">
+    <EntitySetMapping Name="LoginPersons">
+      <EntityTypeMapping TypeName="UETCSEDbModel.LoginPerson">
+        <MappingFragment StoreEntitySet="LoginPerson">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registered_Students">
       <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
-        <MappingFragment StoreEntitySet="Registered_Student">
+        <MappingFragment StoreEntitySet="Registered Student">
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />

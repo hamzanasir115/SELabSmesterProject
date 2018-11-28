@@ -26,6 +26,10 @@ namespace UET_CSE.Models
         public string Email { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set;  }
+
+        [Required]
         [Display(Name ="Registration Number")]
         public string RegistrationNumber { get; set; }
 
