@@ -20,7 +20,7 @@ namespace UET_CSE.Controllers
         public ActionResult AddTimeTable(TimeTableViewModel model)
         {
             ViewBag.Title = "Add Time Table";
-            /*try
+            try
             {
                 AddTimeTable time = new AddTimeTable();
                 time.StartTime = Convert.ToString(model.StartTime);
@@ -45,7 +45,7 @@ namespace UET_CSE.Controllers
             {
                 return View();
             }
-            */
+            
             return View();
 
         }
@@ -111,7 +111,7 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult AddEvent(EventViewModel addeventmodel)
         {
-            /* var EventName = addeventmodel.Event_Name;
+             var EventName = addeventmodel.Event_Name;
              var Description = addeventmodel.Description;
              var StartDate = addeventmodel.Start_Date;
              var EndDate = addeventmodel.End_Date;
@@ -141,7 +141,7 @@ namespace UET_CSE.Controllers
                  db.SaveChanges();
 
              }
-             ModelState.Clear();*/
+             ModelState.Clear();
             return View("Admin");
         }
 
@@ -154,17 +154,17 @@ namespace UET_CSE.Controllers
         public ActionResult UpdateEvent(int id)
         {
             ViewBag.Title = "Update Event";
-            /* using (UETCSEDbEntities db = new UETCSEDbEntities())
+             using (UETCSEDbEntities db = new UETCSEDbEntities())
              {
 
                  return View(db.AddEvents.Where(x => x.Id == id).Single());
-             }*/
+             }
             return View();
         }
         [HttpPost]
         public ActionResult UpdateEvent(AddEvent obj, int id)
         {
-            /* try
+            try
              {
                  using (UETCSEDbEntities db = new UETCSEDbEntities())
                  { 
@@ -183,7 +183,7 @@ namespace UET_CSE.Controllers
              catch
              {
                  return View();
-             }*/
+             }
             return View();
         }
         public ActionResult UpdateFaculty(int id)
@@ -227,15 +227,15 @@ namespace UET_CSE.Controllers
         public ActionResult UpdateCourses(int id)
         {
             ViewBag.Title = "Update Courses";
-            /* using (UETCSEDbEntities db = new UETCSEDbEntities())
+             using (UETCSEDbEntities db = new UETCSEDbEntities())
              {
 
                  return View(db.Courses.Where(x => x.Id == id).Single());
-             }*/
+             }
             return View();
         }
         [HttpPost]
-        /* public ActionResult UpdateCourses(Cours obj, int id)
+        public ActionResult UpdateCourses(Cours obj, int id)
          {
              try
              {
@@ -254,20 +254,20 @@ namespace UET_CSE.Controllers
              {
                  return View();
              }
-         }*/
-        /* public ActionResult ViewCourses()
+         }
+         public ActionResult ViewCourses()
          {
              ViewBag.Title = "View Course";
              UETCSEDbEntities db = new UETCSEDbEntities();
              return View(db.Courses);
-         }*/
+         }
         public ActionResult AddCourses()
         {
             ViewBag.Title = "Add Courses";
             return View();
         }
         [HttpPost]
-        /* public ActionResult AddCourses(CoursesViewModel model)
+         public ActionResult AddCourses(CoursesViewModel model)
          {
              ViewBag.Title = "Add Courses";
              Cours co = new Cours();
@@ -282,7 +282,7 @@ namespace UET_CSE.Controllers
              ModelState.Clear();
              return View("Admin");
          }
-        */
+        
 
 
 
@@ -492,7 +492,7 @@ namespace UET_CSE.Controllers
         }
 
         [HttpPost]
-       /* public ActionResult DeleteEvent(int id, AddEvent obj)
+       public ActionResult DeleteEvent(int id, AddEvent obj)
         {
             try
             {
@@ -506,7 +506,7 @@ namespace UET_CSE.Controllers
             {
                 return View();
             }
-        }*/
+        }
         public ActionResult DeleteFaculty(int id)
         {
             ViewBag.Title = "Delete Faculty";
@@ -532,15 +532,15 @@ namespace UET_CSE.Controllers
             }
         }
 
-        /*   public ActionResult DeleteCourse(int id)
+          public ActionResult DeleteCourse(int id)
            {
                ViewBag.Title = "Delete Course";
                UETCSEDbEntities db = new UETCSEDbEntities();
                Cours c = db.Courses.Find(id);
                return View(c);
-           }*/
+           }
 
-        /* [HttpPost]
+         [HttpPost]
             public ActionResult DeleteCourse(int id, Cours obj)
             {
                 try
@@ -555,6 +555,6 @@ namespace UET_CSE.Controllers
                 {
                     return View();
                 }
-            }*/
+            }
     }
 }

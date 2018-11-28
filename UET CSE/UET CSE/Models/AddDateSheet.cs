@@ -14,6 +14,7 @@ namespace UET_CSE.Models
     
     public partial class AddDateSheet
     {
+        public int Id { get; set; }
         public string Session { get; set; }
         public string Section { get; set; }
         public System.DateTime Date { get; set; }

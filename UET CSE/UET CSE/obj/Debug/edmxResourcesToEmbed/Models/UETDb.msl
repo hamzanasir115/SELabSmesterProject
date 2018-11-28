@@ -25,19 +25,22 @@
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Section" ColumnName="Section" />
           <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AddEvents">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
-        <MappingFragment StoreEntitySet="AddEvent">
-          <ScalarProperty Name="Image_Path" ColumnName="Image Path" />
+        <MappingFragment StoreEntitySet="AddEvents">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Place" ColumnName="Place" />
           <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+          <ScalarProperty Name="Event_Time" ColumnName="Event Time" />
           <ScalarProperty Name="End_Date" ColumnName="End Date" />
           <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Event_Name" ColumnName="Event Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,11 +58,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AddTimeTables">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AddTimeTable">
+        <MappingFragment StoreEntitySet="AddTimeTable">
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="SubjectAbbreviation" ColumnName="SubjectAbbreviation" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="UETCSEDbModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="UETCSEDbModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="SemesterNumber" ColumnName="SemesterNumber" />
+          <ScalarProperty Name="CreditHours" ColumnName="CreditHours" />
+          <ScalarProperty Name="SubjectAbbreviation" ColumnName="SubjectAbbreviation" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
