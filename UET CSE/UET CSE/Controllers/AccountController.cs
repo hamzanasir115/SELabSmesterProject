@@ -12,7 +12,7 @@ using UET_CSE.Models;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
-
+using System.Security.Cryptography;
 namespace UET_CSE.Controllers
 {
     [Authorize]
@@ -155,15 +155,33 @@ namespace UET_CSE.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user/*, model.Password*/);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    var StudentName = model.StudentName;
+                    var FatherName = model.FatherName;
+                    var RegNumber = model.RegistrationNumber;
+                    var CNIC = model.CNIC;
+                    var Email = model.Email;
+                    var Gender = model.Gender;
+                    Registered_Student std = new Registered_Student();
+                    std.Name = StudentName;
+                    std.Father_Name = FatherName;
+                    std.CNIC = CNIC;
+                    std.Email = Email;
+                    std.Registration_Number = RegNumber;
+                    std.Gender = Gender;
+                    UETCSEDbEntities db = new UETCSEDbEntities();
+                    db.Registered_Students.Add(std);
+                    db.SaveChanges();
+
+                    SendMailToUser(model.Email);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Login");
                 }
@@ -174,10 +192,10 @@ namespace UET_CSE.Controllers
             return View(model);
         }
 
-        public JsonResult SendMailToUser()
+        public JsonResult SendMailToUser(string ToEmail)
         {
             bool result = false;
-            result = SendEmail("aqsazahid879@gmail.com", "MVC mail testing", "<p>Hi Aqsa.<br />This is mvc<br /> Hope so that it will work In SHa Allah</p>");
+            result = SendEmail(ToEmail, "UET CSE Login", "<p>Dear @Model.StudentName @Model.FatherName!<br />Click on the link below to Login.<br />http://localhost:11751/Account/CreatePassword</p>");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -200,11 +218,42 @@ namespace UET_CSE.Controllers
                 client.Send(mailMessage);
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }
         }
+
+        public ActionResult CreatePassword()
+        {
+            ViewBag.Title = "Create Password";
+
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreatePassword(CreatePassword model)
+        {
+            ViewBag.Title = "Create Password";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            foreach(var person in db.AspNetUsers.ToList())
+            {
+                if(person.Email == model.Email)
+                {
+                    if(model.Password == model.ConfirmPassword)
+                    {
+                        person.PasswordHash = model.Password;
+                        db.AspNetUsers.Find(person.Id).PasswordHash = Encrypt.GetHash(model.Password);
+                        db.SaveChanges();
+                        return View("Login");
+                    }             
+                }
+            }
+
+            return View();
+        }
+
+       
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -459,6 +508,7 @@ namespace UET_CSE.Controllers
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
+        private object sha256Hash;
 
         private IAuthenticationManager AuthenticationManager
         {

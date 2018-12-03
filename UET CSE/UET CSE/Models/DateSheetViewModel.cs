@@ -35,6 +35,7 @@ namespace UET_CSE.Models
         public TimeSpan Time { get; set; }
 
         [Required]
+        [Display(Name ="Location")]
         public string Hall { get; set; }
     }
 }

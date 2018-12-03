@@ -1,4 +1,5 @@
-﻿
+﻿@model UET_CSE.Models.DateSheetViewModel
+
 @{
     Layout = "~/Views/Shared/StudentLoginLayout.cshtml";
 }
@@ -9,12 +10,24 @@
                 <table data-vertable="ver1">
                     <thead>
                         <tr class="row100 head">
-                            <th class="column100 column1" data-column="column1">Date</th>
-                            <th class="column100 column2" data-column="column2">Subject</th>
-                            <th class="column100 column3" data-column="column3">Program</th>
-                            <th class="column100 column4" data-column="column4">Superintendent</th>
-                            <th class="column100 column5" data-column="column5">Examination Time</th>
-                            <th class="column100 column6" data-column="column6">Location</th>
+                            <th class="column100 column1" data-column="column1">
+                                @Html.DisplayNameFor(model => model.Date)
+                            </th>
+                            <th class="column100 column2" data-column="column2">
+                                @Html.DisplayNameFor(model => model.Subject)
+                            </th>
+                            <th class="column100 column3" data-column="column3">
+                                @Html.DisplayNameFor(model => model.Program)
+                            </th>
+                            <th class="column100 column4" data-column="column4">
+                                @Html.DisplayNameFor(model => model.SupritendentName)
+                            </th>
+                            <th class="column100 column5" data-column="column5">
+                                @Html.DisplayNameFor(model => model.Time)
+                            </th>
+                            <th class="column100 column6" data-column="column6">
+                                @Html.DisplayNameFor(model => model.Hall)
+                            </th>
 
                         </tr>
                     </thead>

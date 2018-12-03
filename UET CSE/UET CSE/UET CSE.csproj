@@ -203,6 +203,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\VisitorController.cs" />
+    <Compile Include="CustomPasswordHasher.cs" />
+    <Compile Include="Encrypt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -793,6 +795,7 @@
     <Content Include="Views\Admin\DeleteEvent.cshtml" />
     <Content Include="Views\Admin\DeleteFaculty.cshtml" />
     <Content Include="Views\Admin\DeleteCourse.cshtml" />
+    <Content Include="Views\Account\CreatePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
