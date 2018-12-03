@@ -79,6 +79,27 @@ namespace UET_CSE.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Student Name ")]
+        public string StudentName { get; set; }
+
+        [Required]
+        [Display(Name = "Father Name")]
+        public string FatherName { get; set; }
+
+        [Required]
+        [Display(Name = "CNIC")]
+        public string CNIC { get; set; }
+
+        [Required]
+        [Display(Name = "Registration Number")]
+        [DisplayFormat()]
+        public string RegistrationNumber { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+
     }
 
     public class ResetPasswordViewModel

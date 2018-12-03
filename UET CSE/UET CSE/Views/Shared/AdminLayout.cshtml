@@ -100,7 +100,12 @@
                             </ul>
                         </li>
                         <li>
-                            @Html.ActionLink("Logout", "HomePage", "Visitor")
+                            @Html.ActionLink(User.Identity.Name, "Admin", "Admin")
+                        <ul>
+                            <li>
+                                @Html.ActionLink("Logout", "HomePage", "Visitor")
+                            </li>
+                        </ul>
                         </li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
