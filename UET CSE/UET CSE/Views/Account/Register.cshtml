@@ -55,7 +55,47 @@
         </div>
     </div>
 
-    
+    <div class="form-group">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            Admin
+            @Html.RadioButtonFor(model => model.Type, "Admin", new { @checked = true })
+            <br />
+            Student
+            @Html.RadioButtonFor(model => model.Type, "Student")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Section, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            A
+            @Html.RadioButtonFor(model => model.Section, "A", new { @checked = true })
+            B
+            @Html.RadioButtonFor(model => model.Section, "B")
+            C
+            @Html.RadioButtonFor(model => model.Section, "C")
+            D
+            @Html.RadioButtonFor(model => model.Section, "D")
+        </div>
+    </div>
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Session, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Session, new List<SelectListItem>
+                            { new SelectListItem{Text="2015", Value="2015", Selected =true},
+                              new SelectListItem{Text="2016", Value="2016" },
+                               new SelectListItem{Text="2017", Value="2017"},
+                               new SelectListItem{Text="2018", Value="2018"}
+                                 })
+        </div>
+    </div>
+
+
+
+
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

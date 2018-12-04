@@ -109,17 +109,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserRoles">
-      <EntityTypeMapping TypeName="UETCSEDbModel.AspNetUserRole">
-        <MappingFragment StoreEntitySet="AspNetUserRoles">
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="UETCSEDbModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
           <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
@@ -159,6 +152,9 @@
     <EntitySetMapping Name="Registered_Students">
       <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
         <MappingFragment StoreEntitySet="Registered Student">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
@@ -168,5 +164,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="UETCSEDbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

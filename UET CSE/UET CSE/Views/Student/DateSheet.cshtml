@@ -1,4 +1,4 @@
-﻿@model UET_CSE.Models.DateSheetViewModel
+﻿@model IEnumerable<UET_CSE.Models.AddDateSheet>
 
 @{
     Layout = "~/Views/Shared/StudentLoginLayout.cshtml";
@@ -20,7 +20,7 @@
                                 @Html.DisplayNameFor(model => model.Program)
                             </th>
                             <th class="column100 column4" data-column="column4">
-                                @Html.DisplayNameFor(model => model.SupritendentName)
+                                @Html.DisplayNameFor(model => model.Supritendent_Name)
                             </th>
                             <th class="column100 column5" data-column="column5">
                                 @Html.DisplayNameFor(model => model.Time)
@@ -32,70 +32,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">Monday October 29,2018</td>
-                            <td class="column100 column2" data-column="column2">Probability and Random Variable</td>
-                            <td class="column100 column3" data-column="column3">
-                                CE<br>
-                                CS
-                            </td>
-                            <td class="column100 column4" data-column="column4">Miss Hina Khalid(A) <br>Dr Irfan Ullah Ch.</td>
-                            <td class="column100 column5" data-column="column5">11:00 am to 12:30 pm</td>
-                            <td class="column100 column6" data-column="column6">N-9 <br> N-10</td>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="row100">
+                                <td class="column100 column1" data-column="column1">
+                                    @Html.DisplayFor(modelItem => item.Date )
+                                </td>
+                                <td class="column100 column2" data-column="column2">
+                                    @Html.DisplayFor(modelItem => item.Subject )
+                                </td>
+                                <td class="column100 column3" data-column="column3">
+                                    @Html.DisplayFor(modelItem => item.Program )
+                                </td>
+                                <td class="column100 column4" data-column="column4">
+                                    @Html.DisplayFor(modelItem => item.Supritendent_Name )
+                                </td>
+                                <td class="column100 column5" data-column="column5">
+                                    @Html.DisplayFor(modelItem => item.Time )
+                                </td>
+                                <td class="column100 column6" data-column="column6">
+                                    @Html.DisplayFor(modelItem => item.Hall )
+                                </td>
 
-                        </tr>
-
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">Tuesday October 29,2018</td>
-                            <td class="column100 column2" data-column="column2">Probability and Random Variable</td>
-                            <td class="column100 column3" data-column="column3">
-                                CE<br>
-                                CS
-                            </td>
-                            <td class="column100 column4" data-column="column4">Miss Hina Khalid(A) <br>Dr Irfan Ullah Ch.</td>
-                            <td class="column100 column5" data-column="column5">11:00 am to 12:30 pm</td>
-                            <td class="column100 column6" data-column="column6">N-9 <br> N-10</td>
-
-                        </tr>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">Tuesday October 29,2018</td>
-                            <td class="column100 column2" data-column="column2">Probability and Random Variable</td>
-                            <td class="column100 column3" data-column="column3">
-                                CE<br>
-                                CS
-                            </td>
-                            <td class="column100 column4" data-column="column4">Miss Hina Khalid(A) <br>Dr Irfan Ullah Ch.</td>
-                            <td class="column100 column5" data-column="column5">11:00 am to 12:30 pm</td>
-                            <td class="column100 column6" data-column="column6">N-9 <br> N-10</td>
-
-                        </tr>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">Tuesday October 29,2018</td>
-                            <td class="column100 column2" data-column="column2">Probability and Random Variable</td>
-                            <td class="column100 column3" data-column="column3">
-                                CE<br>
-                                CS
-                            </td>
-                            <td class="column100 column4" data-column="column4">Miss Hina Khalid(A) <br>Dr Irfan Ullah Ch.</td>
-                            <td class="column100 column5" data-column="column5">11:00 am to 12:30 pm</td>
-                            <td class="column100 column6" data-column="column6">N-9 <br> N-10</td>
-
-                        </tr>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">Tuesday October 29,2018</td>
-                            <td class="column100 column2" data-column="column2">Probability and Random Variable</td>
-                            <td class="column100 column3" data-column="column3">
-                                CE<br>
-                                CS
-                            </td>
-                            <td class="column100 column4" data-column="column4">Miss Hina Khalid(A) <br>Dr Irfan Ullah Ch.</td>
-                            <td class="column100 column5" data-column="column5">11:00 am to 12:30 pm</td>
-                            <td class="column100 column6" data-column="column6">N-9 <br> N-10</td>
-
-                        </tr>
-
-
-
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

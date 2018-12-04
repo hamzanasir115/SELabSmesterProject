@@ -75,14 +75,35 @@ namespace UET_CSE.Controllers
             {
                 return View(model);
             }
-
+            RegisterViewModel reg = new RegisterViewModel();
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            string Type = null;
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            if(result == SignInStatus.Success)
+            {
+                foreach(var per in db.Registered_Students)
+                {
+                    if(per.Email == model.Email)
+                    {
+                        Type = per.Type;
+                    }
+                }
+            }
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal("~/Admin/Admin");
+                    if(Type == "Student")
+                    {
+                        return RedirectToLocal("~/Student/TimeTable");
+                    }
+                    else
+                    {
+                        return RedirectToLocal("~/Admin/Admin");
+                    }
+
+                    
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -165,6 +186,9 @@ namespace UET_CSE.Controllers
                     var CNIC = model.CNIC;
                     var Email = model.Email;
                     var Gender = model.Gender;
+                    var Section = model.Section;
+                    var Session = model.Session;
+                    var Type = model.Type;
                     Registered_Student std = new Registered_Student();
                     std.Name = StudentName;
                     std.Father_Name = FatherName;
@@ -172,6 +196,9 @@ namespace UET_CSE.Controllers
                     std.Email = Email;
                     std.Registration_Number = RegNumber;
                     std.Gender = Gender;
+                    std.Section = Section;
+                    std.Session = Session;
+                    std.Type = Type;
                     UETCSEDbEntities db = new UETCSEDbEntities();
                     db.Registered_Students.Add(std);
                     db.SaveChanges();

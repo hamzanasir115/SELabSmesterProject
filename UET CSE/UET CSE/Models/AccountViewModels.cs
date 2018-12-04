@@ -100,6 +100,15 @@ namespace UET_CSE.Models
         [Required]
         public string Gender { get; set; }
 
+        [Required]
+        public string Session { get; set; }
+
+        [Required]
+        public string Section { get; set; }
+
+        [Required]
+        public string Type { get; set; }
+
     }
 
     public class ResetPasswordViewModel

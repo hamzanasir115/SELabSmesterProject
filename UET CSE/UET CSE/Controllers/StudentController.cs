@@ -46,13 +46,65 @@ namespace UET_CSE.Controllers
         public ActionResult DateSheet()
         {
             ViewBag.Title = "Date Sheet";
-            return View();
+            UETCSEDbEntities db = new UETCSEDbEntities();
+
+            return View(db.AddDateSheets);
         }
 
         public ActionResult TimeTable()
         {
             ViewBag.Title = "Time Table";
-            return View();
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Dash = "--";
+            ViewBag.Break = "Break";
+            string session = null;
+            string section = null;
+            String Student = User.Identity.Name;
+            foreach(Registered_Student std in db.Registered_Students)
+            {
+                if(std.Email == Student)
+                {
+                    session = std.Session;
+                    section = std.Section;
+                }
+            }
+            List<AddTimeTable> Monday = new List<AddTimeTable>();
+            List<AddTimeTable> Tuesday = new List<AddTimeTable>();
+            List<AddTimeTable> Wednesday = new List<AddTimeTable>();
+            List<AddTimeTable> Thursday = new List<AddTimeTable>();
+            List<AddTimeTable> Friday = new List<AddTimeTable>();
+            foreach(AddTimeTable time in db.AddTimeTables)
+            {
+                if(session == time.Session && section == time.Section)
+                {
+                    if(time.Day == "Monday")
+                    {
+                        Monday.Add(time);
+                    }
+                    else if(time.Day == "Tuesday")
+                    {
+                        Tuesday.Add(time);
+                    }
+                    else if(time.Day == "Wednesday")
+                    {
+                        Wednesday.Add(time);
+                    }
+                    else if(time.Day == "Thursday")
+                    {
+                        Thursday.Add(time);
+                    }
+                    else if(time.Day == "Friday")
+                    {
+                        Friday.Add(time);
+                    }
+                }
+            }
+            ViewBag.Monday = Monday;
+            ViewBag.Tuesday = Tuesday;
+            ViewBag.Wednesday = Wednesday;
+            ViewBag.Thursday = Thursday;
+            ViewBag.Friday = Friday;
+            return View(db.AddTimeTables);
         }
 
         public ActionResult ForgetPassword()

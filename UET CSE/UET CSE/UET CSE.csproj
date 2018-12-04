@@ -241,9 +241,6 @@
     <Compile Include="Models\AspNetUserLogin.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AspNetUserRole.cs">
-      <DependentUpon>UETDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Cours.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>

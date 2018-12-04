@@ -20,5 +20,8 @@ namespace UET_CSE.Models
         public string Registration_Number { get; set; }
         public string Gender { get; set; }
         public string Email { get; set; }
+        public string Session { get; set; }
+        public string Section { get; set; }
+        public string Type { get; set; }
     }
 }

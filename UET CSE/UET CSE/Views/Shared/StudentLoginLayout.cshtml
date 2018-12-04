@@ -77,14 +77,22 @@
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
 
-                        @Html.ActionLink("Home", "HomePage", "Visitor")
-                        @Html.ActionLink("About", "about", "Visitor")
-                        @Html.ActionLink("Events", "Events", "Visitor")
-                        @Html.ActionLink("Faculty", "Faculty", "Visitor")
-                        @Html.ActionLink("Achievement", "Achievement", "Visitor")
-                        @Html.ActionLink("Date Sheet", "DateSheet", "Student")
-                        @Html.ActionLink("Time Table", "TimeTable", "Student")
-                        @Html.ActionLink("Logout", "HomePage", "Vistor")
+                        <li>@Html.ActionLink("Home", "HomePage", "Visitor")</li>
+                        <li>@Html.ActionLink("About", "about", "Visitor")</li>
+                        <li>@Html.ActionLink("Events", "Events", "Visitor")</li>
+                        <li>@Html.ActionLink("Faculty", "Faculty", "Visitor")
+                        <li>@Html.ActionLink("Achievement", "Achievement", "Visitor")</li>
+                        <li>@Html.ActionLink("Date Sheet", "DateSheet", "Student")</li>
+                        <li>@Html.ActionLink("Time Table", "TimeTable", "Student")</li>
+                        <li>
+                            @Html.ActionLink(User.Identity.Name, "TimeTable", "Student")
+                            <ul>
+                                <li>
+                                    @Html.ActionLink("Logout", "HomePage", "Visitor")
+                                </li>
+                            </ul>
+                        </li>
+                       
                         
                     </ul>
                 </nav><!-- #nav-menu-container -->
