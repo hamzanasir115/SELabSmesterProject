@@ -143,12 +143,6 @@ namespace UET_CSE.Controllers
 
         }
 
-        public ActionResult UpdateDateSheet()
-        {
-            ViewBag.Title = "Update Date Sheet";
-            return View();
-
-        }
 
         
         public ActionResult AddEvent()
@@ -440,6 +434,40 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
+        public ActionResult UpdateDateSheet(int id)
+        {
+            ViewBag.Title = "Update DateSheet";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.AddDateSheets.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateDateSheet(AddDateSheet obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddDateSheets.Find(id).Session = obj.Session;
+                    db.AddDateSheets.Find(id).Section = obj.Section;
+                    db.AddDateSheets.Find(id).Date = obj.Date;
+                    db.AddDateSheets.Find(id).Day = obj.Day;
+                    db.AddDateSheets.Find(id).Program= obj.Program;
+                    db.AddDateSheets.Find(id).Subject = obj.Subject;
+                    db.AddDateSheets.Find(id).Supritendent_Name = obj.Supritendent_Name;
+                    db.AddDateSheets.Find(id).Time = obj.Time;
+                    db.AddDateSheets.Find(id).Hall = obj.Hall;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
         public ActionResult UpdateStudent(int id)
         {
             ViewBag.Title = "Update Student";
@@ -480,6 +508,38 @@ namespace UET_CSE.Controllers
             ViewBag.Title = "View Achievement";
             
             return View(db.AddAchievements);
+        }
+        public ActionResult ViewDatesheet()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View Datesheet";
+
+            return View(db.AddDateSheets);
+        }
+        public ActionResult DeleteDateSheet(int id)
+        {
+            ViewBag.Title = "Delete DateSheet";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddDateSheet std = db.AddDateSheets.Find(id);
+            return View(std);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDateSheet(int id, AddDateSheet obj)
+        {
+            try
+            {
+                ViewBag.Title = "Delete DateSheet";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddDateSheets.Single(x => x.Id == id);
+                db.AddDateSheets.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
         }
         public ActionResult Admin()
         {
