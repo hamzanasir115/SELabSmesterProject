@@ -54,7 +54,15 @@
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li> @Html.ActionLink("Home","Admin", "Admin")</li>
-                        <li>@Html.ActionLink("Register Student", "RegisterStudent", "Admin")</li>
+                        <li>@Html.ActionLink("Register Student", "RegisterStudent", "Admin")
+                        <ul>
+                            <li>@Html.ActionLink("Add", "Register", "Account")</li>
+                            <li>@Html.ActionLink("View", "ViewStudent", "Admin")</li>
+                        </ul>
+                        
+                        
+                        </li>
+                        
                         <li class="menu-has-children">
                             @Html.ActionLink("Time Table", "AddTimeTable", "Admin")
                             <ul>
@@ -66,7 +74,7 @@
                             @Html.ActionLink("Date Sheet", "AddDateSheet", "Admin")
                             <ul>
                                 <li>@Html.ActionLink("Add", "AddDateSheet", "Admin")</li>
-                                <li>@Html.ActionLink("Update", "UpdateDateSheet", "Admin")</li>
+                                <li>@Html.ActionLink("View", "ViewDateSheet", "Admin")</li>
                             </ul>
                         </li>
                         <li class="menu-has-children">
@@ -102,6 +110,9 @@
                         <li>
                             @Html.ActionLink(User.Identity.Name, "Admin", "Admin")
                         <ul>
+                            <li>
+                                @Html.ActionLink("Change Password", "ChangePassword", "Account")
+                            </li>
                             <li>
                                 @Html.ActionLink("Logout", "HomePage", "Visitor")
                             </li>

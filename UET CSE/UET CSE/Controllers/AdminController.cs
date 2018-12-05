@@ -143,8 +143,74 @@ namespace UET_CSE.Controllers
 
         }
 
+        public ActionResult UpdateDateSheet(int id)
+        {
+            ViewBag.Title = "Update DateSheet";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
 
-        
+                return View(db.AddDateSheets.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateDateSheet(AddDateSheet obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddDateSheets.Find(id).Session = obj.Session;
+                    db.AddDateSheets.Find(id).Section = obj.Section;
+                    db.AddDateSheets.Find(id).Date = obj.Date;
+                    db.AddDateSheets.Find(id).Day = obj.Day;
+                    db.AddDateSheets.Find(id).Program = obj.Program;
+                    db.AddDateSheets.Find(id).Subject = obj.Subject;
+                    db.AddDateSheets.Find(id).Supritendent_Name = obj.Supritendent_Name;
+                    db.AddDateSheets.Find(id).Time = obj.Time;
+                    db.AddDateSheets.Find(id).Hall = obj.Hall;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult ViewDatesheet()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View Datesheet";
+
+            return View(db.AddDateSheets);
+        }
+        public ActionResult DeleteDateSheet(int id)
+        {
+            ViewBag.Title = "Delete DateSheet";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddDateSheet std = db.AddDateSheets.Find(id);
+            return View(std);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDateSheet(int id, AddDateSheet obj)
+        {
+            try
+            {
+                ViewBag.Title = "Delete DateSheet";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddDateSheets.Single(x => x.Id == id);
+                db.AddDateSheets.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
         public ActionResult AddEvent()
         {
             ViewBag.Title = "Add Event";
@@ -175,7 +241,7 @@ namespace UET_CSE.Controllers
                 ev.Description = Description;
                 ev.Start_Date = StartDate.Date;
                 ev.End_Date = EndDate.Date;
-                ev.Event_Time = Convert.ToString(EventTime);
+                ev.EventTime = Convert.ToString(EventTime);
                 ev.Ticket_Price = TicketPrice;
                 ev.Place = pLACE;
                 ev.ImagePath = ImagePath;
@@ -434,112 +500,14 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
-        public ActionResult UpdateDateSheet(int id)
-        {
-            ViewBag.Title = "Update DateSheet";
-            using (UETCSEDbEntities db = new UETCSEDbEntities())
-            {
 
-                return View(db.AddDateSheets.Where(x => x.Id == id).Single());
-            }
-        }
-        [HttpPost]
-        public ActionResult UpdateDateSheet(AddDateSheet obj, int id)
-        {
-            try
-            {
-                using (UETCSEDbEntities db = new UETCSEDbEntities())
-                {
-                    db.AddDateSheets.Find(id).Session = obj.Session;
-                    db.AddDateSheets.Find(id).Section = obj.Section;
-                    db.AddDateSheets.Find(id).Date = obj.Date;
-                    db.AddDateSheets.Find(id).Day = obj.Day;
-                    db.AddDateSheets.Find(id).Program= obj.Program;
-                    db.AddDateSheets.Find(id).Subject = obj.Subject;
-                    db.AddDateSheets.Find(id).Supritendent_Name = obj.Supritendent_Name;
-                    db.AddDateSheets.Find(id).Time = obj.Time;
-                    db.AddDateSheets.Find(id).Hall = obj.Hall;
-                    db.SaveChanges();
-                }
-                return View("Admin");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        public ActionResult UpdateStudent(int id)
-        {
-            ViewBag.Title = "Update Student";
-            using (UETCSEDbEntities db = new UETCSEDbEntities())
-            {
-
-                return View(db.Registered_Students.Where(x => x.Id == id).Single());
-            }
-        }
-        [HttpPost]
-        public ActionResult UpdateStudent(Registered_Student obj, int id)
-        {
-            try
-            {
-                using (UETCSEDbEntities db = new UETCSEDbEntities())
-                {
-                    db.Registered_Students.Find(id).Name = obj.Name;
-                    db.Registered_Students.Find(id).Father_Name = obj.Father_Name;
-                    db.Registered_Students.Find(id).CNIC = obj.CNIC;
-                    db.Registered_Students.Find(id).Registration_Number = obj.Registration_Number;
-                    db.Registered_Students.Find(id).Gender = obj.Gender;
-                    db.Registered_Students.Find(id).Email = obj.Email;
-                    db.Registered_Students.Find(id).Session = obj.Session;
-                    db.Registered_Students.Find(id).Section = obj.Section;
-                    db.SaveChanges();
-                }
-                return View("Admin");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+        
         public ActionResult ViewAchievement()
         {
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View Achievement";
             
             return View(db.AddAchievements);
-        }
-        public ActionResult ViewDatesheet()
-        {
-            UETCSEDbEntities db = new UETCSEDbEntities();
-            ViewBag.Title = "View Datesheet";
-
-            return View(db.AddDateSheets);
-        }
-        public ActionResult DeleteDateSheet(int id)
-        {
-            ViewBag.Title = "Delete DateSheet";
-            UETCSEDbEntities db = new UETCSEDbEntities();
-            AddDateSheet std = db.AddDateSheets.Find(id);
-            return View(std);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteDateSheet(int id, AddDateSheet obj)
-        {
-            try
-            {
-                ViewBag.Title = "Delete DateSheet";
-                UETCSEDbEntities db = new UETCSEDbEntities();
-                var ToDelete = db.AddDateSheets.Single(x => x.Id == id);
-                db.AddDateSheets.Remove(ToDelete);
-                db.SaveChanges();
-                return View("Admin");
-            }
-            catch
-            {
-                return View();
-            }
         }
         public ActionResult Admin()
         {
@@ -605,6 +573,7 @@ namespace UET_CSE.Controllers
             }
 
         }
+
         public ActionResult ViewStudent()
         {
             UETCSEDbEntities db = new UETCSEDbEntities();
@@ -637,6 +606,41 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
+
+        public ActionResult UpdateStudent(int id)
+        {
+            ViewBag.Title = "Update Student";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.Registered_Students.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateStudent(Registered_Student obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.Registered_Students.Find(id).Name = obj.Name;
+                    db.Registered_Students.Find(id).Father_Name = obj.Father_Name;
+                    db.Registered_Students.Find(id).CNIC = obj.CNIC;
+                    db.Registered_Students.Find(id).Registration_Number = obj.Registration_Number;
+                    db.Registered_Students.Find(id).Gender = obj.Gender;
+                    db.Registered_Students.Find(id).Email = obj.Email;
+                    db.Registered_Students.Find(id).Session = obj.Session;
+                    db.Registered_Students.Find(id).Section = obj.Section;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         public ActionResult DeleteAchievement(int id)
         {
             ViewBag.Title = "Delete Achievement";

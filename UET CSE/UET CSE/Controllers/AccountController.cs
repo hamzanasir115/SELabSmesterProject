@@ -187,6 +187,7 @@ namespace UET_CSE.Controllers
             string Admin = User.Identity.Name;
             UETCSEDbEntities db = new UETCSEDbEntities();
             string ID = null;
+            string a;
             string NewPassword = Encrypt.GetHash(model.Password);
             foreach (AspNetUser asp in db.AspNetUsers)
             {
@@ -198,7 +199,9 @@ namespace UET_CSE.Controllers
 
                         if (model.NewPassword == model.ConfirmPassword)
                         {
-                            UserManager.ChangePassword(ID, asp.PasswordHash, NewPassword);
+                            UserManager.RemovePassword(ID);
+                            UserManager.AddPassword(ID, model.NewPassword);
+                            //UserManager.ChangePassword(ID, asp.PasswordHash, NewPassword);
 
                             //db.AspNetUsers.Find(ID).PasswordHash = Encrypt.GetHash(model.NewPassword);
                             //db.SaveChanges();
@@ -325,7 +328,18 @@ namespace UET_CSE.Controllers
         public JsonResult SendMailToUser(string ToEmail)
         {
             bool result = false;
-            result = SendEmail(ToEmail, "UET CSE Login", "<p>Dear @Model.StudentName @Model.FatherName!<br />Click on the link below to Login.<br />http://localhost:11751/Account/CreatePassword</p>");
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            string StudentName = null;
+            string fatherName = null;
+            foreach(Registered_Student reg in db.Registered_Students)
+            {
+                if(ToEmail == reg.Email)
+                {
+                    StudentName = reg.Name;
+                    fatherName = reg.Father_Name;
+                }
+            }
+            result = SendEmail(ToEmail, "UET CSE Login", "<p>Dear " + StudentName + " " + fatherName +"!<br />Click on the link below to Login.<br />http://localhost:11751/Account/CreatePassword</p>");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -647,6 +661,8 @@ namespace UET_CSE.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
+
+        public object WebSecurity { get; private set; }
 
         private void AddErrors(IdentityResult result)
         {
