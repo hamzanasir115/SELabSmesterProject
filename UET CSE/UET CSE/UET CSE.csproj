@@ -793,7 +793,7 @@
     <Content Include="Views\Account\CreatePassword.cshtml" />
     <Content Include="Views\Admin\AddAdmin.cshtml" />
     <Content Include="Views\Account\RegisterAdmin.cshtml" />
-    <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

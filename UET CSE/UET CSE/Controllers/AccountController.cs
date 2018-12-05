@@ -80,6 +80,7 @@ namespace UET_CSE.Controllers
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             UETCSEDbEntities db = new UETCSEDbEntities();
             string Type = null;
+            
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             if(result == SignInStatus.Success)
             {
@@ -168,6 +169,50 @@ namespace UET_CSE.Controllers
                     return View(model);
             }
         }
+
+
+        public ActionResult ChangePassword()
+        {
+            ViewBag.Title = "Change Password";
+            return View();
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ResetPasswordViewModel model)
+        {
+            ViewBag.Title = "Change Password";
+            string Admin = User.Identity.Name;
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            string ID = null;
+            string NewPassword = Encrypt.GetHash(model.Password);
+            foreach (AspNetUser asp in db.AspNetUsers)
+            {
+                if (asp.UserName == Admin)
+                {
+                    ID = asp.Id;
+                    if (asp.PasswordHash == NewPassword)
+                    {
+
+                        if (model.NewPassword == model.ConfirmPassword)
+                        {
+                            UserManager.ChangePassword(ID, asp.PasswordHash, NewPassword);
+
+                            //db.AspNetUsers.Find(ID).PasswordHash = Encrypt.GetHash(model.NewPassword);
+                            //db.SaveChanges();
+                            return RedirectToAction("Admin", "Admin");
+                            //return View("~/Views/Admin/Admin");
+                        }
+                    }
+                }
+            }
+
+            return View();
+
+        }
+
         [AllowAnonymous]
         public ActionResult RegisterAdmin()
         {

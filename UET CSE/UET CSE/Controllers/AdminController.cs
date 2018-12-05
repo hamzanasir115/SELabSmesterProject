@@ -5,6 +5,16 @@ using System.Web;
 using System.Web.Mvc;
 using UET_CSE.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
+using System.Globalization;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace UET_CSE.Controllers
 {
@@ -50,13 +60,43 @@ namespace UET_CSE.Controllers
 
         }
 
-
+/*
         public ActionResult ChangePassword()
         {
             ViewBag.Title = "Change Password";
             return View();
 
         }
+
+        [HttpPost]
+        public ActionResult ChangePassword(ResetPasswordViewModel model)
+        {
+            ViewBag.Title = "Change Password";
+            string Admin = User.Identity.Name;
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            string ID = null;
+            string NewPassword = Encrypt.GetHash(model.Password);
+            foreach(AspNetUser asp in db.AspNetUsers)
+            {
+                if(asp.UserName == Admin)
+                {
+                    ID = asp.Id;
+                    if(asp.PasswordHash == NewPassword)
+                    {
+                        
+                        if (model.NewPassword == model.ConfirmPassword)
+                        {
+                            db.AspNetUsers.Find(ID).PasswordHash = Encrypt.GetHash(model.NewPassword);
+                            db.SaveChanges();
+                            return View("Admin");
+                        }
+                    }
+                }
+            }
+           
+            return View();
+
+        }*/
         public ActionResult UpdateTimeTable()
         {
             ViewBag.Title = "Update Time Table";
