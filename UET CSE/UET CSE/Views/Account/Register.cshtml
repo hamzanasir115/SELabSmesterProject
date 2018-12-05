@@ -55,16 +55,7 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            Admin
-            @Html.RadioButtonFor(model => model.Type, "Admin", new { @checked = true })
-            <br />
-            Student
-            @Html.RadioButtonFor(model => model.Type, "Student")
-        </div>
-    </div>
+    
 
     <div class="form-group">
         @Html.LabelFor(model => model.Section, htmlAttributes: new { @class = "control-label col-md-2" })

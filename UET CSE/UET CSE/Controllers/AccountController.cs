@@ -90,6 +90,17 @@ namespace UET_CSE.Controllers
                         Type = per.Type;
                     }
                 }
+                if(Type == null)
+                {
+                    foreach (var admin in db.Admins)
+                    {
+                        if (admin.Email == model.Email)
+                        {
+                            Type = admin.Type;
+                        }
+                    }
+                }
+                
             }
             switch (result)
             {
@@ -157,6 +168,52 @@ namespace UET_CSE.Controllers
                     return View(model);
             }
         }
+        [AllowAnonymous]
+        public ActionResult RegisterAdmin()
+        {
+            ViewBag.Title = "Add Admin";
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterAdmin(AdminRegistration model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user/*, model.Password*/);
+                if (result.Succeeded)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    UETCSEDbEntities db = new UETCSEDbEntities();
+                    var AdminName = model.AdminName;
+                    var Email = model.Email;
+                    var type = "Admin";
+                    Admin ad = new Admin();
+                    ad.Email = Email;
+                    ad.Name = AdminName;
+                    ad.Type = type;
+                    db.Admins.Add(ad);
+
+                    SendMailToUser(model.Email);
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("Login");
+                }
+                AddErrors(result);
+            }
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
 
         //
         // GET: /Account/Register
@@ -165,6 +222,8 @@ namespace UET_CSE.Controllers
         {
             return View();
         }
+
+
 
         //
         // POST: /Account/Register
@@ -188,7 +247,6 @@ namespace UET_CSE.Controllers
                     var Gender = model.Gender;
                     var Section = model.Section;
                     var Session = model.Session;
-                    var Type = model.Type;
                     Registered_Student std = new Registered_Student();
                     std.Name = StudentName;
                     std.Father_Name = FatherName;
@@ -198,7 +256,7 @@ namespace UET_CSE.Controllers
                     std.Gender = Gender;
                     std.Section = Section;
                     std.Session = Session;
-                    std.Type = Type;
+                    std.Type = "Student";
                     UETCSEDbEntities db = new UETCSEDbEntities();
                     db.Registered_Students.Add(std);
                     db.SaveChanges();

@@ -12,7 +12,6 @@
     <EntitySet Name="AspNetUserLogins" EntityType="UETCSEDbModel.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="UETCSEDbModel.AspNetUser" />
     <EntitySet Name="Courses" EntityType="UETCSEDbModel.Cours" />
-    <EntitySet Name="LoginPersons" EntityType="UETCSEDbModel.LoginPerson" />
     <EntitySet Name="Registered_Students" EntityType="UETCSEDbModel.Registered_Student" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="UETCSEDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -97,10 +96,11 @@
   </EntityType>
   <EntityType Name="Admin">
     <Key>
-      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Email" />
     </Key>
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
@@ -147,7 +147,6 @@
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="AspNetUserClaims" Relationship="UETCSEDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
     <NavigationProperty Name="AspNetUserLogins" Relationship="UETCSEDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
     <NavigationProperty Name="AspNetRoles" Relationship="UETCSEDbModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
@@ -162,14 +161,6 @@
     <Property Name="SubjectAbbreviation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CreditHours" Type="Int32" Nullable="false" />
     <Property Name="SemesterNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="LoginPerson">
-    <Key>
-      <PropertyRef Name="UserName" />
-    </Key>
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Registered_Student">
     <Key>

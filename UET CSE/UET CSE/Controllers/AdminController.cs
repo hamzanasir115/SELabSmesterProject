@@ -50,6 +50,13 @@ namespace UET_CSE.Controllers
 
         }
 
+
+        public ActionResult ChangePassword()
+        {
+            ViewBag.Title = "Change Password";
+            return View();
+
+        }
         public ActionResult UpdateTimeTable()
         {
             ViewBag.Title = "Update Time Table";
@@ -103,6 +110,7 @@ namespace UET_CSE.Controllers
 
         }
 
+        
         public ActionResult AddEvent()
         {
             ViewBag.Title = "Add Event";
@@ -416,7 +424,7 @@ namespace UET_CSE.Controllers
         public ActionResult Login(Admin model)
         {
             ViewBag.Title = "Login";
-            UETCSEDbEntities db = new UETCSEDbEntities();
+           /* UETCSEDbEntities db = new UETCSEDbEntities();
             foreach(Admin ad in db.Admins)
             {
                 if(ad.UserName == model.UserName && ad.Password == model.Password)
@@ -432,7 +440,7 @@ namespace UET_CSE.Controllers
 
                 }
             }
-            ModelState.Clear();
+            ModelState.Clear();*/
             return View();
         }
         public ActionResult RegisterStudent(StudentViewModel model)

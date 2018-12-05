@@ -1,468 +1,207 @@
-﻿@model IEnumerable<UET_CSE.Models.AddTimeTable>
+﻿
 
 @{
     Layout = "~/Views/Shared/StudentLoginLayout.cshtml";
 }
 
 
+
+
 <div class="limiter">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100 ver1 m-b-110">
-                <table data-vertable="ver1">
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="column100 column1" data-column="column1"></th>
-                            <th class="column100 column2" data-column="column2">8:00 to 9:00 (am)</th>
-                            <th class="column100 column3" data-column="column3">9:00 to 10:00 (am)</th>
-                            <th class="column100 column4" data-column="column4">10:00 to 11:00 (am)</th>
-                            <th class="column100 column5" data-column="column5">11:00 to 12:00 (am)</th>
-                            <th class="column100 column6" data-column="column6">12:00 to 1:00 (pm)</th>
-                            <th class="column100 column7" data-column="column7">1:00 to 2:00 (pm)</th>
-                            <th class="column100 column8" data-column="column8">2:00 to 3:00 (pm)</th>
-                            <th class="column100 column9" data-column="column9">3:00 to 4:00 (pm)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach(var item in Model)
-                        {
-                            <tr class="row100">
-                                @if (item.Day == "Monday")
-                                {
-                                    <td class="column100 column1" data-column="column1">
-                                        @Html.DisplayFor(modelItem => item.Day)
-                                    </td>
-                                    <td class="column100 column2" data-column="column2">
-                                        @if (item.StartTime == "08:00:00" && item.EndTime == "09:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column3" data-column="column3">
-                                        @if (item.StartTime == "09:00:00" && item.EndTime == "10:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column4" data-column="column4">
-                                        @if (item.StartTime == "10:00:00" && item.EndTime == "11:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column5" data-column="column5">
-                                        @if (item.StartTime == "11:00:00" && item.EndTime == "12:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column6" data-column="column6">
-                                        @if (item.StartTime == "12:00:00" && item.EndTime == "01:00:00")
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                    </td>
-                                    <td class="column100 column7" data-column="column7">
-                                        @if (item.StartTime == "01:00:00" && item.EndTime == "02:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column8" data-column="column8">
-                                        @if (item.StartTime == "02:00:00" && item.EndTime == "03:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column9" data-column="column9">
-                                        @if (item.StartTime == "03:00:00" && item.EndTime == "04:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                }
-                                else if (item.Day == "Tuesday")
-                                {
-                                    <td class="column100 column1" data-column="column1">
-                                        @Html.DisplayFor(modelItem => item.Day)
-                                    </td>
-                                    <td class="column100 column2" data-column="column2">
-                                        @if (item.StartTime == "08:00:00" && item.EndTime == "09:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column3" data-column="column3">
-                                        @if (item.StartTime == "09:00:00" && item.EndTime == "10:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column4" data-column="column4">
-                                        @if (item.StartTime == "10:00:00" && item.EndTime == "11:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column5" data-column="column5">
-                                        @if (item.StartTime == "11:00:00" && item.EndTime == "12:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column6" data-column="column6">
-                                        @if (item.StartTime == "12:00:00" && item.EndTime == "01:00:00")
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                    </td>
-                                    <td class="column100 column7" data-column="column7">
-                                        @if (item.StartTime == "01:00:00" && item.EndTime == "02:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column8" data-column="column8">
-                                        @if (item.StartTime == "02:00:00" && item.EndTime == "03:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column9" data-column="column9">
-                                        @if (item.StartTime == "03:00:00" && item.EndTime == "04:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                }
-                                else if (item.Day == "Wednesday")
-                                {
-                                    <td class="column100 column1" data-column="column1">
-                                        @Html.DisplayFor(modelItem => item.Day)
-                                    </td>
-                                    <td class="column100 column2" data-column="column2">
-                                        @if (item.StartTime == "08:00:00" && item.EndTime == "09:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column3" data-column="column3">
-                                        @if (item.StartTime == "09:00:00" && item.EndTime == "10:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column4" data-column="column4">
-                                        @if (item.StartTime == "10:00:00" && item.EndTime == "11:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column5" data-column="column5">
-                                        @if (item.StartTime == "11:00:00" && item.EndTime == "12:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column6" data-column="column6">
-                                        @if (item.StartTime == "12:00:00" && item.EndTime == "01:00:00")
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                    </td>
-                                    <td class="column100 column7" data-column="column7">
-                                        @if (item.StartTime == "01:00:00" && item.EndTime == "02:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column8" data-column="column8">
-                                        @if (item.StartTime == "02:00:00" && item.EndTime == "03:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column9" data-column="column9">
-                                        @if (item.StartTime == "03:00:00" && item.EndTime == "04:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                }
-                                else if (item.Day == "Thursday")
-                                {
-                                    <td class="column100 column1" data-column="column1">
-                                        @Html.DisplayFor(modelItem => item.Day)
-                                    </td>
-                                    <td class="column100 column2" data-column="column2">
-                                        @if (item.StartTime == "08:00:00" && item.EndTime == "09:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column3" data-column="column3">
-                                        @if (item.StartTime == "09:00:00" && item.EndTime == "10:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column4" data-column="column4">
-                                        @if (item.StartTime == "10:00:00" && item.EndTime == "11:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column5" data-column="column5">
-                                        @if (item.StartTime == "11:00:00" && item.EndTime == "12:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column6" data-column="column6">
-                                        @if (item.StartTime == "12:00:00" && item.EndTime == "01:00:00")
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                    </td>
-                                    <td class="column100 column7" data-column="column7">
-                                        @if (item.StartTime == "01:00:00" && item.EndTime == "02:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column8" data-column="column8">
-                                        @if (item.StartTime == "02:00:00" && item.EndTime == "03:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column9" data-column="column9">
-                                        @if (item.StartTime == "03:00:00" && item.EndTime == "04:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                }
-                                else if (item.Day == "Friday")
-                                {
-                                    <td class="column100 column1" data-column="column1">
-                                        @Html.DisplayFor(modelItem => item.Day)
-                                    </td>
-                                    <td class="column100 column2" data-column="column2">
-                                        @if (item.StartTime == "08:00:00" && item.EndTime == "09:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column3" data-column="column3">
-                                        @if (item.StartTime == "09:00:00" && item.EndTime == "10:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column4" data-column="column4">
-                                        @if (item.StartTime == "10:00:00" && item.EndTime == "11:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column5" data-column="column5">
-                                        @if (item.StartTime == "11:00:00" && item.EndTime == "12:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column6" data-column="column6">
-                                        @if (item.StartTime == "12:00:00" && item.EndTime == "01:00:00")
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Break
-                                        }
-                                    </td>
-                                    <td class="column100 column7" data-column="column7">
-                                        @if (item.StartTime == "01:00:00" && item.EndTime == "02:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column8" data-column="column8">
-                                        @if (item.StartTime == "02:00:00" && item.EndTime == "03:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                    <td class="column100 column9" data-column="column9">
-                                        @if (item.StartTime == "03:00:00" && item.EndTime == "04:00:00")
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Dash
-                                        }
-                                    </td>
-                                }
-
+                
+                    <table data-vertable="ver1">
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="column100 column1" data-column="column1"></th>
+                                <th class="column100 column2" data-column="column2">8:00 to 9:00 (am)</th>
+                                <th class="column100 column3" data-column="column3">9:00 to 10:00 (am)</th>
+                                <th class="column100 column4" data-column="column4">10:00 to 11:00 (am)</th>
+                                <th class="column100 column5" data-column="column5">11:00 to 12:00 (am)</th>
+                                <th class="column100 column6" data-column="column6">12:00 to 1:00 (pm)</th>
+                                <th class="column100 column7" data-column="column7">1:00 to 2:00 (pm)</th>
+                                <th class="column100 column8" data-column="column8">2:00 to 3:00 (pm)</th>
+                                <th class="column100 column9" data-column="column9">3:00 to 4:00 (pm)</th>
                             </tr>
+                        </thead>
+                        @{
+                            List<UET_CSE.Models.DisplayTimeTable> list = new List<UET_CSE.Models.DisplayTimeTable>();
+                            list = (List<UET_CSE.Models.DisplayTimeTable>)ViewBag.List;
                         }
+                        <tbody>
+                            
+                           
+                            @foreach (var item in list)
+                            {
+                                <tr class="row100">
+                                    @if (item.Day == "Monday")
+                                    {
+                                        <td class="column100 column1" data-column="column1">
+                                            @Html.DisplayFor(modelItem => item.Day)
+                                        </td>
+                                        <td class="column100 column2" data-column="column2">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
+                                        </td>
+                                       
+                                        <td class="column100 column3" data-column="column3">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
+                                        </td>
+                                        <td class="column100 column4" data-column="column4">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation3)
+                                        </td>
+                                        <td class="column100 column5" data-column="column5">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation4)
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            Break
+                                        </td>
+                                        <td class="column100 column7" data-column="column7">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation5)
+                                        </td>
+                                        <td class="column100 column8" data-column="column8">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation6)
+                                        </td>
+                                        <td class="column100 column9" data-column="column9">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation7)
+                                        </td>
+                                    }
 
-                    </tbody>
-                </table>
+                                    else if (item.Day == "Tuesday")
+                                    {
+                                        <td class="column100 column1" data-column="column1">
+                                            @Html.DisplayFor(modelItem => item.Day)
+                                        </td>
+                                        <td class="column100 column2" data-column="column2">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
+                                        </td>
+                                        
+                                        <td class="column100 column3" data-column="column3">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
+                                        </td>
+                                        <td class="column100 column4" data-column="column4">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation3)
+                                        </td>
+                                        <td class="column100 column5" data-column="column5">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation4)
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            Break
+                                        </td>
+                                        <td class="column100 column7" data-column="column7">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation5)
+                                        </td>
+                                        <td class="column100 column8" data-column="column8">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation6)
+                                        </td>
+                                        <td class="column100 column9" data-column="column9">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation7)
+                                        </td>
+                                    }
+                                    else if (item.Day == "Wednesday")
+                                    {
+                                        <td class="column100 column1" data-column="column1">
+                                            @Html.DisplayFor(modelItem => item.Day)
+                                        </td>
+                                        <td class="column100 column2" data-column="column2">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
+                                        </td>
+                                        
+
+                                        <td class="column100 column3" data-column="column3">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
+                                        </td>
+                                        <td class="column100 column4" data-column="column4">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation3)
+                                        </td>
+                                        <td class="column100 column5" data-column="column5">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation4)
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            Break
+                                        </td>
+                                        <td class="column100 column7" data-column="column7">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation5)
+                                        </td>
+                                        <td class="column100 column8" data-column="column8">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation6)
+                                        </td>
+                                        <td class="column100 column9" data-column="column9">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation7)
+                                        </td>
+                                    }
+                                    else if (item.Day == "Thursday")
+                                    {
+                                        <td class="column100 column1" data-column="column1">
+                                            @Html.DisplayFor(modelItem => item.Day)
+                                        </td>
+                                        <td class="column100 column2" data-column="column2">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
+                                        </td>
+                                       
+                                        <td class="column100 column3" data-column="column3">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
+                                        </td>
+                                        <td class="column100 column4" data-column="column4">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation3)
+                                        </td>
+                                        <td class="column100 column5" data-column="column5">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation4)
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            Break
+                                        </td>
+                                        <td class="column100 column7" data-column="column7">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation5)
+                                        </td>
+                                        <td class="column100 column8" data-column="column8">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation6)
+                                        </td>
+                                        <td class="column100 column9" data-column="column9">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation7)
+                                        </td>
+                                    }
+
+                                    else if (item.Day == "Friday")
+                                    {
+                                        <td class="column100 column1" data-column="column1">
+                                            @Html.DisplayFor(modelItem => item.Day)
+                                        </td>
+                                        <td class="column100 column2" data-column="column2">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
+                                        </td>
+                                       
+                                        <td class="column100 column3" data-column="column3">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
+                                        </td>
+                                        <td class="column100 column4" data-column="column4">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation3)
+                                        </td>
+                                        <td class="column100 column5" data-column="column5">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation4)
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            Break
+                                        </td>
+                                        <td class="column100 column7" data-column="column7">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation5)
+                                        </td>
+                                        <td class="column100 column8" data-column="column8">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation6)
+                                        </td>
+                                        <td class="column100 column9" data-column="column9">
+                                            @Html.DisplayFor(modelItem => item.SubjectAbbreviation7)
+                                        </td>
+                                    }
+
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                
             </div>
 
             <div class="table100 ver1 m-b-50">
@@ -470,59 +209,28 @@
                     <thead>
                         <tr class="row100 head">
 
-                            <th class="column100 column1" data-column="column1">Subject Abbreviation</th>
+                            <th class="column100 column1" data-column="column1">Subject Abbreviation
+                            </th>
                             <th class="column100 column2" data-column="column2">Subject Name</th>
                             <th class="column100 column3" data-column="column3">Teacher</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">PRV</td>
-                            <td class="column100 column2" data-column="column2">Probability and Random Variable</td>
-                            <td class="column100 column3" data-column="column3">Dr Irfan Ullah Ch.</td>
+                        @{
+                            List<UET_CSE.Models.AddTimeTable> list1 = new List<UET_CSE.Models.AddTimeTable>();
+                            list1 = (List<UET_CSE.Models.AddTimeTable>)ViewBag.List2;
+                        }
+                        @foreach (var item in list1)
+                        {
+                            <tr class="row100">
+                                <td class="column100 column1" data-column="column1">@Html.DisplayFor(modelItem => item.SubjectAbbreviation ) </td>
+                                <td class="column100 column2" data-column="column2">@Html.DisplayFor(modelItem => item.SubjectName )</td>
+                                <td class="column100 column3" data-column="column3">@Html.DisplayFor(modelItem => item.TeacherName )</td>
 
-                        </tr>
-
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">AOA</td>
-                            <td class="column100 column2" data-column="column2">Analysis of Algorithm</td>
-                            <td class="column100 column3" data-column="column3">Atif Waraich</td>
-
-                        </tr>
-
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">SE</td>
-                            <td class="column100 column2" data-column="column2">Software Engineering</td>
-                            <td class="column100 column3" data-column="column3">Dr. Amjad Farooq</td>
-
-                        </tr>
-
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">CS</td>
-                            <td class="column100 column2" data-column="column2">Communication Skills</td>
-                            <td class="column100 column3" data-column="column3">Mam Sadaf</td>
-
-                        </tr>
-
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">AI</td>
-                            <td class="column100 column2" data-column="column2">Artificial Intelligence</td>
-                            <td class="column100 column3" data-column="column3">Dr. Awais Hassan</td>
-
-                        </tr>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">AI LAB</td>
-                            <td class="column100 column2" data-column="column2">Artificial Intelligence Lab</td>
-                            <td class="column100 column3" data-column="column3">Dr. Awais Hassan</td>
-
-                        </tr>
-                        <tr class="row100">
-                            <td class="column100 column1" data-column="column1">SE LAB</td>
-                            <td class="column100 column2" data-column="column2">Software Engineering Lab</td>
-                            <td class="column100 column3" data-column="column3">Sir Samyan Wahla</td>
-
-                        </tr>
+                            </tr>
+                        }
+                        
                     </tbody>
                 </table>
             </div>
