@@ -14,15 +14,15 @@ namespace UET_CSE.Models
     
     public partial class AddDateSheet
     {
+        public int Id { get; set; }
         public string Session { get; set; }
         public string Section { get; set; }
-        public string Day { get; set; }
         public System.DateTime Date { get; set; }
+        public string Day { get; set; }
         public string Program { get; set; }
         public string Subject { get; set; }
         public string Supritendent_Name { get; set; }
         public string Time { get; set; }
         public string Hall { get; set; }
-        public int Id { get; set; }
     }
 }

@@ -1,0 +1,97 @@
+﻿@model UET_CSE.Models.Registered_Student
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("DeleteStudent", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                @Html.AntiForgeryToken()
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Father_Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Father_Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CNIC)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CNIC)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Registration_Number)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Registration_Number)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Gender)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Gender)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Session)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Session)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Section)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Section)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Type)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Type)
+                        </dd>
+
+                    </dl>
+
+                            <input type="submit" value="Delete" class="btn btn-default",  onclick="return confirm ('Are you sure want to delete this Student?');"  /> 
+                    
+                </div>
+            </form>
+        </div>
+    </section>
+}

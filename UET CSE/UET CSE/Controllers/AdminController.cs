@@ -181,7 +181,7 @@ namespace UET_CSE.Controllers
                 ev.Description = Description;
                 ev.Start_Date = StartDate.Date;
                 ev.End_Date = EndDate.Date;
-                ev.EventTime = Convert.ToString(EventTime);
+                ev.Event_Time = Convert.ToString(EventTime);
                 ev.Ticket_Price = TicketPrice;
                 ev.Place = pLACE;
                 ev.ImagePath = ImagePath;
@@ -440,8 +440,40 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
+        public ActionResult UpdateStudent(int id)
+        {
+            ViewBag.Title = "Update Student";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
 
-        
+                return View(db.Registered_Students.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateStudent(Registered_Student obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.Registered_Students.Find(id).Name = obj.Name;
+                    db.Registered_Students.Find(id).Father_Name = obj.Father_Name;
+                    db.Registered_Students.Find(id).CNIC = obj.CNIC;
+                    db.Registered_Students.Find(id).Registration_Number = obj.Registration_Number;
+                    db.Registered_Students.Find(id).Gender = obj.Gender;
+                    db.Registered_Students.Find(id).Email = obj.Email;
+                    db.Registered_Students.Find(id).Session = obj.Session;
+                    db.Registered_Students.Find(id).Section = obj.Section;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         public ActionResult ViewAchievement()
         {
             UETCSEDbEntities db = new UETCSEDbEntities();
@@ -512,6 +544,38 @@ namespace UET_CSE.Controllers
                 return View();
             }
 
+        }
+        public ActionResult ViewStudent()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View Student";
+
+            return View(db.Registered_Students);
+        }
+        public ActionResult DeleteStudent(int id)
+        {
+            ViewBag.Title = "Delete Student";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            Registered_Student std = db.Registered_Students.Find(id);
+            return View(std);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteStudent(int id, Registered_Student obj)
+        {
+            try
+            {
+                ViewBag.Title = "Delete Student";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.Registered_Students.Single(x => x.Id == id);
+                db.Registered_Students.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
         }
         public ActionResult DeleteAchievement(int id)
         {
