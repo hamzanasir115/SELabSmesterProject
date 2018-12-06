@@ -107,6 +107,14 @@
                                 <li>@Html.ActionLink("View", "ViewCourses", "Admin")</li>
                             </ul>
                         </li>
+
+                        <li>
+                            @Html.ActionLink("Announcements", "AddAnnouncement", "Admin")
+                            <ul>
+                                <li>@Html.ActionLink("Add", "AddAnnouncement", "Admin")</li>
+                                <li>@Html.ActionLink("View", "ViewAnnouncement", "Admin")</li>
+                            </ul>
+                        </li>
                         <li>
                             @Html.ActionLink(User.Identity.Name, "Admin", "Admin")
                         <ul>

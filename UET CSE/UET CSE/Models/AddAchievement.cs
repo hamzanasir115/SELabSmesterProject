@@ -18,7 +18,7 @@ namespace UET_CSE.Models
         public System.DateTime Achievement_Date { get; set; }
         public string Achievement { get; set; }
         public string Email { get; set; }
-        public string Image_path { get; set; }
+        public string Image_Path { get; set; }
         public int Id { get; set; }
     }
 }

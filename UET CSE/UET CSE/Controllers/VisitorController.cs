@@ -26,6 +26,7 @@ namespace UET_CSE.Controllers
             ViewBag.Faculty = db.AddFaculties;
             ViewBag.Achievements = db.AddAchievements;
             ViewBag.Announcements = db.AddAnnouncements;
+            ViewBag.Academics = db.AddAcademics;
             return View();
 
         }

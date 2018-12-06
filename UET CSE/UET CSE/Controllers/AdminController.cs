@@ -60,7 +60,6 @@ namespace UET_CSE.Controllers
 
         }
 
-
         public ActionResult AddAcademic()
         {
             ViewBag.Title = "Add Academics";
@@ -99,7 +98,7 @@ namespace UET_CSE.Controllers
                 ModelState.Clear();
                 return View("Admin");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
@@ -133,7 +132,7 @@ namespace UET_CSE.Controllers
                     db.AddAcademics.Find(id).Description = obj.Description;
                     db.AddAcademics.Find(id).ImagePath = obj.ImagePath;
                     db.AddAcademics.Find(id).Duration = obj.Duration;
-                   
+
                     db.SaveChanges();
                 }
                 return View("Admin");
@@ -169,6 +168,7 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
+
 
         /*
                 public ActionResult ChangePassword()
@@ -261,11 +261,17 @@ namespace UET_CSE.Controllers
                 AddAnnouncement announce = new Models.AddAnnouncement();
                 announce.Topic = model.Topic;
                 announce.Description = model.Description;
+                String asp = "" ;
+                
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
-                {
+                {         
                     db.AddAnnouncements.Add(announce);
                     db.SaveChanges();
-
+                    foreach (Registered_Student a in db.Registered_Students)
+                    {
+                        var item = new AccountController().SendEmail(a.Email, model.Topic, model.Description);
+                    }
+                        
                 }
                 ModelState.Clear();
                 return View("Admin");
@@ -614,7 +620,7 @@ namespace UET_CSE.Controllers
                     db.Courses.Find(id).SubjectName = obj.SubjectName;
                     db.Courses.Find(id).SubjectAbbreviation = obj.SubjectAbbreviation;
                     db.Courses.Find(id).CreditHours = obj.CreditHours;
-                    db.Courses.Find(id).SmesterNumber = obj.SmesterNumber;
+                    db.Courses.Find(id).SemesterNumber = obj.SemesterNumber;
                     db.SaveChanges();
                 }
                 return View("Admin");
@@ -640,7 +646,7 @@ namespace UET_CSE.Controllers
         {
             ViewBag.Title = "Add Courses";
             Cours co = new Cours();
-            co.SmesterNumber = Convert.ToString(model.SemesterNumber);
+            co.SemesterNumber = Convert.ToString(model.SemesterNumber);
             co.SubjectName = model.SubjectName;
             co.SubjectCode = model.SubjectCode;
             co.SubjectAbbreviation = model.SubjectAbbreviation;
@@ -720,7 +726,7 @@ namespace UET_CSE.Controllers
             ach.Email = Email;
             ach.Achievement = Achievement;
             ach.Achievement_Date = AchievementDate;
-            ach.Image_path = ImagePath;
+            ach.Image_Path = ImagePath;
             using(UETCSEDbEntities db = new UETCSEDbEntities())
             {
                 db.AddAchievements.Add(ach);
@@ -751,7 +757,7 @@ namespace UET_CSE.Controllers
                     db.AddAchievements.Find(id).Achievement_Date = obj.Achievement_Date;
                     db.AddAchievements.Find(id).Achievement = obj.Achievement;
                     db.AddAchievements.Find(id).Email = obj.Email;
-                    db.AddAchievements.Find(id).Image_path = obj.Image_path;
+                    db.AddAchievements.Find(id).Image_Path = obj.Image_Path;
                     db.SaveChanges();
                 }
                 return View("Admin");
@@ -822,7 +828,7 @@ namespace UET_CSE.Controllers
                 std.CNIC = CNIC;
                 std.Email = Email;
                 std.Registration_Number = RegNumber;
-                std.Grender = Gender;
+                std.Gender = Gender;
                 UETCSEDbEntities db = new UETCSEDbEntities();
                 db.Registered_Students.Add(std);
                 db.SaveChanges();
@@ -888,7 +894,7 @@ namespace UET_CSE.Controllers
                     db.Registered_Students.Find(id).Father_Name = obj.Father_Name;
                     db.Registered_Students.Find(id).CNIC = obj.CNIC;
                     db.Registered_Students.Find(id).Registration_Number = obj.Registration_Number;
-                    db.Registered_Students.Find(id).Grender = obj.Grender;
+                    db.Registered_Students.Find(id).Gender = obj.Gender;
                     db.Registered_Students.Find(id).Email = obj.Email;
                     db.Registered_Students.Find(id).Session = obj.Session;
                     db.Registered_Students.Find(id).Section = obj.Section;

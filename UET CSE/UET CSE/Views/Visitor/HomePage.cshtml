@@ -14,169 +14,34 @@
         </div>
         <div class="row">
             <div class="active-popular-carusel">
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/BscComputerScience.jpg" alt="" style="width:263px;height:200px;">
+                @foreach (var item in ViewBag.Academics)
+                {
+                    <div class="single-popular-carusel">
+                        <div class="thumb-wrap relative">
+                            <div class="thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <img class="img-fluid" src="@Url.Content(@item.ImagePath ) " alt="" style="width:263px;height:200px;">
+                            </div>
+                            <div class="meta d-flex justify-content-between">
+                                <br>
+                            </div>
                         </div>
-                        <div class="meta d-flex justify-content-between">
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                BSc. Computer Science
-                            </h4>
+                        <div class="details">
+                            <a href="#">
+                                <h4>
+                                    @item.Degree_Program
+                                </h4>
 
-                        </a>
-                        <p>
-                            A four years degree program leading towards a B.Sc. (Honours) Computer Science was introduced by the department in 1999 and another 4 years B.Sc. program in Computer Science and Engineering in 2001. For students enrolling from September 2003 onwards, B.Sc programs have been re-named and modified into four years B.Sc. Computer Science (CS).
-                        </p>
-                    </div>
-                </div>
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/program-comp-eng.jpg" alt="" style="width:263px;height:200px;">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-
-                            <br>
+                            </a>
+                            <p>
+                                @item.Description
+                            </p>
                         </div>
                     </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                BSc. Computer Engineering
-                            </h4>
-                        </a>
-                        <p>
-                            A four years degree program leading towards a B.Sc. (Honours) Computer Science was introduced by the department in 1999 and another 4 years B.Sc. program in Computer Science and Engineering in 2001. For students enrolling from September 2003 onwards, B.Sc programs have been re-named and modified into four years B.Sc. Computer Science (CS).
-                        </p>
-                    </div>
-                </div>
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/p3.jpg" alt="">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--@*<p><span class="lnr lnr-users"></span> </p> @*355 <span class="lnr lnr-bubble"></span>35</p>
-                                <h4>$150</h4>*@
-                            -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                MSc. Computer Science
-                            </h4>
-                        </a>
-                        <p>
-                            When television was young, there was a hugely popular show based on the still popular fictional characte
-                        </p>
-                    </div>
-                </div>
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/p4.jpg" alt="">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                                @*<p><span class="lnr lnr-users"></span> @*355 <span class="lnr lnr-bubble"></span>35*@
-                                                            @* <h4>$150</h4>*@
-                                   -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                MSc. Computer Engineering
-                            </h4>
-                        </a>
-                        <p>
-                            When television was young, there was a hugely popular show based on the still popular fictional characte
-                        </p>
-                    </div>
-                </div>
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/p1.jpg" alt="">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--                   @*<p><span class="lnr lnr-users"></span> @*355 <span class="lnr lnr-bubble"></span>35*@
-                                   -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                Phd. Computer Science
-                            </h4>
-                        </a>
-                        <p>
-                            When television was young, there was a hugely popular show based on the still popular fictional characte
-                        </p>
-                    </div>
-                </div>
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/p3.jpg" alt="">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--@*<p><span class="lnr lnr-users"></span> @*55 <span class="lnr lnr-bubble"></span>35*@
-                            -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                Phd. Computer Engineering
-                            </h4>
-                        </a>
-                        <p>
-                            When television was young, there was a hugely popular show based on the still popular fictional characte
-                        </p>
-                    </div>
-                </div>
-                <div class="single-popular-carusel">
-                    <div class="thumb-wrap relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="~/img/p4.jpg" alt="">
-                        </div>
-                        <div class="meta d-flex justify-content-between">
-                            <!--@*<p><span class="lnr lnr-users"></span> @*355 <span class="lnr lnr-bubble"></span>*@
-                            @*<h4>$150</h4>*@
-                            -->
-                            <br>
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="#">
-                            <h4>
-                                BSCS
-                            </h4>
-                        </a>
-                        <p>
-                            When television was young, there was a hugely popular show based on the still popular fictional characte
-                        </p>
-                    </div>
-                </div>
+                }
+                
+                
+                
             </div>
         </div>
     </div>

@@ -39,6 +39,5 @@ namespace UET_CSE.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Cours> Courses { get; set; }
         public virtual DbSet<Registered_Student> Registered_Students { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

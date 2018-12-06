@@ -7,7 +7,7 @@
     <Property Name="Degree Program" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Duration" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="AddAchievement">
@@ -18,7 +18,7 @@
     <Property Name="Achievement Date" Type="datetime" Nullable="false" />
     <Property Name="Achievement" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Image path" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Image Path" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="AddAnnouncement">
@@ -154,32 +154,22 @@
     <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SubjectAbbreviation" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreditHours" Type="int" Nullable="false" />
-    <Property Name="SmesterNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SemesterNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Registered Student">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Father Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CNIC" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Registration Number" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Grender" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="text" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Session" Type="nvarchar" MaxLength="50" />
     <Property Name="Section" Type="nvarchar" MaxLength="50" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -253,7 +243,6 @@
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registered Student" EntityType="Self.Registered Student" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />

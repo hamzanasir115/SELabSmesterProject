@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="UETCSEDbModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" />
         <EntityTypeShape EntityType="UETCSEDbModel.Cours" Width="1.5" PointX="0.75" PointY="9.75" />
         <EntityTypeShape EntityType="UETCSEDbModel.Registered_Student" Width="1.5" PointX="2.75" PointY="9.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.sysdiagram" Width="1.5" PointX="10.75" PointY="3.75" />
         <AssociationConnector Association="UETCSEDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="UETCSEDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="UETCSEDbModel.AspNetUserRoles" />

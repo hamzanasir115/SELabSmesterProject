@@ -263,9 +263,6 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentViewModel.cs" />
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>UETDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TimeTableViewModel.cs" />
     <Compile Include="Models\UETDb.Context.cs">
       <AutoGen>True</AutoGen>

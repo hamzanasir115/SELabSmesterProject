@@ -16,6 +16,7 @@ using System.Security.Cryptography;
 namespace UET_CSE.Controllers
 {
     [Authorize]
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -187,7 +188,6 @@ namespace UET_CSE.Controllers
             string Admin = User.Identity.Name;
             UETCSEDbEntities db = new UETCSEDbEntities();
             string ID = null;
-            string a;
             string NewPassword = Encrypt.GetHash(model.Password);
             foreach (AspNetUser asp in db.AspNetUsers)
             {
@@ -301,7 +301,7 @@ namespace UET_CSE.Controllers
                     std.CNIC = CNIC;
                     std.Email = Email;
                     std.Registration_Number = RegNumber;
-                    std.Grender = Gender;
+                    std.Gender = Gender;
                     std.Section = Section;
                     std.Session = Session;
                     std.Type = "Student";
@@ -371,11 +371,13 @@ namespace UET_CSE.Controllers
         public ActionResult CreatePassword()
         {
             ViewBag.Title = "Create Password";
-
-
             return View();
         }
+
+        
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePassword(CreatePassword model)
         {
             ViewBag.Title = "Create Password";
@@ -428,13 +430,30 @@ namespace UET_CSE.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                bool isValidEmail = false;
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                foreach(AspNetUser asp in db.AspNetUsers)
                 {
-                    // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    if(asp.Email == model.Email)
+                    {
+                        isValidEmail = true;
+                        break;
+                    }
                 }
-
+                if(isValidEmail == true)
+                {
+                    string body;
+                    body = "Click on the link below to Reset Password \n http://localhost:11751/Account/CreatePassword";
+                    SendEmail(model.Email, "Forget Password", body);
+                    return View("Login");
+                }
+                //var user = await UserManager.FindByNameAsync(model.Email);
+                //if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                //{
+                  //  // Don't reveal that the user does not exist or is not confirmed
+                   // return View("ForgotPasswordConfirmation");
+            //    }
+            
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
