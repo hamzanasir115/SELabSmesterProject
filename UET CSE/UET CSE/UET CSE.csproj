@@ -210,6 +210,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AchievementViewModel.cs" />
+    <Compile Include="Models\AddAcademic.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AddAchievement.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
@@ -798,6 +801,8 @@
     <Content Include="Views\Admin\UpdateStudent.cshtml" />
     <Content Include="Views\Admin\ViewDatesheet.cshtml" />
     <Content Include="Views\Admin\DeleteDateSheet.cshtml" />
+    <Content Include="Views\Admin\ViewTimeTable.cshtml" />
+    <Content Include="Views\Admin\DeleteTimeTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

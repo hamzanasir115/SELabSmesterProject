@@ -97,12 +97,7 @@ namespace UET_CSE.Controllers
             return View();
 
         }*/
-        public ActionResult UpdateTimeTable()
-        {
-            ViewBag.Title = "Update Time Table";
-            return View();
-
-        }
+      
 
 
         public ActionResult AddDateSheet()
@@ -177,6 +172,73 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
+        public ActionResult UpdateTimeTable(int id)
+        {
+            ViewBag.Title = "Update TimeTable";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.AddTimeTables.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateTimeTable(AddTimeTable obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddTimeTables.Find(id).SubjectName = obj.SubjectName;
+                    db.AddTimeTables.Find(id).SubjectAbbreviation= obj.SubjectAbbreviation;
+                    db.AddTimeTables.Find(id).Day = obj.Day;
+                    db.AddTimeTables.Find(id).Place = obj.Place;
+                    db.AddTimeTables.Find(id).Session = obj.Session;
+                    db.AddTimeTables.Find(id).Section = obj.Section;
+                    db.AddTimeTables.Find(id).StartTime = obj.StartTime;
+                    db.AddTimeTables.Find(id).EndTime = obj.EndTime;
+                    db.AddTimeTables.Find(id).TeacherName = obj.TeacherName;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult ViewTimeTable()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View TimeTable";
+
+            return View(db.AddTimeTables);
+        }
+        public ActionResult DeleteTimeTable(int id)
+        {
+            ViewBag.Title = "Delete TimeTable";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddTimeTable t = db.AddTimeTables.Find(id);
+            return View(t);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteTimeTable(int id, AddTimeTable obj)
+        {
+            try
+            {
+                ViewBag.Title = "Delete TimeTable";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddTimeTables.Single(x => x.Id == id);
+                db.AddTimeTables.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         public ActionResult ViewDatesheet()
         {
             UETCSEDbEntities db = new UETCSEDbEntities();
@@ -241,7 +303,7 @@ namespace UET_CSE.Controllers
                 ev.Description = Description;
                 ev.Start_Date = StartDate.Date;
                 ev.End_Date = EndDate.Date;
-                ev.EventTime = Convert.ToString(EventTime);
+                ev.Event_Time = Convert.ToString(EventTime);
                 ev.Ticket_Price = TicketPrice;
                 ev.Place = pLACE;
                 ev.ImagePath = ImagePath;

@@ -25,6 +25,7 @@ namespace UET_CSE.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AddAcademic> AddAcademics { get; set; }
         public virtual DbSet<AddAchievement> AddAchievements { get; set; }
         public virtual DbSet<AddDateSheet> AddDateSheets { get; set; }
         public virtual DbSet<AddEvent> AddEvents { get; set; }

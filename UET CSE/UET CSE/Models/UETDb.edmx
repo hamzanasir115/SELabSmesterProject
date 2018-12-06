@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="UETCSEDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddAcademics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Degree Program" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="AddAchievement">
           <Key>
             <PropertyRef Name="Id" />
@@ -20,16 +30,16 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Session" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Section" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Program" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Supritendent Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Time" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Hall" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="AddEvents">
           <Key>
@@ -37,13 +47,13 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Event Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Start Date" Type="date" Nullable="false" />
           <Property Name="End Date" Type="date" Nullable="false" />
+          <Property Name="Event Time" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ticket Price" Type="nvarchar" MaxLength="50" />
           <Property Name="Place" Type="nvarchar" MaxLength="150" />
           <Property Name="ImagePath" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="EventTime" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="AddFaculty">
           <Key>
@@ -147,6 +157,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Father Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CNIC" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -156,7 +167,6 @@
           <Property Name="Session" Type="nvarchar" MaxLength="50" />
           <Property Name="Section" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -215,6 +225,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="UETCSEDbModelStoreContainer">
+          <EntitySet Name="AddAcademics" EntityType="Self.AddAcademics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddDateSheets" EntityType="Self.AddDateSheets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
@@ -250,6 +261,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="UETCSEDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="UETCSEDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AddAcademics" EntityType="UETCSEDbModel.AddAcademic" />
           <EntitySet Name="AddAchievements" EntityType="UETCSEDbModel.AddAchievement" />
           <EntitySet Name="AddDateSheets" EntityType="UETCSEDbModel.AddDateSheet" />
           <EntitySet Name="AddEvents" EntityType="UETCSEDbModel.AddEvent" />
@@ -275,6 +287,16 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AddAcademic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Degree_Program" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="AddAchievement">
           <Key>
             <PropertyRef Name="Id" />
@@ -290,16 +312,16 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Session" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Section" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Day" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Day" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Program" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Supritendent_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Hall" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="AddEvent">
           <Key>
@@ -307,13 +329,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Event_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Event_Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ticket_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Place" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="EventTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AddFaculty">
           <Key>
@@ -415,6 +437,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Father_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNIC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -424,7 +447,6 @@
           <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="UETCSEDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -464,6 +486,17 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="UETCSEDbModelStoreContainer" CdmEntityContainer="UETCSEDbEntities">
+          <EntitySetMapping Name="AddAcademics">
+            <EntityTypeMapping TypeName="UETCSEDbModel.AddAcademic">
+              <MappingFragment StoreEntitySet="AddAcademics">
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Degree_Program" ColumnName="Degree Program" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AddAchievements">
             <EntityTypeMapping TypeName="UETCSEDbModel.AddAchievement">
               <MappingFragment StoreEntitySet="AddAchievement">
@@ -479,26 +512,26 @@
           <EntitySetMapping Name="AddDateSheets">
             <EntityTypeMapping TypeName="UETCSEDbModel.AddDateSheet">
               <MappingFragment StoreEntitySet="AddDateSheets">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Hall" ColumnName="Hall" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Supritendent_Name" ColumnName="Supritendent Name" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Program" ColumnName="Program" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Section" ColumnName="Section" />
                 <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AddEvents">
             <EntityTypeMapping TypeName="UETCSEDbModel.AddEvent">
               <MappingFragment StoreEntitySet="AddEvents">
-                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="Place" ColumnName="Place" />
                 <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+                <ScalarProperty Name="Event_Time" ColumnName="Event Time" />
                 <ScalarProperty Name="End_Date" ColumnName="End Date" />
                 <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -606,7 +639,6 @@
           <EntitySetMapping Name="Registered_Students">
             <EntityTypeMapping TypeName="UETCSEDbModel.Registered_Student">
               <MappingFragment StoreEntitySet="Registered Student">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Section" ColumnName="Section" />
                 <ScalarProperty Name="Session" ColumnName="Session" />
@@ -616,6 +648,7 @@
                 <ScalarProperty Name="CNIC" ColumnName="CNIC" />
                 <ScalarProperty Name="Father_Name" ColumnName="Father Name" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,6 +14,7 @@ namespace UET_CSE.Models
     
     public partial class Registered_Student
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Father_Name { get; set; }
         public string CNIC { get; set; }
@@ -23,6 +24,5 @@ namespace UET_CSE.Models
         public string Session { get; set; }
         public string Section { get; set; }
         public string Type { get; set; }
-        public int Id { get; set; }
     }
 }

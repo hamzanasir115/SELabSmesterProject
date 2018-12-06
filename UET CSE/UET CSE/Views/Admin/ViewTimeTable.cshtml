@@ -1,0 +1,88 @@
+﻿@model IEnumerable<UET_CSE.Models.AddTimeTable>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("ViewTimeTable", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubjectName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubjectAbbreviation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Day)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Place)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Session)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Section)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StartTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EndTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TeacherName)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubjectName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubjectAbbreviation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Day)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Place)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Session)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Section)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TeacherName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Update", "UpdateTimeTable", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "DeleteTimeTable", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </form>
+        </div><br /><br /><br />
+    </section>
+}

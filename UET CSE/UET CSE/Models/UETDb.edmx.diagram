@@ -5,18 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a347db79d52b485f9db1dcdd1b2796d3" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="UETCSEDbModel.AddAchievement" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.AddDateSheet" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.AddEvent" Width="1.5" PointX="4.75" PointY="6.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.AddFaculty" Width="1.5" PointX="6.75" PointY="6.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.AddTimeTable" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.Admin" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddAcademic" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddAchievement" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddDateSheet" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddEvent" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddFaculty" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddTimeTable" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Admin" Width="1.5" PointX="8.75" PointY="8.75" />
         <EntityTypeShape EntityType="UETCSEDbModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" />
         <EntityTypeShape EntityType="UETCSEDbModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="UETCSEDbModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" />
         <EntityTypeShape EntityType="UETCSEDbModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="UETCSEDbModel.Cours" Width="1.5" PointX="8.75" PointY="7.75" />
-        <EntityTypeShape EntityType="UETCSEDbModel.Registered_Student" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Cours" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UETCSEDbModel.Registered_Student" Width="1.5" PointX="0.75" PointY="9.75" />
         <AssociationConnector Association="UETCSEDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="UETCSEDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="UETCSEDbModel.AspNetUserRoles" />
