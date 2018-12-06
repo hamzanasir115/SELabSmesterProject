@@ -1,0 +1,44 @@
+﻿@model IEnumerable<UET_CSE.Models.AddAnnouncement>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("ViewAnnouncement", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section class="event-form" style="background-color:aliceblue">
+        <div class="container" style="background-color:aliceblue">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Topic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Topic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Update", "UpdateAnnouncement", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "DeleteAnnouncement", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </form>
+        </div><br /><br /><br />
+    </section>
+}

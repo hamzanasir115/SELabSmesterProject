@@ -137,6 +137,36 @@ namespace UET_CSE.Controllers
 
 
         }
+        public ActionResult AddAnnouncement()
+        {
+            ViewBag.Title = "Add Announcement";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddAnnouncement(AnnouncementViewModel model)
+        {
+            ViewBag.Title = "Add Announcement";
+            try
+            {
+                AddAnnouncement announce = new Models.AddAnnouncement();
+                announce.Topic = model.Topic;
+                announce.Description = model.Description;
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddAnnouncements.Add(announce);
+                    db.SaveChanges();
+
+                }
+                ModelState.Clear();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+
+
+        }
 
         public ActionResult UpdateDateSheet(int id)
         {
@@ -197,6 +227,65 @@ namespace UET_CSE.Controllers
                     db.AddTimeTables.Find(id).StartTime = obj.StartTime;
                     db.AddTimeTables.Find(id).EndTime = obj.EndTime;
                     db.AddTimeTables.Find(id).TeacherName = obj.TeacherName;
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult ViewAnnouncement()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View Announcement";
+
+            return View(db.AddAnnouncements);
+        }
+        public ActionResult DeleteAnnouncement(int id)
+        {
+            ViewBag.Title = "Delete Announcement";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddAnnouncement t = db.AddAnnouncements.Find(id);
+            return View(t);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAnnouncement(int id, AddAnnouncement obj)
+        {
+            try
+            {
+                ViewBag.Title = "Delete Announcement";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddAnnouncements.Single(x => x.Id == id);
+                db.AddAnnouncements.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult UpdateAnnouncement(int id)
+        {
+            ViewBag.Title = "Update Announcement";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.AddAnnouncements.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateAnnouncement(AddAnnouncement obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddAnnouncements.Find(id).Topic = obj.Topic;
+                    db.AddAnnouncements.Find(id).Description = obj.Description;
                     db.SaveChanges();
                 }
                 return View("Admin");

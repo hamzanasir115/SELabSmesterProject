@@ -25,6 +25,7 @@ namespace UET_CSE.Controllers
             ViewBag.Events = db.AddEvents;
             ViewBag.Faculty = db.AddFaculties;
             ViewBag.Achievements = db.AddAchievements;
+            ViewBag.Announcements = db.AddAnnouncements;
             return View();
 
         }
@@ -98,6 +99,13 @@ namespace UET_CSE.Controllers
             return View(db.AddAchievements);
         }
 
+
+        public ActionResult Announcement()
+        {
+            ViewBag.Title = "Announcements";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            return View(db.AddAnnouncements);
+        }
         
         // GET: Visitor/Details/5
         public ActionResult Details(int id)

@@ -26,6 +26,7 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="AddAnnouncements" EntityType="UETCSEDbModel.AddAnnouncement" />
   </EntityContainer>
   <EntityType Name="AddAcademic">
     <Key>
@@ -220,4 +221,12 @@
     <End Type="UETCSEDbModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
     <End Type="UETCSEDbModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
+  <EntityType Name="AddAnnouncement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Topic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

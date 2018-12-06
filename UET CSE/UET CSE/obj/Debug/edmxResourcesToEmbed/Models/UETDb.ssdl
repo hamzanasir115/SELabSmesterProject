@@ -21,6 +21,14 @@
     <Property Name="Image Path" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
+  <EntityType Name="AddAnnouncement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="AddDateSheets">
     <Key>
       <PropertyRef Name="Id" />
@@ -222,6 +230,7 @@
   <EntityContainer Name="UETCSEDbModelStoreContainer">
     <EntitySet Name="AddAcademics" EntityType="Self.AddAcademics" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddAnnouncement" EntityType="Self.AddAnnouncement" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddDateSheets" EntityType="Self.AddDateSheets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />

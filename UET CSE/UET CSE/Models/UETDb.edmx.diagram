@@ -21,6 +21,7 @@
         <AssociationConnector Association="UETCSEDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="UETCSEDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="UETCSEDbModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="UETCSEDbModel.AddAnnouncement" Width="1.5" PointX="3.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
