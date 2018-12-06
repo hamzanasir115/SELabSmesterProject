@@ -19,7 +19,7 @@ namespace UET_CSE.Models
         public string Father_Name { get; set; }
         public string CNIC { get; set; }
         public string Registration_Number { get; set; }
-        public string Gender { get; set; }
+        public string Grender { get; set; }
         public string Email { get; set; }
         public string Session { get; set; }
         public string Section { get; set; }

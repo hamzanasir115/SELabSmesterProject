@@ -301,7 +301,7 @@ namespace UET_CSE.Controllers
                     std.CNIC = CNIC;
                     std.Email = Email;
                     std.Registration_Number = RegNumber;
-                    std.Gender = Gender;
+                    std.Grender = Gender;
                     std.Section = Section;
                     std.Session = Session;
                     std.Type = "Student";

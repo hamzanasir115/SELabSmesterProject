@@ -19,6 +19,6 @@ namespace UET_CSE.Models
         public string SubjectName { get; set; }
         public string SubjectAbbreviation { get; set; }
         public int CreditHours { get; set; }
-        public string SemesterNumber { get; set; }
+        public string SmesterNumber { get; set; }
     }
 }

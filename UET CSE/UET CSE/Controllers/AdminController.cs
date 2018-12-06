@@ -60,44 +60,154 @@ namespace UET_CSE.Controllers
 
         }
 
-/*
-        public ActionResult ChangePassword()
-        {
-            ViewBag.Title = "Change Password";
-            return View();
 
+        public ActionResult AddAcademic()
+        {
+            ViewBag.Title = "Add Academics";
+            return View();
         }
 
         [HttpPost]
-        public ActionResult ChangePassword(ResetPasswordViewModel model)
+        public ActionResult AddAcademic(AcademicViewModel model)
         {
-            ViewBag.Title = "Change Password";
-            string Admin = User.Identity.Name;
-            UETCSEDbEntities db = new UETCSEDbEntities();
-            string ID = null;
-            string NewPassword = Encrypt.GetHash(model.Password);
-            foreach(AspNetUser asp in db.AspNetUsers)
+            try
             {
-                if(asp.UserName == Admin)
+                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                model.ImagePath = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                model.ImageFile.SaveAs(fileName);
+
+                var DegreeProgram = model.DegreeProgram;
+                var Description = model.Description;
+                var ImageFile = model.ImageFile;
+                var ImagePath = model.ImagePath;
+                var Duration = model.Duration;
+
+                AddAcademic aca = new Models.AddAcademic();
+                aca.Degree_Program = DegreeProgram;
+                aca.Description = Description;
+                aca.ImagePath = ImagePath;
+                aca.Duration = Duration;
+
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
                 {
-                    ID = asp.Id;
-                    if(asp.PasswordHash == NewPassword)
+                    db.AddAcademics.Add(aca);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                return View("Admin");
+            }
+            catch(Exception ex)
+            {
+                return View();
+            }
+        }
+
+        public ActionResult ViewAcademic()
+        {
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            ViewBag.Title = "View Academics";
+
+            return View(db.AddAcademics);
+        }
+
+        public ActionResult UpdateAcademic(int id)
+        {
+            ViewBag.Title = "Update Academic";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+
+                return View(db.AddAcademics.Where(x => x.Id == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateAcademic(AddAcademic obj, int id)
+        {
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddAcademics.Find(id).Degree_Program = obj.Degree_Program;
+                    db.AddAcademics.Find(id).Description = obj.Description;
+                    db.AddAcademics.Find(id).ImagePath = obj.ImagePath;
+                    db.AddAcademics.Find(id).Duration = obj.Duration;
+                   
+                    db.SaveChanges();
+                }
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult DeleteAcademic(int id)
+        {
+            ViewBag.Title = "Delete Academic";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddAcademic t = db.AddAcademics.Find(id);
+            return View(t);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAcademic(int id, AddAcademic obj)
+        {
+            try
+            {
+                ViewBag.Title = "Delete Academic";
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddAcademics.Single(x => x.Id == id);
+                db.AddAcademics.Remove(ToDelete);
+                db.SaveChanges();
+                return View("Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        /*
+                public ActionResult ChangePassword()
+                {
+                    ViewBag.Title = "Change Password";
+                    return View();
+
+                }
+
+                [HttpPost]
+                public ActionResult ChangePassword(ResetPasswordViewModel model)
+                {
+                    ViewBag.Title = "Change Password";
+                    string Admin = User.Identity.Name;
+                    UETCSEDbEntities db = new UETCSEDbEntities();
+                    string ID = null;
+                    string NewPassword = Encrypt.GetHash(model.Password);
+                    foreach(AspNetUser asp in db.AspNetUsers)
                     {
-                        
-                        if (model.NewPassword == model.ConfirmPassword)
+                        if(asp.UserName == Admin)
                         {
-                            db.AspNetUsers.Find(ID).PasswordHash = Encrypt.GetHash(model.NewPassword);
-                            db.SaveChanges();
-                            return View("Admin");
+                            ID = asp.Id;
+                            if(asp.PasswordHash == NewPassword)
+                            {
+
+                                if (model.NewPassword == model.ConfirmPassword)
+                                {
+                                    db.AspNetUsers.Find(ID).PasswordHash = Encrypt.GetHash(model.NewPassword);
+                                    db.SaveChanges();
+                                    return View("Admin");
+                                }
+                            }
                         }
                     }
-                }
-            }
-           
-            return View();
 
-        }*/
-      
+                    return View();
+
+                }*/
+
 
 
         public ActionResult AddDateSheet()
@@ -392,7 +502,7 @@ namespace UET_CSE.Controllers
                 ev.Description = Description;
                 ev.Start_Date = StartDate.Date;
                 ev.End_Date = EndDate.Date;
-                ev.Event_Time = Convert.ToString(EventTime);
+                ev.EventTime = Convert.ToString(EventTime);
                 ev.Ticket_Price = TicketPrice;
                 ev.Place = pLACE;
                 ev.ImagePath = ImagePath;
@@ -504,7 +614,7 @@ namespace UET_CSE.Controllers
                     db.Courses.Find(id).SubjectName = obj.SubjectName;
                     db.Courses.Find(id).SubjectAbbreviation = obj.SubjectAbbreviation;
                     db.Courses.Find(id).CreditHours = obj.CreditHours;
-                    db.Courses.Find(id).SemesterNumber = obj.SemesterNumber;
+                    db.Courses.Find(id).SmesterNumber = obj.SmesterNumber;
                     db.SaveChanges();
                 }
                 return View("Admin");
@@ -530,7 +640,7 @@ namespace UET_CSE.Controllers
         {
             ViewBag.Title = "Add Courses";
             Cours co = new Cours();
-            co.SemesterNumber = Convert.ToString(model.SemesterNumber);
+            co.SmesterNumber = Convert.ToString(model.SemesterNumber);
             co.SubjectName = model.SubjectName;
             co.SubjectCode = model.SubjectCode;
             co.SubjectAbbreviation = model.SubjectAbbreviation;
@@ -610,7 +720,7 @@ namespace UET_CSE.Controllers
             ach.Email = Email;
             ach.Achievement = Achievement;
             ach.Achievement_Date = AchievementDate;
-            ach.Image_Path = ImagePath;
+            ach.Image_path = ImagePath;
             using(UETCSEDbEntities db = new UETCSEDbEntities())
             {
                 db.AddAchievements.Add(ach);
@@ -641,7 +751,7 @@ namespace UET_CSE.Controllers
                     db.AddAchievements.Find(id).Achievement_Date = obj.Achievement_Date;
                     db.AddAchievements.Find(id).Achievement = obj.Achievement;
                     db.AddAchievements.Find(id).Email = obj.Email;
-                    db.AddAchievements.Find(id).Image_Path = obj.Image_Path;
+                    db.AddAchievements.Find(id).Image_path = obj.Image_path;
                     db.SaveChanges();
                 }
                 return View("Admin");
@@ -712,7 +822,7 @@ namespace UET_CSE.Controllers
                 std.CNIC = CNIC;
                 std.Email = Email;
                 std.Registration_Number = RegNumber;
-                std.Gender = Gender;
+                std.Grender = Gender;
                 UETCSEDbEntities db = new UETCSEDbEntities();
                 db.Registered_Students.Add(std);
                 db.SaveChanges();
@@ -778,7 +888,7 @@ namespace UET_CSE.Controllers
                     db.Registered_Students.Find(id).Father_Name = obj.Father_Name;
                     db.Registered_Students.Find(id).CNIC = obj.CNIC;
                     db.Registered_Students.Find(id).Registration_Number = obj.Registration_Number;
-                    db.Registered_Students.Find(id).Gender = obj.Gender;
+                    db.Registered_Students.Find(id).Grender = obj.Grender;
                     db.Registered_Students.Find(id).Email = obj.Email;
                     db.Registered_Students.Find(id).Session = obj.Session;
                     db.Registered_Students.Find(id).Section = obj.Section;

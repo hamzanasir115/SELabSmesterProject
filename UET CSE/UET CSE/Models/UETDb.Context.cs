@@ -27,6 +27,7 @@ namespace UET_CSE.Models
     
         public virtual DbSet<AddAcademic> AddAcademics { get; set; }
         public virtual DbSet<AddAchievement> AddAchievements { get; set; }
+        public virtual DbSet<AddAnnouncement> AddAnnouncements { get; set; }
         public virtual DbSet<AddDateSheet> AddDateSheets { get; set; }
         public virtual DbSet<AddEvent> AddEvents { get; set; }
         public virtual DbSet<AddFaculty> AddFaculties { get; set; }
@@ -38,6 +39,6 @@ namespace UET_CSE.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Cours> Courses { get; set; }
         public virtual DbSet<Registered_Student> Registered_Students { get; set; }
-        public virtual DbSet<AddAnnouncement> AddAnnouncements { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

@@ -208,6 +208,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AcademicViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AchievementViewModel.cs" />
     <Compile Include="Models\AddAcademic.cs">
@@ -262,6 +263,9 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentViewModel.cs" />
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TimeTableViewModel.cs" />
     <Compile Include="Models\UETDb.Context.cs">
       <AutoGen>True</AutoGen>
@@ -812,6 +816,10 @@
     <Content Include="Views\Admin\ViewAnnouncement.cshtml" />
     <Content Include="Views\Admin\DeleteAnnouncement.cshtml" />
     <Content Include="Views\Admin\UpdateAnnouncement.cshtml" />
+    <Content Include="Views\Admin\AddAcademic.cshtml" />
+    <Content Include="Views\Admin\ViewAcademic.cshtml" />
+    <Content Include="Views\Admin\UpdateAcademic.cshtml" />
+    <Content Include="Views\Admin\DeleteAcademic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
