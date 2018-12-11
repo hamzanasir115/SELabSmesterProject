@@ -3,62 +3,69 @@
 @{
     Layout = "~/Views/Shared/StudentLoginLayout.cshtml";
 }
-<div class="limiter">
-    <div class="container-table100">
-        <div class="wrap-table100">
-            <div class="table100 ver1 m-b-110">
-                <table data-vertable="ver1">
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="column100 column1" data-column="column1">
-                                @Html.DisplayNameFor(model => model.Date)
-                            </th>
-                            <th class="column100 column2" data-column="column2">
-                                @Html.DisplayNameFor(model => model.Subject)
-                            </th>
-                            <th class="column100 column3" data-column="column3">
-                                @Html.DisplayNameFor(model => model.Program)
-                            </th>
-                            <th class="column100 column4" data-column="column4">
-                                @Html.DisplayNameFor(model => model.Supritendent_Name)
-                            </th>
-                            <th class="column100 column5" data-column="column5">
-                                @Html.DisplayNameFor(model => model.Time)
-                            </th>
-                            <th class="column100 column6" data-column="column6">
-                                @Html.DisplayNameFor(model => model.Hall)
-                            </th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr class="row100">
-                                <td class="column100 column1" data-column="column1">
-                                    @Html.DisplayFor(modelItem => item.Date )
-                                </td>
-                                <td class="column100 column2" data-column="column2">
-                                    @Html.DisplayFor(modelItem => item.Subject )
-                                </td>
-                                <td class="column100 column3" data-column="column3">
-                                    @Html.DisplayFor(modelItem => item.Program )
-                                </td>
-                                <td class="column100 column4" data-column="column4">
-                                    @Html.DisplayFor(modelItem => item.Supritendent_Name )
-                                </td>
-                                <td class="column100 column5" data-column="column5">
-                                    @Html.DisplayFor(modelItem => item.Time )
-                                </td>
-                                <td class="column100 column6" data-column="column6">
-                                    @Html.DisplayFor(modelItem => item.Hall )
-                                </td>
+
+<section class="event-form" style="background-color:aliceblue">
+    <div class="container" style="background-color:aliceblue">
+        <br><br><h1>@ViewBag.Title</h1><br><br>
+        <form class="form-horizontal" action="/action_page.php">
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="table100 ver1 m-b-110">
+                    <table data-vertable="ver1">
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="column100 column1" data-column="column1">
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+                                <th class="column100 column2" data-column="column2">
+                                    @Html.DisplayNameFor(model => model.Subject)
+                                </th>
+                                <th class="column100 column3" data-column="column3">
+                                    @Html.DisplayNameFor(model => model.Program)
+                                </th>
+                                <th class="column100 column4" data-column="column4">
+                                    @Html.DisplayNameFor(model => model.Supritendent_Name)
+                                </th>
+                                <th class="column100 column5" data-column="column5">
+                                    @Html.DisplayNameFor(model => model.Time)
+                                </th>
+                                <th class="column100 column6" data-column="column6">
+                                    @Html.DisplayNameFor(model => model.Hall)
+                                </th>
 
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="row100">
+                                    <td class="column100 column1" data-column="column1">
+                                        @item.Date.Month/@item.Date.Day/@item.Date.Year
+                                       
+                                    </td>
+                                    <td class="column100 column2" data-column="column2">
+                                        @Html.DisplayFor(modelItem => item.Subject)
+                                    </td>
+                                    <td class="column100 column3" data-column="column3">
+                                        @Html.DisplayFor(modelItem => item.Program)
+                                    </td>
+                                    <td class="column100 column4" data-column="column4">
+                                        @Html.DisplayFor(modelItem => item.Supritendent_Name)
+                                    </td>
+                                    <td class="column100 column5" data-column="column5">
+                                        @Html.DisplayFor(modelItem => item.Time)
+                                    </td>
+                                    <td class="column100 column6" data-column="column6">
+                                        @Html.DisplayFor(modelItem => item.Hall)
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+        </form>
+    </div><br /><br /><br />
+</section>

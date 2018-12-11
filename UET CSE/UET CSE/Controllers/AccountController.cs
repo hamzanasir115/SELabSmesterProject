@@ -94,7 +94,7 @@ namespace UET_CSE.Controllers
                 }
                 if(Type == null)
                 {
-                    foreach (var admin in db.Admins)
+                    foreach (var admin in db.AddAdmins)
                     {
                         if (admin.Email == model.Email)
                         {
@@ -240,12 +240,12 @@ namespace UET_CSE.Controllers
                     var AdminName = model.AdminName;
                     var Email = model.Email;
                     var type = "Admin";
-                    Admin ad = new Admin();
+                    AddAdmin ad = new AddAdmin();
                     ad.Email = Email;
                     ad.Name = AdminName;
                     ad.Type = type;
-                    db.Admins.Add(ad);
-
+                    db.AddAdmins.Add(ad);
+                    db.SaveChanges();
                     SendMailToUser(model.Email);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -386,17 +386,30 @@ namespace UET_CSE.Controllers
             {
                 if(person.Email == model.Email)
                 {
-                    if(model.Password == model.ConfirmPassword)
+                    if(person.PasswordHash == null)
                     {
-                        person.PasswordHash = model.Password;
-                        db.AspNetUsers.Find(person.Id).PasswordHash = Encrypt.GetHash(model.Password);
-                        db.SaveChanges();
-                        return View("Login");
-                    }             
+                        if (model.Password == model.ConfirmPassword)
+                        {
+                            person.PasswordHash = model.Password;
+                            db.AspNetUsers.Find(person.Id).PasswordHash = Encrypt.GetHash(model.Password);
+                            db.SaveChanges();
+                            ViewBag.error = "Password Created";
+                            return View("Login");
+                        }
+                        
+                    }
+                    else
+                    {
+                        //ViewBag.error = "Account has already created";
+                        ModelState.AddModelError("Registration", "Account has already created");
+                        break;
+                    }
+
                 }
+                
             }
 
-            return View();
+            return RedirectToAction("HomePage", "Visitor");
         }
 
        

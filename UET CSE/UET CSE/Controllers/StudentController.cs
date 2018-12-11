@@ -8,8 +8,11 @@ using System.Web.Mvc;
 
 namespace UET_CSE.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
+        UETCSEDbEntities dbo = new UETCSEDbEntities();
+        
         // GET: Student
         public ActionResult Index()
         {
@@ -42,11 +45,27 @@ namespace UET_CSE.Controllers
             */
             return View();
         }
-
+        
+        
         public ActionResult DateSheet()
         {
-            ViewBag.Title = "Date Sheet";
+            string email = User.Identity.Name;
+            string type = null;
             UETCSEDbEntities db = new UETCSEDbEntities();
+            foreach (Registered_Student reg in db.Registered_Students)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "Date Sheet";
+            //UETCSEDbEntities db = new UETCSEDbEntities();
             string session = null;
             string section = null;
             String Student = User.Identity.Name;
@@ -72,8 +91,23 @@ namespace UET_CSE.Controllers
        
         public ActionResult TimeTable()
         {
-            ViewBag.Title = "Time Table";
+            string email = User.Identity.Name;
+            string type = null;
             UETCSEDbEntities db = new UETCSEDbEntities();
+            foreach (Registered_Student reg in db.Registered_Students)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if(type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "Time Table";
+           
             ViewBag.Dash = "--";
             ViewBag.Break = "Break";
             string session = null;
@@ -183,6 +217,79 @@ namespace UET_CSE.Controllers
                         ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
                         
                     }
+
+
+
+                    else if(disp.StartTime == "08:00:00" && disp.EndTime == "10:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "10:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "03:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "02:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                    }
+
+                    else if(disp.StartTime == "08:00:00" && disp.EndTime == "11:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "09:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
+                    }
                 }
                 ObjTimeTable.Day = disp.Day;
                 ObjTimeTable.Place = disp.Place;
@@ -287,6 +394,76 @@ namespace UET_CSE.Controllers
                         ObjTimeTable1.SubjectAbbreviation7 = disp.SubjectAbbreviation;
                         ObjTimeTable.TeacherName = disp.TeacherName;
                        
+                    }
+                    else if (disp.StartTime == "08:00:00" && disp.EndTime == "10:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "10:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "03:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "02:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                    }
+
+                    else if (disp.StartTime == "08:00:00" && disp.EndTime == "11:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "09:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
                     }
                 }
                 ObjTimeTable1.Day = disp.Day;
@@ -393,6 +570,76 @@ namespace UET_CSE.Controllers
                         ObjTimeTable2.TeacherName = disp.TeacherName;
                        
                     }
+                    else if (disp.StartTime == "08:00:00" && disp.EndTime == "10:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "10:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "03:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "02:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                    }
+
+                    else if (disp.StartTime == "08:00:00" && disp.EndTime == "11:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "09:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
+                    }
                 }
                 ObjTimeTable2.Day = disp.Day;
                 ObjTimeTable2.Place = disp.Place;
@@ -496,6 +743,76 @@ namespace UET_CSE.Controllers
                         ObjTimeTable3.SubjectAbbreviation7 = disp.SubjectAbbreviation;
                         ObjTimeTable3.TeacherName = disp.TeacherName;
                         
+                    }
+                    else if (disp.StartTime == "08:00:00" && disp.EndTime == "10:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "10:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "03:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                    }
+                    else if (disp.StartTime == "02:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                    }
+
+                    else if (disp.StartTime == "08:00:00" && disp.EndTime == "11:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation1 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName1 = disp.SubjectName;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "09:00:00" && disp.EndTime == "12:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation2 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName2 = disp.SubjectName;
+                        ObjTimeTable.SubjectName3 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation3 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation4 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName4 = disp.SubjectName;
+                    }
+                    else if (disp.StartTime == "01:00:00" && disp.EndTime == "04:00:00")
+                    {
+                        ObjTimeTable.StartTime = disp.StartTime;
+                        ObjTimeTable.EndTime = disp.EndTime;
+                        ObjTimeTable.SubjectAbbreviation5 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName5 = disp.SubjectName;
+                        ObjTimeTable.SubjectName6 = disp.SubjectName;
+                        ObjTimeTable.SubjectAbbreviation6 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectAbbreviation7 = disp.SubjectAbbreviation;
+                        ObjTimeTable.SubjectName7 = disp.SubjectName;
                     }
                 }
                 ObjTimeTable3.Day = disp.Day;

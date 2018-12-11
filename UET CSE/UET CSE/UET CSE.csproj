@@ -217,6 +217,9 @@
     <Compile Include="Models\AddAchievement.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddAdmin.cs">
+      <DependentUpon>UETDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AddAnnouncement.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
@@ -230,9 +233,6 @@
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddTimeTable.cs">
-      <DependentUpon>UETDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Admin.cs">
       <DependentUpon>UETDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminViewModel.cs" />
@@ -817,6 +817,8 @@
     <Content Include="Views\Admin\ViewAcademic.cshtml" />
     <Content Include="Views\Admin\UpdateAcademic.cshtml" />
     <Content Include="Views\Admin\DeleteAcademic.cshtml" />
+    <Content Include="Views\Admin\SuperAdmin.cshtml" />
+    <Content Include="Views\Shared\SuperAdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,15 @@
     <Property Name="Image Path" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
+  <EntityType Name="AddAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <EntityType Name="AddAnnouncement">
     <Key>
       <PropertyRef Name="Id" />
@@ -85,14 +94,6 @@
     <Property Name="StartTime" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="EndTime" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Admin">
-    <Key>
-      <PropertyRef Name="Email" />
-    </Key>
-    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
@@ -230,12 +231,12 @@
   <EntityContainer Name="UETCSEDbModelStoreContainer">
     <EntitySet Name="AddAcademics" EntityType="Self.AddAcademics" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddAchievement" EntityType="Self.AddAchievement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddAdmin" EntityType="Self.AddAdmin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddAnnouncement" EntityType="Self.AddAnnouncement" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddDateSheets" EntityType="Self.AddDateSheets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddEvents" EntityType="Self.AddEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddFaculty" EntityType="Self.AddFaculty" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AddTimeTable" EntityType="Self.AddTimeTable" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />

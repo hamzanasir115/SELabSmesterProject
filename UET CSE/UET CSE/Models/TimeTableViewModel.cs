@@ -35,8 +35,10 @@ namespace UET_CSE.Models
         [Required]
         public string Place { get; set; }
         [Required]
+        [RegularExpression(@"[\d]{4}", ErrorMessage = "Invalid Session")]
         public string Session { get; set; }
         [Required]
+        [RegularExpression(@"[A-Z]", ErrorMessage = "Invalid Section")]
         public string Section { get; set; }
     }
 }

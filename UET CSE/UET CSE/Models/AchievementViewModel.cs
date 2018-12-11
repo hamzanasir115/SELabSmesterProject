@@ -19,8 +19,10 @@ namespace UET_CSE.Models
         public string Achievement { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
+        
         public string ImagePath { get; set; }
+        [Required]
+        [Display(Name ="Image File")]
         public HttpPostedFileBase ImageFile { get; set; }
 
 

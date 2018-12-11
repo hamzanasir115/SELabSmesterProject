@@ -83,28 +83,34 @@ namespace UET_CSE.Models
        
         [Required]
         [Display(Name = "Student Name ")]
+        [RegularExpression(@"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$", ErrorMessage = "Student Name must be valid alphabets")]
         public string StudentName { get; set; }
 
         [Required]
         [Display(Name = "Father Name")]
+        [RegularExpression(@"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$", ErrorMessage = "Father Name must be valid alphabets")]
         public string FatherName { get; set; }
 
         [Required]
         [Display(Name = "CNIC")]
+        [RegularExpression(@"[\d]{13}", ErrorMessage ="Length of CNIC must be 13")]
         public string CNIC { get; set; }
 
         [Required]
         [Display(Name = "Registration Number")]
-        [DisplayFormat()]
+        [RegularExpression(@"[\d]{4}[-][A-Z|a-z][A-Z|a-z][-][\d]+", ErrorMessage ="Registeration Number must be entered in correct format i.e 0000-ab-0")]
+        
         public string RegistrationNumber { get; set; }
 
         [Required]
         public string Gender { get; set; }
 
         [Required]
+        [RegularExpression(@"[\d]{4}", ErrorMessage ="Invalid Session")]
         public string Session { get; set; }
 
         [Required]
+        [RegularExpression(@"[A-Z]", ErrorMessage ="Invalid Section")]
         public string Section { get; set; }
 
 
@@ -131,6 +137,8 @@ namespace UET_CSE.Models
 
         [Required]
         [Display(Name = "Admin Name")]
+        [RegularExpression(@"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$", ErrorMessage = "Admin Name must be valid alphabets")]
+
         public string AdminName { get; set; }
 
 

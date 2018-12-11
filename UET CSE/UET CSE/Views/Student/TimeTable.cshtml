@@ -4,14 +4,14 @@
     Layout = "~/Views/Shared/StudentLoginLayout.cshtml";
 }
 
+<section class="event-form" style="background-color:aliceblue">
+    <div class="container" style="background-color:aliceblue">
+        <br><br><h1>@ViewBag.Title</h1><br><br>
+        <form class="form-horizontal" action="/action_page.php">
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="table100 ver1 m-b-110">
 
-
-
-<div class="limiter">
-    <div class="container-table100">
-        <div class="wrap-table100">
-            <div class="table100 ver1 m-b-110">
-                
                     <table data-vertable="ver1">
                         <thead>
                             <tr class="row100 head">
@@ -31,8 +31,8 @@
                             list = (List<UET_CSE.Models.DisplayTimeTable>)ViewBag.List;
                         }
                         <tbody>
-                            
-                           
+
+
                             @foreach (var item in list)
                             {
                                 <tr class="row100">
@@ -44,7 +44,7 @@
                                         <td class="column100 column2" data-column="column2">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
                                         </td>
-                                       
+
                                         <td class="column100 column3" data-column="column3">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
                                         </td>
@@ -76,7 +76,7 @@
                                         <td class="column100 column2" data-column="column2">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
                                         </td>
-                                        
+
                                         <td class="column100 column3" data-column="column3">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
                                         </td>
@@ -107,7 +107,7 @@
                                         <td class="column100 column2" data-column="column2">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
                                         </td>
-                                        
+
 
                                         <td class="column100 column3" data-column="column3">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
@@ -139,7 +139,7 @@
                                         <td class="column100 column2" data-column="column2">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
                                         </td>
-                                       
+
                                         <td class="column100 column3" data-column="column3">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
                                         </td>
@@ -171,7 +171,7 @@
                                         <td class="column100 column2" data-column="column2">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation1)
                                         </td>
-                                       
+
                                         <td class="column100 column3" data-column="column3">
                                             @Html.DisplayFor(modelItem => item.SubjectAbbreviation2)
                                         </td>
@@ -201,40 +201,44 @@
 
                         </tbody>
                     </table>
-                
-            </div>
 
-            <div class="table100 ver1 m-b-50">
-                <table data-vertable="ver1">
-                    <thead>
-                        <tr class="row100 head">
+                </div>
 
-                            <th class="column100 column1" data-column="column1">Subject Abbreviation
-                            </th>
-                            <th class="column100 column2" data-column="column2">Subject Name</th>
-                            <th class="column100 column3" data-column="column3">Teacher</th>
+                <div class="table100 ver1 m-b-50">
+                    <table data-vertable="ver1">
+                        <thead>
+                            <tr class="row100 head">
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{
-                            List<UET_CSE.Models.AddTimeTable> list1 = new List<UET_CSE.Models.AddTimeTable>();
-                            list1 = (List<UET_CSE.Models.AddTimeTable>)ViewBag.List2;
-                        }
-                        @foreach (var item in list1)
-                        {
-                            <tr class="row100">
-                                <td class="column100 column1" data-column="column1">@Html.DisplayFor(modelItem => item.SubjectAbbreviation ) </td>
-                                <td class="column100 column2" data-column="column2">@Html.DisplayFor(modelItem => item.SubjectName )</td>
-                                <td class="column100 column3" data-column="column3">@Html.DisplayFor(modelItem => item.TeacherName )</td>
+                                <th class="column100 column1" data-column="column1">
+                                    Subject Abbreviation
+                                </th>
+                                <th class="column100 column2" data-column="column2">Subject Name</th>
+                                <th class="column100 column3" data-column="column3">Teacher</th>
 
                             </tr>
-                        }
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+                        </thead>
+                        <tbody>
+                            @{
+                                List<UET_CSE.Models.AddTimeTable> list1 = new List<UET_CSE.Models.AddTimeTable>();
+                                list1 = (List<UET_CSE.Models.AddTimeTable>)ViewBag.List2;
+                            }
+                            @foreach (var item in list1)
+                            {
+                                <tr class="row100">
+                                    <td class="column100 column1" data-column="column1">@Html.DisplayFor(modelItem => item.SubjectAbbreviation) </td>
+                                    <td class="column100 column2" data-column="column2">@Html.DisplayFor(modelItem => item.SubjectName)</td>
+                                    <td class="column100 column3" data-column="column3">@Html.DisplayFor(modelItem => item.TeacherName)</td>
 
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                
+            </div>
+        </form>
+    </div><br><br><br>
+</section>

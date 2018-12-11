@@ -12,10 +12,11 @@ namespace UET_CSE.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class AddAdmin
     {
         public string Email { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
+        public int Id { get; set; }
     }
 }

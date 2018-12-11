@@ -7,12 +7,12 @@
 
 @using (Html.BeginForm("AddTimeTable", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
+    
     <section class="event-form" style="background-color:aliceblue">
         <div class="container" style="background-color:aliceblue">
             <br><br><h2>@ViewBag.Title</h2><br><br>
             <form class="form-horizontal" action="/action_page.php">
-
+                @Html.AntiForgeryToken()
                 <div class="form-horizontal">
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -54,7 +54,7 @@
                               new SelectListItem{Text="Tuesday", Value="Tuesday" },
                                new SelectListItem{Text="Wednesday", Value="Wednesday"},
                                new SelectListItem{Text="Thursday", Value="Thursday"},
-                                new SelectListItem {Text="Friday", Value="Friday" } })
+                                new SelectListItem {Text="Friday", Value="Friday" } }, new { style = "width:545px" })
                         </div>
                     </div>
 

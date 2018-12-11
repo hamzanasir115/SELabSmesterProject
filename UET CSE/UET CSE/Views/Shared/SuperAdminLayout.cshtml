@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!-- DropDown -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+        CSS
+        ============================================= -->
+    <link rel="stylesheet" href="~/css/linearicons.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/nice-select.css">
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/main.css">
+</head>
+<body>
+
+
+    <header id="header" id="home" style="background-color:rgba(4,9,30,0.9)">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
+
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container main-menu">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="Admin.html"><img src="img/250.png" alt="" title="" /></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li> @Html.ActionLink("Home", "Admin", "Admin")</li>
+                        <li>
+                            @Html.ActionLink("Register Student", "RegisterStudent", "Admin")
+                        <ul>
+                            <li>@Html.ActionLink("Add", "Register", "Account")</li>
+                            <li>@Html.ActionLink("View", "ViewStudent", "Admin")</li>
+                        </ul>
+
+
+                    </li>
+
+
+
+                    <li class="menu-has-children">
+                        @Html.ActionLink("Time Table", "AddTimeTable", "Admin")
+                        <ul>
+                            <li>@Html.ActionLink("Add", "AddTimeTable", "Admin")</li>
+                            <li>@Html.ActionLink("Update", "UpdateTimeTable", "Admin")</li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children">
+                        @Html.ActionLink("Date Sheet", "AddDateSheet", "Admin")
+                        <ul>
+                            <li>@Html.ActionLink("Add", "AddDateSheet", "Admin")</li>
+                            <li>@Html.ActionLink("View", "ViewDateSheet", "Admin")</li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children">
+                        @Html.ActionLink("Faculty", "AddFaculty", "Admin")
+                        <ul>
+                            <li>@Html.ActionLink("Add", "AddFaculty", "Admin")</li>
+                            <li>@Html.ActionLink("View", "ViewFaculty", "Admin")</li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children">
+                        @Html.ActionLink("Events", "AddEvent", "Admin")
+                        <ul>
+                            <li>
+                                @Html.ActionLink("Add", "AddEvent", "Admin")
+                        </li>
+                        <li>@Html.ActionLink("View", "ViewEvents", "Admin")</li>
+                    </ul>
+                </li>
+                <li class="menu-has-children">
+                    @Html.ActionLink("Achievements", "AddAchievement", "Admin")
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Add", "AddAchievement", "Admin")
+                    </li>
+                    <li>@Html.ActionLink("View", "ViewAchievement", "Admin")</li>
+                </ul>
+            </li>
+            <li class="menu-has-children">
+                @Html.ActionLink("Courses", "AddCourses", "Admin")
+                <ul>
+                    <li>@Html.ActionLink("Add", "AddCourses", "Admin") </li>
+                    <li>@Html.ActionLink("View", "ViewCourses", "Admin")</li>
+                </ul>
+            </li>
+
+            <li>
+                @Html.ActionLink("Announcements", "AddAnnouncement", "Admin")
+                <ul>
+                    <li>@Html.ActionLink("Add", "AddAnnouncement", "Admin")</li>
+                    <li>@Html.ActionLink("View", "ViewAnnouncement", "Admin")</li>
+                </ul>
+            </li>
+
+            <li>
+                @Html.ActionLink("Admin", "RegisterAdmin", "Account")
+                <ul>
+                    <li>@Html.ActionLink("Add", "RegisterAdmin", "Visitor")</li>
+                    <li>@Html.ActionLink("View", "", "Admin")</li>
+                </ul>
+            </li>
+            <li>
+                @Html.ActionLink(User.Identity.Name, "Admin", "Admin")
+                <ul>
+                    <li>
+                        @Html.ActionLink("Change Password", "ChangePassword", "Account")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Logout", "HomePage", "Visitor")
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav><!-- #nav-menu-container -->
+</div>
+</div>
+</header><!-- #header -->
+<!-- start banner Area -->
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    @ViewBag.Title
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<div>
+    @RenderBody()
+</div>
+
+<footer class="footer-area">
+    <br /><br />
+    <div class="container" style="height:400px">
+        <div class="row">
+            <div class="col-lg-2 col-sm-2">
+                <div class="single-footer-widget">
+                    <h4>CSE UET</h4>
+                    <ul>
+                        <li>Contact: </li>
+                        <li>99029267/999029507(Ex 801)</li>
+                        <li>Location: </li>
+                        <li> University of Engineering and Technology Lahore, GT Road</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li>University of Engineering and Technology</li>
+                        <li>Computer Science and Engineering Department</li>
+                        <li>UET Admissions:042-99029216, 042-99029452</li>
+                        <li>Registrar 042-99029227</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li>Chairperson Computer Science and Engineering Department</li>
+                        <li>Prof Dr. Shazia Arshad</li>
+                        <li>Contact No. 99029267/99029260(Ex 801)</li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="footer-bottom row align-items-center justify-content-between">
+            <p class="footer-text m-0 col-lg-6 col-md-12">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> Computer Science and Engineering Department, UET Lahore
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+            @*<div class="col-lg-6 col-sm-12 footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>*@
+        </div>
+    </div> <br /><br />
+</footer>
+<!-- End footer Area -->
+
+<script src="~/js/vendor/jquery-2.2.4.min.js"></script>
+<script src="~/https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="~/js/vendor/bootstrap.min.js"></script>
+<script src="~/https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="~/js/easing.min.js"></script>
+<script src="~/js/hoverIntent.js"></script>
+<script src="~/js/superfish.min.js"></script>
+<script src="~/js/jquery.ajaxchimp.min.js"></script>
+<script src="~/js/jquery.magnific-popup.min.js"></script>
+<script src="~/js/jquery.tabs.min.js"></script>
+<script src="~/js/jquery.nice-select.min.js"></script>
+<script src="~/js/owl.carousel.min.js"></script>
+<script src="~/js/mail-script.js"></script>
+<script src="~/js/main.js"></script>
+</body>
+</html>

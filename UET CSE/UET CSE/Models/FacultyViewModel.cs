@@ -10,12 +10,15 @@ namespace UET_CSE.Models
     {
         public int Id { get; set; }
         [Required]
+        [RegularExpression(@"^(([A-Z][a-z]+[\s]{1}[A-za-z]+)|([A-Z][a-z]+))$", ErrorMessage = "Name must be valid alphabets")]
         public string Name { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required]
+        
         public string ImagePath { get; set; }
+        [Required]
+        [Display(Name ="Image File")]
         public HttpPostedFileBase ImageFile { get; set; }
         [Required]
         public string Deisgnation { get; set; }

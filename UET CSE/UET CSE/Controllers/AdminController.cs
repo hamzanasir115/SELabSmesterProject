@@ -15,9 +15,11 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Security.Cryptography;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UET_CSE.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -25,13 +27,55 @@ namespace UET_CSE.Controllers
         {
             return View();
         }
+        
+        public ActionResult AddTimeTable()
+        {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
-
+            ViewBag.Title = "Add Time Table";
+            return View();
+        }
+        
+        [HttpPost]
         public ActionResult AddTimeTable(TimeTableViewModel model)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Time Table";
             try
             {
+                if(!ModelState.IsValid)
+                {
+                    return View();
+                }
                 AddTimeTable time = new AddTimeTable();
                 time.StartTime = Convert.ToString(model.StartTime);
                 time.EndTime = Convert.ToString(model.EndTime);
@@ -62,6 +106,22 @@ namespace UET_CSE.Controllers
 
         public ActionResult AddAcademic()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Academics";
             return View();
         }
@@ -69,6 +129,26 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult AddAcademic(AcademicViewModel model)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "Add Academic";
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
             try
             {
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
@@ -106,6 +186,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult ViewAcademic()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View Academics";
 
@@ -114,6 +209,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult UpdateAcademic(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Academic";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -124,6 +234,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateAcademic(AddAcademic obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -145,6 +270,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult DeleteAcademic(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Academic";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddAcademic t = db.AddAcademics.Find(id);
@@ -154,6 +294,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteAcademic(int id, AddAcademic obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Delete Academic";
@@ -168,59 +323,57 @@ namespace UET_CSE.Controllers
                 return View();
             }
         }
-
-
-        /*
-                public ActionResult ChangePassword()
-                {
-                    ViewBag.Title = "Change Password";
-                    return View();
-
-                }
-
-                [HttpPost]
-                public ActionResult ChangePassword(ResetPasswordViewModel model)
-                {
-                    ViewBag.Title = "Change Password";
-                    string Admin = User.Identity.Name;
-                    UETCSEDbEntities db = new UETCSEDbEntities();
-                    string ID = null;
-                    string NewPassword = Encrypt.GetHash(model.Password);
-                    foreach(AspNetUser asp in db.AspNetUsers)
-                    {
-                        if(asp.UserName == Admin)
-                        {
-                            ID = asp.Id;
-                            if(asp.PasswordHash == NewPassword)
-                            {
-
-                                if (model.NewPassword == model.ConfirmPassword)
-                                {
-                                    db.AspNetUsers.Find(ID).PasswordHash = Encrypt.GetHash(model.NewPassword);
-                                    db.SaveChanges();
-                                    return View("Admin");
-                                }
-                            }
-                        }
-                    }
-
-                    return View();
-
-                }*/
-
-
-
         public ActionResult AddDateSheet()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.course = dbo.Courses.ToList();
             ViewBag.Title = "Add Date Sheet";
             return View();
         }
         [HttpPost]
         public ActionResult AddDateSheet(DateSheetViewModel model)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            
+            
             ViewBag.Title = "Add Date Sheet";
             try
             {
+                if(!ModelState.IsValid)
+                {
+                    return View();
+                }
+
+                List<Cours> c = new List<Cours>();
+                ViewBag.Course = new SelectList(c, "SubjectName", "SubjectName");
                 AddDateSheet date = new Models.AddDateSheet();
                 date.Session = model.Session;
                 date.Section = model.Section;
@@ -236,6 +389,7 @@ namespace UET_CSE.Controllers
                     db.AddDateSheets.Add(date);
                     db.SaveChanges();
 
+
                 }
                 ModelState.Clear();
                 return View("Admin");
@@ -249,12 +403,43 @@ namespace UET_CSE.Controllers
         }
         public ActionResult AddAnnouncement()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Announcement";
             return View();
         }
         [HttpPost]
         public ActionResult AddAnnouncement(AnnouncementViewModel model)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Add Announcement";
             try
             {
@@ -286,6 +471,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult UpdateDateSheet(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update DateSheet";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -296,6 +496,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateDateSheet(AddDateSheet obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -320,6 +535,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult UpdateTimeTable(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update TimeTable";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -330,6 +560,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateTimeTable(AddTimeTable obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -354,6 +599,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult ViewAnnouncement()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View Announcement";
 
@@ -361,6 +621,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult DeleteAnnouncement(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Announcement";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddAnnouncement t = db.AddAnnouncements.Find(id);
@@ -370,6 +645,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteAnnouncement(int id, AddAnnouncement obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Delete Announcement";
@@ -386,6 +676,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult UpdateAnnouncement(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Announcement";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -396,6 +701,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateAnnouncement(AddAnnouncement obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -413,6 +733,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult ViewTimeTable()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View TimeTable";
 
@@ -420,6 +755,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult DeleteTimeTable(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete TimeTable";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddTimeTable t = db.AddTimeTables.Find(id);
@@ -429,6 +779,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteTimeTable(int id, AddTimeTable obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Delete TimeTable";
@@ -446,6 +811,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult ViewDatesheet()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View Datesheet";
 
@@ -453,6 +833,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult DeleteDateSheet(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete DateSheet";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddDateSheet std = db.AddDateSheets.Find(id);
@@ -462,6 +857,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteDateSheet(int id, AddDateSheet obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Delete DateSheet";
@@ -480,6 +890,22 @@ namespace UET_CSE.Controllers
 
         public ActionResult AddEvent()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Event";
             return View();
 
@@ -487,7 +913,35 @@ namespace UET_CSE.Controllers
 
         [HttpPost]
         public ActionResult AddEvent(EventViewModel addeventmodel)
-        {       
+        {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+                string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
+                string extension = Path.GetExtension(addeventmodel.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                addeventmodel.ImagePath = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                addeventmodel.ImageFile.SaveAs(fileName);
+
+            var ImagePath = addeventmodel.ImagePath;       
+            
                 var EventName = addeventmodel.Event_Name;
                 var Description = addeventmodel.Description;
                 var StartDate = addeventmodel.Start_Date;
@@ -495,13 +949,8 @@ namespace UET_CSE.Controllers
                 var EventTime = addeventmodel.Event_Time;
                 var TicketPrice = addeventmodel.Ticket_Price;
                 var pLACE = addeventmodel.Place;
-                string fileName = Path.GetFileNameWithoutExtension(addeventmodel.ImageFile.FileName);
-                string extension = Path.GetExtension(addeventmodel.ImageFile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
-                addeventmodel.ImagePath = "~/Image/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
-                addeventmodel.ImageFile.SaveAs(fileName);
-                var ImagePath = addeventmodel.ImagePath;
+            
+            //var ImagePath = addeventmodel.ImagePath;
                 var ImageFile = addeventmodel.ImageFile;
                 AddEvent ev = new Models.AddEvent();
                 ev.Event_Name = EventName;
@@ -524,12 +973,42 @@ namespace UET_CSE.Controllers
 
         public ActionResult ViewEvents()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "View Events";
             UETCSEDbEntities db = new UETCSEDbEntities();
             return View(db.AddEvents);
         }
         public ActionResult UpdateEvent(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Event";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -540,7 +1019,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateEvent(AddEvent obj, int id)
         {
-
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -564,6 +1057,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult UpdateFaculty(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Faculty";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -574,6 +1082,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateFaculty(AddFaculty obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -596,12 +1119,42 @@ namespace UET_CSE.Controllers
         }
         public ActionResult ViewFaculty()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "View Faculty";
             UETCSEDbEntities db = new UETCSEDbEntities();
             return View(db.AddFaculties);
         }
         public ActionResult UpdateCourses(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Courses";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -612,6 +1165,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateCourses(Cours obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -632,19 +1200,69 @@ namespace UET_CSE.Controllers
         }
         public ActionResult ViewCourses()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "View Course";
             UETCSEDbEntities db = new UETCSEDbEntities();
             return View(db.Courses);
         }
         public ActionResult AddCourses()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Courses";
             return View();
         }
         [HttpPost]
         public ActionResult AddCourses(CoursesViewModel model)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Add Courses";
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
             Cours co = new Cours();
             co.SemesterNumber = Convert.ToString(model.SemesterNumber);
             co.SubjectName = model.SubjectName;
@@ -663,18 +1281,54 @@ namespace UET_CSE.Controllers
 
         public ActionResult AddFaculty()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Faculty";
             return View();
         }
         [HttpPost]
         public ActionResult AddFaculty(FacultyViewModel fa)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             string fileName = Path.GetFileNameWithoutExtension(fa.ImageFile.FileName);
             string extension = Path.GetExtension(fa.ImageFile.FileName);
             fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
             fa.ImagePath = "~/Image/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
             fa.ImageFile.SaveAs(fileName);
+
             var Name = fa.Name;
             var Email = fa.Email;
             var ImageFile = fa.ImageFile;
@@ -702,19 +1356,54 @@ namespace UET_CSE.Controllers
 
        public ActionResult AddAchievement()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Add Achievement";
             return View();
         }
         [HttpPost]
         public ActionResult AddAchievement(AchievementViewModel ac)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             string fileName = Path.GetFileNameWithoutExtension(ac.ImageFile.FileName);
             string extension = Path.GetExtension(ac.ImageFile.FileName);
             fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
             ac.ImagePath = "~/Image/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
             ac.ImageFile.SaveAs(fileName);
-
+            
             var Name = ac.Name;
             var Email = ac.Email;
             var ImagePath = ac.ImagePath;
@@ -739,6 +1428,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult UpdateAchievement(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Achievement";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -749,6 +1453,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateAchievement(AddAchievement obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -771,24 +1490,63 @@ namespace UET_CSE.Controllers
         
         public ActionResult ViewAchievement()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View Achievement";
             
             return View(db.AddAchievements);
         }
+
+        public ActionResult SuperAdmin()
+        {
+            ViewBag.Title = "Super Admin";
+            return View();
+        }
         public ActionResult Admin()
         {
+            
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewBag.Title = "Admin";
             return View();
         }
 
         public ActionResult Login()
         {
+            
             ViewBag.Title = "Login";
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Admin model)
+        public ActionResult Login(AddAdmin model)
         {
             ViewBag.Title = "Login";
            /* UETCSEDbEntities db = new UETCSEDbEntities();
@@ -812,7 +1570,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult RegisterStudent(StudentViewModel model)
         {
-
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Register Students";
@@ -843,6 +1615,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult ViewStudent()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             UETCSEDbEntities db = new UETCSEDbEntities();
             ViewBag.Title = "View Student";
 
@@ -850,6 +1637,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult DeleteStudent(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Student";
             UETCSEDbEntities db = new UETCSEDbEntities();
             Registered_Student std = db.Registered_Students.Find(id);
@@ -859,6 +1661,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteStudent(int id, Registered_Student obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Delete Student";
@@ -876,6 +1693,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult UpdateStudent(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Update Student";
             using (UETCSEDbEntities db = new UETCSEDbEntities())
             {
@@ -886,6 +1718,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult UpdateStudent(Registered_Student obj, int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 using (UETCSEDbEntities db = new UETCSEDbEntities())
@@ -910,6 +1757,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult DeleteAchievement(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Achievement";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddAchievement ach = db.AddAchievements.Find(id);
@@ -919,6 +1781,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteAchievement(int id, AddAchievement obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 ViewBag.Title = "Delete Achievement";
@@ -935,6 +1812,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult DeleteEvent(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Event";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddEvent ev = db.AddEvents.Find(id);
@@ -944,6 +1836,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteEvent(int id, AddEvent obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 UETCSEDbEntities db = new UETCSEDbEntities();
@@ -959,6 +1866,21 @@ namespace UET_CSE.Controllers
         }
         public ActionResult DeleteFaculty(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Faculty";
             UETCSEDbEntities db = new UETCSEDbEntities();
             AddFaculty fa = db.AddFaculties.Find(id);
@@ -968,6 +1890,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteFaculty(int id, AddFaculty obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 UETCSEDbEntities db = new UETCSEDbEntities();
@@ -984,6 +1921,21 @@ namespace UET_CSE.Controllers
 
         public ActionResult DeleteCourse(int id)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Delete Course";
             UETCSEDbEntities db = new UETCSEDbEntities();
             Cours c = db.Courses.Find(id);
@@ -993,6 +1945,21 @@ namespace UET_CSE.Controllers
         [HttpPost]
         public ActionResult DeleteCourse(int id, Cours obj)
         {
+            string email = User.Identity.Name;
+            string type = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    break;
+                }
+            }
+            if (type == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             try
             {
                 UETCSEDbEntities db = new UETCSEDbEntities();

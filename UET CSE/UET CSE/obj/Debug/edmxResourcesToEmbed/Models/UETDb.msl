@@ -24,6 +24,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AddAdmins">
+      <EntityTypeMapping TypeName="UETCSEDbModel.AddAdmin">
+        <MappingFragment StoreEntitySet="AddAdmin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AddAnnouncements">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddAnnouncement">
         <MappingFragment StoreEntitySet="AddAnnouncement">
@@ -91,15 +101,6 @@
           <ScalarProperty Name="SubjectAbbreviation" ColumnName="SubjectAbbreviation" />
           <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="UETCSEDbModel.Admin">
-        <MappingFragment StoreEntitySet="Admin">
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -27,12 +27,12 @@ namespace UET_CSE.Models
     
         public virtual DbSet<AddAcademic> AddAcademics { get; set; }
         public virtual DbSet<AddAchievement> AddAchievements { get; set; }
+        public virtual DbSet<AddAdmin> AddAdmins { get; set; }
         public virtual DbSet<AddAnnouncement> AddAnnouncements { get; set; }
         public virtual DbSet<AddDateSheet> AddDateSheets { get; set; }
         public virtual DbSet<AddEvent> AddEvents { get; set; }
         public virtual DbSet<AddFaculty> AddFaculties { get; set; }
         public virtual DbSet<AddTimeTable> AddTimeTables { get; set; }
-        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }

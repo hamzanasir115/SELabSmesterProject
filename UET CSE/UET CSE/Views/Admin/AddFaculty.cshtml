@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+
 @using (Html.BeginForm("AddFaculty", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -32,10 +33,10 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.ImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             <input name="ImageFile" id="ImageFile" type="file" />
-                            @Html.ValidationMessageFor(model => model.ImagePath)
+                            @Html.ValidationMessageFor(model => model.ImageFile)
                         </div>
                     </div>
 
@@ -47,7 +48,7 @@
                               new SelectListItem{Text="Chair Person", Value="Chair Person" },
                                new SelectListItem{Text="Professor", Value="Professor"},
                                 new SelectListItem{Text="Assistant Professor", Value="Assistant Professor"},
-                                new SelectListItem{Text="Lecturer", Value="Lecturer"}})
+                                new SelectListItem{Text="Lecturer", Value="Lecturer"}}, new { style="width:545px" })
                         </div>
                     </div>
 
@@ -58,7 +59,7 @@
                             { new SelectListItem{Text="Msc. Computer Science", Value="Msc. Computer Science", Selected =true},
                               new SelectListItem{Text="Msc. Computer Engineering", Value="Msc. Engineering" },
                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"},
-                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"} })
+                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"} }, new { style = "width:545px" })
                             </div>
                 
                         </div>

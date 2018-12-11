@@ -26,6 +26,7 @@ namespace UET_CSE.Models
 
         [Required]
         [Display(Name ="Semester Number")]
+        [RegularExpression("[1-8]", ErrorMessage ="Semester Number must be between 1-8")]
         public int SemesterNumber { get; set; }
     }
 }
