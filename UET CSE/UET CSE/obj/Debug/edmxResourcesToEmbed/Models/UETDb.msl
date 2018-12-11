@@ -27,6 +27,7 @@
     <EntitySetMapping Name="AddAdmins">
       <EntityTypeMapping TypeName="UETCSEDbModel.AddAdmin">
         <MappingFragment StoreEntitySet="AddAdmin">
+          <ScalarProperty Name="Type1" ColumnName="Type1" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Name" ColumnName="Name" />

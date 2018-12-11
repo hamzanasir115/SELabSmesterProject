@@ -81,7 +81,7 @@ namespace UET_CSE.Controllers
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             UETCSEDbEntities db = new UETCSEDbEntities();
             string Type = null;
-            
+            string Super = null;
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             if(result == SignInStatus.Success)
             {
@@ -99,6 +99,7 @@ namespace UET_CSE.Controllers
                         if (admin.Email == model.Email)
                         {
                             Type = admin.Type;
+                            Super = admin.Type1;
                         }
                     }
                 }
@@ -111,11 +112,14 @@ namespace UET_CSE.Controllers
                     {
                         return RedirectToLocal("~/Student/TimeTable");
                     }
+                    else if(Type == "Admin" && Super == "SuperAdmin")
+                    {
+                        return RedirectToLocal("~/Admin/SuperAdmin");
+                    }
                     else
                     {
                         return RedirectToLocal("~/Admin/Admin");
                     }
-
                     
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -219,6 +223,23 @@ namespace UET_CSE.Controllers
         [AllowAnonymous]
         public ActionResult RegisterAdmin()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Add Admin";
             return View();
         }
@@ -228,7 +249,23 @@ namespace UET_CSE.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterAdmin(AdminRegistration model)
         {
-
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -239,11 +276,11 @@ namespace UET_CSE.Controllers
                     UETCSEDbEntities db = new UETCSEDbEntities();
                     var AdminName = model.AdminName;
                     var Email = model.Email;
-                    var type = "Admin";
+                    var Type = "Admin";
                     AddAdmin ad = new AddAdmin();
                     ad.Email = Email;
                     ad.Name = AdminName;
-                    ad.Type = type;
+                    ad.Type = Type;
                     db.AddAdmins.Add(ad);
                     db.SaveChanges();
                     SendMailToUser(model.Email);
@@ -253,7 +290,7 @@ namespace UET_CSE.Controllers
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Login");
+                    return RedirectToLocal("~/Admin/SuperAdmin");
                 }
                 AddErrors(result);
             }
@@ -316,7 +353,7 @@ namespace UET_CSE.Controllers
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Login");
+                    return RedirectToLocal("~/Admin/Admin");
                 }
                 AddErrors(result);
             }
@@ -409,7 +446,7 @@ namespace UET_CSE.Controllers
                 
             }
 
-            return RedirectToAction("HomePage", "Visitor");
+            return View();
         }
 
        

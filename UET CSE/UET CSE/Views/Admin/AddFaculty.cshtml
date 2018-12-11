@@ -57,9 +57,14 @@
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.Qualification, new List<SelectListItem>
                             { new SelectListItem{Text="Msc. Computer Science", Value="Msc. Computer Science", Selected =true},
+                            new SelectListItem {Text = "BSc. Computer Science", Value="BSc. Computer Science" },
+                             new SelectListItem {Text = "BSc. Computer Engineering", Value="BSc. Computer Science" },
+
                               new SelectListItem{Text="Msc. Computer Engineering", Value="Msc. Engineering" },
                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"},
-                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"} }, new { style = "width:545px" })
+                                new SelectListItem{Text="Phd Computer Engineering", Value="Phd Engineering"},
+                                new SelectListItem {Text ="Other", Value="Other" } }, new { style = "width:545px" })
+
                             </div>
                 
                         </div>

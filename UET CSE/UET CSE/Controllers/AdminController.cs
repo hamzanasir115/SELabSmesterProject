@@ -1513,8 +1513,180 @@ namespace UET_CSE.Controllers
 
         public ActionResult SuperAdmin()
         {
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.Title = "Super Admin";
             return View();
+        }
+
+        public ActionResult ViewAdmin()
+        {
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "View Admin";
+            List<AddAdmin> admin = new List<AddAdmin>();
+            foreach(AddAdmin ad in dbo.AddAdmins)
+            {
+                if(ad.Type1 == null)
+                {
+                    admin.Add(ad);
+                }
+            }
+            return View(admin);
+        }
+
+        public ActionResult DeleteAdmin(int id)
+        {
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            ViewBag.Title = "Delete Admin";
+            UETCSEDbEntities db = new UETCSEDbEntities();
+            AddAdmin admin = db.AddAdmins.Find(id);
+            return View(admin);
+        }
+        [HttpPost]
+        public ActionResult DeleteAdmin(int id, AddAdmin model)
+        {
+
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "Delete Admin";
+
+            try
+            {
+                UETCSEDbEntities db = new UETCSEDbEntities();
+                var ToDelete = db.AddAdmins.Single(x => x.Id == id);
+                db.AddAdmins.Remove(ToDelete);
+                db.SaveChanges();
+                return View("SuperAdmin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult UpdateAdmin(int id)
+        {
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "Update Admin";
+            using (UETCSEDbEntities db = new UETCSEDbEntities())
+            {
+                return View(db.AddAdmins.Where(x => x.Id == id).Single());
+            }
+            
+        }
+        [HttpPost]
+        public ActionResult UpdateAdmin(int id, AddAdmin model)
+        {
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null;
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            if (type == null && Type1 == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Title = "Update Admin";
+            try
+            {
+                using (UETCSEDbEntities db = new UETCSEDbEntities())
+                {
+                    db.AddAdmins.Find(id).Name = model.Name;
+                    db.SaveChanges();
+                    return View("SuperAdmin");
+                }
+            }
+            catch
+            {
+                return View();
+            }
         }
         public ActionResult Admin()
         {
