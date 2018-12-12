@@ -1617,7 +1617,9 @@ namespace UET_CSE.Controllers
             {
                 UETCSEDbEntities db = new UETCSEDbEntities();
                 var ToDelete = db.AddAdmins.Single(x => x.Id == id);
+                var Del = db.AspNetUsers.Single(x => x.Email == email);
                 db.AddAdmins.Remove(ToDelete);
+                db.AspNetUsers.Remove(Del);
                 db.SaveChanges();
                 return View("SuperAdmin");
             }
@@ -1853,7 +1855,9 @@ namespace UET_CSE.Controllers
                 ViewBag.Title = "Delete Student";
                 UETCSEDbEntities db = new UETCSEDbEntities();
                 var ToDelete = db.Registered_Students.Single(x => x.Id == id);
+                var Del = db.AspNetUsers.Single(x => x.Email == email);
                 db.Registered_Students.Remove(ToDelete);
+                db.AspNetUsers.Remove(Del);
                 db.SaveChanges();
                 return View("Admin");
             }

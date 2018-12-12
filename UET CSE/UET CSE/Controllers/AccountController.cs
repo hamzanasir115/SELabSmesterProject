@@ -220,7 +220,7 @@ namespace UET_CSE.Controllers
 
         }
 
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult RegisterAdmin()
         {
             string email = User.Identity.Name;
@@ -243,9 +243,9 @@ namespace UET_CSE.Controllers
             ViewBag.Title = "Add Admin";
             return View();
         }
-
+        [Authorize]
         [HttpPost]
-        [AllowAnonymous]
+        
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterAdmin(AdminRegistration model)
         {
@@ -272,7 +272,7 @@ namespace UET_CSE.Controllers
                 var result = await UserManager.CreateAsync(user/*, model.Password*/);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     UETCSEDbEntities db = new UETCSEDbEntities();
                     var AdminName = model.AdminName;
                     var Email = model.Email;
@@ -302,7 +302,8 @@ namespace UET_CSE.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize]
+        
         public ActionResult Register()
         {
             return View();
@@ -312,18 +313,34 @@ namespace UET_CSE.Controllers
 
         //
         // POST: /Account/Register
+        [Authorize]
         [HttpPost]
-        [AllowAnonymous]
+        
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
+            string email = User.Identity.Name;
+            string type = null;
+            string Type1 = null; 
+            UETCSEDbEntities dbo = new UETCSEDbEntities();
+            foreach (AddAdmin reg in dbo.AddAdmins)
+            {
+                if (reg.Email == email)
+                {
+                    type = reg.Type;
+                    Type1 = reg.Type1;
+                    break;
+                }
+            }
+            
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user/*, model.Password*/);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     var StudentName = model.StudentName;
                     var FatherName = model.FatherName;
                     var RegNumber = model.RegistrationNumber;
@@ -352,8 +369,15 @@ namespace UET_CSE.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToLocal("~/Admin/Admin");
+                    if(Type1 == null)
+                    {
+                        return RedirectToLocal("~/Admin/Admin");
+                    }
+                    else
+                    {
+                        return RedirectToLocal("~/Admin/SuperAdmin");
+                    }
+                    
                 }
                 AddErrors(result);
             }

@@ -53,8 +53,40 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li> @Html.ActionLink("Home","Admin", "Admin")</li>
-                        <li>@Html.ActionLink("Register Student", "RegisterStudent", "Admin")
+                        @{
+                            var user = User.Identity.Name;
+                            string type = null, Type1 = null;
+                            UET_CSE.Models.UETCSEDbEntities dbo = new UET_CSE.Models.UETCSEDbEntities();
+                            foreach (UET_CSE.Models.AddAdmin reg in dbo.AddAdmins)
+                            {
+                                if (reg.Email == user)
+                                {
+                                    type = reg.Type;
+                                    Type1 = reg.Type1;
+                                    break;
+                                }
+                            }
+                            
+                        }
+                        @{
+                            if (type == "Admin" && Type1 == "SuperAdmin")
+                            {
+                                <li> @Html.ActionLink("Home", "SuperAdmin", "Admin")</li>
+                                <li>
+                                    @Html.ActionLink("Admin", "RegisterAdmin", "Account")
+                                    <ul>
+                                        <li>@Html.ActionLink("Add", "RegisterAdmin", "Account")</li>
+                                        <li>@Html.ActionLink("View", "ViewAdmin", "Admin")</li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li> @Html.ActionLink("Home", "Admin", "Admin")</li>
+                            }
+                        }
+                        
+                        <li>@Html.ActionLink("Register Student", "Register", "Account")
                         <ul>
                             <li>@Html.ActionLink("Add", "Register", "Account")</li>
                             <li>@Html.ActionLink("View", "ViewStudent", "Admin")</li>
@@ -117,6 +149,7 @@
                                 <li>@Html.ActionLink("View", "ViewAnnouncement", "Admin")</li>
                             </ul>
                         </li>
+                        
                         <li>
                             @Html.ActionLink(User.Identity.Name, "Admin", "Admin")
                         <ul>

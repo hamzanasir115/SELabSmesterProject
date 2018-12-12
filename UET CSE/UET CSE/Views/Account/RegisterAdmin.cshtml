@@ -1,12 +1,8 @@
 ﻿@model UET_CSE.Models.AdminRegistration
 
 @{
-    Layout = "~/Views/Shared/SuperAdminLayout.cshtml";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
-
-
-
 @using (Html.BeginForm("RegisterAdmin", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <section class="event-form" style="background-color:aliceblue">
